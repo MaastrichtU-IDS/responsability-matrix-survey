@@ -1,0 +1,82 @@
+type User
+@auth(
+    rules:[
+        {
+            # Prevents users from changing their own uuid
+            bind: {uuid: "$jwt.sub"}
+            operations: [UPDATE]
+        },
+        {
+            allow: {uuid: "$jwt.sub"}
+            operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
+        },
+        {
+            isAuthenticated: true
+            operations: [CREATE]
+        }
+    ]
+) 
+{
+    uuid: String! @id(autogenerate: false,)
+    email: String!
+    username: String!
+    role: String! @default(value: "user")
+    Questionnaire: [Questionnaire!]! @relationship(type: "has_questionnaire", direction: OUT)
+    registered_at: DateTime! @timestamp(operations: [CREATE])
+    updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}
+
+type Questionnaire
+@auth (
+    rules: [
+        {
+            allow: {User: {uuid: "$jwt.sub"}}
+            operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
+        }
+    ]
+) 
+{
+    User: User! @relationship(type: "has_questionnaire", direction: IN)
+    id: ID @id
+    title: String!
+    description: String!
+    ClosedQuestions: [Answer!]! @relationship(type: "has_answered", direction: OUT)
+    ClosedQuestionsIndex: [Int]
+    createdAt: DateTime! @timestamp(operations: [CREATE])
+    updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}
+
+type Answer
+@auth(
+    rules:[
+        {isAuthenticated: true}
+    ]
+) 
+{
+    Questionnaire: [Questionnaire!]! @relationship(type: "has_answered", direction: IN)
+    Question: Question @relationship(type: "has_question", direction: IN)
+    id: ID! @id
+    component: String!
+    scope: String!
+    answer: String!
+    position: Int!
+    createdAt: DateTime! @timestamp(operations: [CREATE])
+    updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}
+
+type Question
+# @auth(
+#     rules:[
+#         {
+#             isAuthenticated: true,
+#             operations: [READ, CONNECT, DISCONNECT]
+#         }
+#     ]
+# )
+{
+    id: ID!
+    component: String!
+    scope: String!
+    question: String!
+    position: Int!
+}

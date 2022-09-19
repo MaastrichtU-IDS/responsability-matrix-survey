@@ -1,0 +1,20 @@
+{
+  "name": "apollo",
+  "version": "1.0.0",
+  "description": "Apollo Server for responsibility matrix survey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node index.js"
+  },
+  "author": "Ensar Emir EROL",
+  "license": "ISC",
+  "dependencies": {
+    "@neo4j/graphql": "^3.2.0",
+    "@neo4j/graphql-plugin-auth": "^1.1.0",
+    "apollo-server": "^3.7.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^16.5.0",
+    "neo4j-driver": "^4.4.5"
+  }
+}
