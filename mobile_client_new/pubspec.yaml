@@ -39,6 +39,7 @@ dependencies:
   json_annotation: ^4.6.0
   logger: ^1.1.0
   circle_progress_bar: ^0.1.2
+  flutter_dotenv: ^5.0.2
 
 
 dev_dependencies:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - .env
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

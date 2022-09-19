@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';

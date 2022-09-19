@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller.dart';
 import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller_states.dart';
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
 import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';

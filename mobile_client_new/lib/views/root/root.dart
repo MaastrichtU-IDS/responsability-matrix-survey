@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/controllers/nav_bar_loading_controller/nav_bar_loading_controller.dart';
-import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller.dart';
-import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller_states.dart';
 import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
 import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
 import 'package:mobile_client_new/views/home/home_page.dart';
@@ -45,6 +43,7 @@ class _RootPageState extends ConsumerState<RootPage>
               null) {
         return "Please select a questionnaire";
       }
+      return null;
     });
     super.initState();
   }

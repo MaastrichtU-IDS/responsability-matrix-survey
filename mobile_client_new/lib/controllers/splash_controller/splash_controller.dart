@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/repositories/questionairee_repository.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/services/graphql/graphql_service.dart';
 import 'package:mobile_client_new/views/splash_view/splash_page.dart';
 import 'splash_controller_states.dart';
 import '../../models/user/user_model.dart';
@@ -22,9 +19,6 @@ class SplashController extends StateNotifier<SplashControllerStates> {
 
   final QuestionnarieRepository _questionnarieRepository =
       InstanceController()[QuestionnarieRepository] as QuestionnarieRepository;
-
-  final GraphQLService _graphQLService =
-      InstanceController()[GraphQLService] as GraphQLService;
 
   void checkAuthentication() async {
     if (FirebaseAuth.instance.currentUser != null) {

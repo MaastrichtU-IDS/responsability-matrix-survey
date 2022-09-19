@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
 import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/services/graphql/graphql_service.dart';

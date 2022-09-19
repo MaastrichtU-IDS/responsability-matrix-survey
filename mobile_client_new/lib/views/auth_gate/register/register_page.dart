@@ -7,7 +7,7 @@ import 'package:mobile_client_new/views/auth_gate/login/login_page.dart';
 import 'package:mobile_client_new/views/splash_view/splash_page.dart';
 import 'package:mobile_client_new/widgets/uni_logo.dart';
 import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
-import 'package:mobile_client_new/widgets/text_fields/genericTextField.dart';
+import 'package:mobile_client_new/widgets/text_fields/generic_text_field.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

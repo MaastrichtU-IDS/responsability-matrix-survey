@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/views/home/home_page.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
 import 'package:mobile_client_new/widgets/navbar/nav_bar_controller.dart';
-import 'package:mobile_client_new/widgets/navbar/navbar_item.dart';
 import 'package:mobile_client_new/widgets/navbar/navigation_notification.dart';
-import 'package:mobile_client_new/widgets/uni_logo.dart';
 
 class Navbar extends ConsumerStatefulWidget {
   const Navbar(

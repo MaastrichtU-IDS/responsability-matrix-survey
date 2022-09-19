@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/services/graphql/mutations/create_user_mutation.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
-import 'package:mobile_client_new/views/splash_view/splash_page.dart';
 import 'autg_gate_states.dart';
 
 /// Controler for [AuthGatePage]

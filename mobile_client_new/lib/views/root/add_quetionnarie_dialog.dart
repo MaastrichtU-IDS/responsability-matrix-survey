@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
 import 'package:mobile_client_new/views/home/home_page.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
 
 class AddQuestionnarieDialog extends ConsumerStatefulWidget {
   const AddQuestionnarieDialog({super.key});
@@ -18,9 +15,6 @@ class _AddQuestionnarieDialogState
   final TextEditingController _titleController = TextEditingController();
 
   final TextEditingController _descriptionController = TextEditingController();
-
-  final QuestionnarieRepository _questionnarieRepository =
-      InstanceController()[QuestionnarieRepository];
 
   final GlobalKey<FormState> _formKey = GlobalKey();
 
