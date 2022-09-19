@@ -25,7 +25,7 @@ yarn-error.log*
 *~
 *.orig
 
-# Neo4j Files
+# Neo4j Folders
 conf
 data
 import

@@ -79,4 +79,5 @@ type Question
     scope: String!
     question: String!
     position: Int!
+    exampleAnswer: String 
 }
