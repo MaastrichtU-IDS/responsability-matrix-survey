@@ -25,6 +25,7 @@ mixin _$QuestionModel {
   String get scope => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
+  String get exampleAnswer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $QuestionModelCopyWith<$Res> {
       String component,
       String scope,
       String question,
-      int position});
+      int position,
+      String exampleAnswer});
 }
 
 /// @nodoc
@@ -61,6 +63,7 @@ class _$QuestionModelCopyWithImpl<$Res>
     Object? scope = freezed,
     Object? question = freezed,
     Object? position = freezed,
+    Object? exampleAnswer = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -83,6 +86,10 @@ class _$QuestionModelCopyWithImpl<$Res>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      exampleAnswer: exampleAnswer == freezed
+          ? _value.exampleAnswer
+          : exampleAnswer // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -99,7 +106,8 @@ abstract class _$$_QuestionModelCopyWith<$Res>
       String component,
       String scope,
       String question,
-      int position});
+      int position,
+      String exampleAnswer});
 }
 
 /// @nodoc
@@ -120,6 +128,7 @@ class __$$_QuestionModelCopyWithImpl<$Res>
     Object? scope = freezed,
     Object? question = freezed,
     Object? position = freezed,
+    Object? exampleAnswer = freezed,
   }) {
     return _then(_$_QuestionModel(
       id: id == freezed
@@ -142,6 +151,10 @@ class __$$_QuestionModelCopyWithImpl<$Res>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      exampleAnswer: exampleAnswer == freezed
+          ? _value.exampleAnswer
+          : exampleAnswer // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -154,7 +167,8 @@ class _$_QuestionModel implements _QuestionModel {
       required this.component,
       required this.scope,
       required this.question,
-      required this.position});
+      required this.position,
+      this.exampleAnswer = ""});
 
   factory _$_QuestionModel.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionModelFromJson(json);
@@ -169,10 +183,13 @@ class _$_QuestionModel implements _QuestionModel {
   final String question;
   @override
   final int position;
+  @override
+  @JsonKey()
+  final String exampleAnswer;
 
   @override
   String toString() {
-    return 'QuestionModel(id: $id, component: $component, scope: $scope, question: $question, position: $position)';
+    return 'QuestionModel(id: $id, component: $component, scope: $scope, question: $question, position: $position, exampleAnswer: $exampleAnswer)';
   }
 
   @override
@@ -184,7 +201,9 @@ class _$_QuestionModel implements _QuestionModel {
             const DeepCollectionEquality().equals(other.component, component) &&
             const DeepCollectionEquality().equals(other.scope, scope) &&
             const DeepCollectionEquality().equals(other.question, question) &&
-            const DeepCollectionEquality().equals(other.position, position));
+            const DeepCollectionEquality().equals(other.position, position) &&
+            const DeepCollectionEquality()
+                .equals(other.exampleAnswer, exampleAnswer));
   }
 
   @JsonKey(ignore: true)
@@ -195,7 +214,8 @@ class _$_QuestionModel implements _QuestionModel {
       const DeepCollectionEquality().hash(component),
       const DeepCollectionEquality().hash(scope),
       const DeepCollectionEquality().hash(question),
-      const DeepCollectionEquality().hash(position));
+      const DeepCollectionEquality().hash(position),
+      const DeepCollectionEquality().hash(exampleAnswer));
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +236,8 @@ abstract class _QuestionModel implements QuestionModel {
       required final String component,
       required final String scope,
       required final String question,
-      required final int position}) = _$_QuestionModel;
+      required final int position,
+      final String exampleAnswer}) = _$_QuestionModel;
 
   factory _QuestionModel.fromJson(Map<String, dynamic> json) =
       _$_QuestionModel.fromJson;
@@ -231,6 +252,8 @@ abstract class _QuestionModel implements QuestionModel {
   String get question;
   @override
   int get position;
+  @override
+  String get exampleAnswer;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionModelCopyWith<_$_QuestionModel> get copyWith =>

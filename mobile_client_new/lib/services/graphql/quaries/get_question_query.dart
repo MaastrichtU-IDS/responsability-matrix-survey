@@ -1,13 +1,15 @@
 /*
 # Question Schema
 
-type Question {
-    Questionlist: [Questionlist!]! @relationship(type: "question", direction: IN)
+type Question
+
+{
     id: ID!
     component: String!
     scope: String!
     question: String!
     position: Int!
+    exampleAnswer: String 
 }
 */
 
@@ -24,6 +26,7 @@ class GetQuestionQuery extends QueryCreatorI {
       scope
       question
       position
+      exampleAnswer
     }
   }
 ''', queryName: 'GetQuestionsQuery');

@@ -7,14 +7,15 @@ part 'question_model.g.dart';
 
 # Question Schema
 
-type Question {
+type Question
+{
     id: ID!
     component: String!
     scope: String!
     question: String!
     position: Int!
+    exampleAnswer: String 
 }
-
 */
 
 @freezed
@@ -25,6 +26,7 @@ class QuestionModel with _$QuestionModel {
     required String scope,
     required String question,
     required int position,
+    @Default("") String exampleAnswer,
   }) = _QuestionModel;
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) =>

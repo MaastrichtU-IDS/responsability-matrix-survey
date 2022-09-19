@@ -13,6 +13,7 @@ _$_QuestionModel _$$_QuestionModelFromJson(Map<String, dynamic> json) =>
       scope: json['scope'] as String,
       question: json['question'] as String,
       position: json['position'] as int,
+      exampleAnswer: json['exampleAnswer'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_QuestionModelToJson(_$_QuestionModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_QuestionModelToJson(_$_QuestionModel instance) =>
       'scope': instance.scope,
       'question': instance.question,
       'position': instance.position,
+      'exampleAnswer': instance.exampleAnswer,
     };
