@@ -1,17 +1,32 @@
-# UM-Responsibility Matrix Survey
-## Purpose
+# UM Responsibility Matrix Survey
+
+## 🧬 Purpose
 
 
 
-## How to setup the system
-
-### Prerequisites
+## 📦️ Prerequisites
 - Docker/Docker Compose
 - Flutter/Dart
 - firebase cli
 Note: You may or may not need Node and NPM, depending on how you want to install the firebace cli
 
-### Setup
+## ⚡️ Quick setup
+
+1. Copy the firebase authentication file in `mobile_client_new/lib` 
+2. Define a `.env` file with `NEO4J_PASSWORD=test` (you can change the password of course)
+3. Start the stack on localhost (website) and localhost:4000 (graphql API) with docker-compose:
+
+```bash
+docker-compose up
+```
+
+4. After you started the system you need to feed the system with some data. Make sure the `GRAPHQL_URL` in the `init.sh` script is pointing to the GraphQL API you want to initialized, and run the script:
+
+```bash
+./init.sh
+```
+
+## 📖 Complete setup
 
 #### Firebase
 
@@ -65,4 +80,3 @@ After you have configured the docker-compose file, you can run `docker-compose u
 
 After you started the system you need to feed the system with some data. 
 
-TBD
