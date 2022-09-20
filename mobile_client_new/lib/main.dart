@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:mobile_client_new/firebase_options.dart';
@@ -24,14 +23,13 @@ void main() async {
   final Logger logger = Logger();
   InstanceController().addInstance(Logger, logger);
 
-  await dotenv.load(fileName: ".env");
-
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   final GraphQLService graphQLService = GraphQLService(
     // baseUrl: const String.fromEnvironment('GRAPHQL_URL',
     //     defaultValue: 'http://localhost:4000/graphql'),
-    baseUrl: dotenv.env['GRAPHQL_URL'] ?? "http://localhost:4000/graphql",
+    baseUrl: const String.fromEnvironment("GRAPHQL_URL",
+        defaultValue: "http://localhost:4000/graphql"),
     tokenProvider: () async {
       final String? token =
           await FirebaseAuth.instance.currentUser?.getIdToken();
