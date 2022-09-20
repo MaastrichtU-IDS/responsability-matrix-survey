@@ -2,12 +2,14 @@
 
 # Script to initialize the neo4j database with some questions
 
-# GRAPHQL_URL="https://api.responsability-matrix.137.120.31.148.nip.io/graphql"
-GRAPHQL_URL="http://localhost:4000/graphql"
+GRAPHQL_URL="https://api.responsability-matrix.137.120.31.148.nip.io/graphql"
+# GRAPHQL_URL="http://localhost:4000/graphql"
 
-script=$(cat apollo/feed.gql)
+# script=$(cat apollo/feed.gql)
 
-# script=$(sed 's/"/\\"/g' apollo/feed.gql)
+script=$(sed 's/"/\\"/g' apollo/feed.gql)
+
+script="$(echo $script)"   # the query should be a one-liner, without newlines
 
 echo $script
 

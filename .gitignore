@@ -31,3 +31,4 @@ data
 import
 logs
 plugins
+neo4j-data
