@@ -84,7 +84,7 @@ mutation {
         { id: "81", scope: "Impacts", component: "Societal values", position: 81, question: "What are the operative social values and norms that touch on the intended and unintended consequences and outcomes of your project?", exampleanswer: "Did you create a Data protection impact assessment (DPIA) which is obligatory under the GDPR in the Netherlands." },
         { id: "82", scope: "Impacts", component: "Societal values", position: 82, question: "Do the operative social values and norms conflict with each other?", exampleanswer: "No" },
         { id: "83", scope: "Impacts", component: "Societal values", position: 83, question: "Are all of the operative social values and norms in agreement with each other?", exampleanswer: "Yes" ,
-    ]
+        }]
   ) {
     questions {
     id
