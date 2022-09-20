@@ -1,0 +1,28 @@
+version: '4'
+
+services:
+
+  neo4j:
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - ./neo4j-data/conf:/conf
+      - ./neo4j-data/data:/data
+      - ./neo4j-data/import:/import
+      - ./neo4j-data/logs:/logs
+      - ./neo4j-data/plugins:/plugins
+
+
+  apollo:
+    ports:
+      - 4000:4000
+
+
+  flutter:
+    build: ./mobile_client_new
+    # environment:
+    #   - GRAPHQL_URL=http://localhost:4000/graphql
+    ports:
+      - 80:80
+

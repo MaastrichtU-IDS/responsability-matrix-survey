@@ -1,0 +1,33 @@
+version: '4'
+
+services:
+
+  neo4j:
+    volumes:
+      - /data/responsability-matrix/neo4j/conf:/conf
+      - /data/responsability-matrix/neo4j/data:/data
+      - /data/responsability-matrix/neo4j/import:/import
+      - /data/responsability-matrix/neo4j/logs:/logs
+      - /data/responsability-matrix/neo4j/plugins:/plugins
+
+
+  apollo:
+    environment:
+      - VIRTUAL_HOST=api.responsability-matrix.137.120.31.148.nip.io
+      - LETSENCRYPT_HOST=api.responsability-matrix.137.120.31.148.nip.io
+      - VIRTUAL_PORT=80
+
+
+  flutter:
+    build:
+      context: ./mobile_client_new
+      dockerfile: Dockerfile
+      args:
+        GRAPHQL_URL: https://api.responsability-matrix.137.120.31.148.nip.io/graphql
+
+    environment:
+      # - GRAPHQL_URL=https://api.responsability-matrix.137.120.31.148.nip.io/graphql
+      - VIRTUAL_HOST=responsability-matrix.137.120.31.148.nip.io
+      - LETSENCRYPT_HOST=responsability-matrix.137.120.31.148.nip.io
+      - VIRTUAL_PORT=80
+

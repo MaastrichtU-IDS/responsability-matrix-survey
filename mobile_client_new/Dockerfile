@@ -19,6 +19,7 @@ RUN flutter pub run build_runner build --delete-conflicting-outputs
 
 RUN flutter build web --dart-define GRAPHQL_URL=$GRAPHQL_URL
 
+
 FROM nginx:1.21.1-alpine AS serve-env
 
 COPY --from=build-env /app/build/web /usr/share/nginx/html

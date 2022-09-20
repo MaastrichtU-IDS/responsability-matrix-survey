@@ -92,6 +92,6 @@ mutation {
     component,
     scope,
     position
-    }  
+    }
   }
 }
