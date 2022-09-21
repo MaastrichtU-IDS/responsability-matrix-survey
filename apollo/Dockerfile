@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16 as base
 
 WORKDIR /usr/src/app
 
@@ -10,4 +10,12 @@ COPY . .
 
 EXPOSE 4000
 
-CMD [ "node", "index.js" ]
+FROM base as dev
+
+ENV DEBUG=*
+
+CMD ["node", "index.js"]
+
+FROM base as prod
+
+CMD ["node", "index.js"]

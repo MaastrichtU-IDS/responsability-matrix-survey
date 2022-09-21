@@ -32,7 +32,6 @@ class SplashController extends StateNotifier<SplashControllerStates> {
         state = const SplashControllerStates.authenticated();
       } else {
         state = const SplashControllerStates.authenticatedNotRegistered();
-        checkAuthentication();
       }
     } else {
       state = const SplashControllerStates.unauthenticated();

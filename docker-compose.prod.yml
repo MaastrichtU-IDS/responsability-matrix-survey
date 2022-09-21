@@ -12,6 +12,8 @@ services:
 
 
   apollo:
+    build:
+      target: prod
     environment:
       - VIRTUAL_HOST=api.responsability-matrix.137.120.31.148.nip.io
       - LETSENCRYPT_HOST=api.responsability-matrix.137.120.31.148.nip.io
