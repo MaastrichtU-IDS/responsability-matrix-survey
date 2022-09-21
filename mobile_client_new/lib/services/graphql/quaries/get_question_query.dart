@@ -34,7 +34,6 @@ class GetQuestionQuery extends QueryCreatorI {
   @override
   QueryOptions createQueryOptions({GraphQlArgsI? args}) {
     return QueryOptions(
-      document: gql(query),
-    );
+        document: gql(query), fetchPolicy: FetchPolicy.networkOnly);
   }
 }
