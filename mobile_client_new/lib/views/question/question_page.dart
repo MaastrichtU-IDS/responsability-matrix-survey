@@ -7,6 +7,7 @@ import 'package:mobile_client_new/models/question/question_model.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
 import 'package:mobile_client_new/views/home/home_page.dart';
 import 'package:mobile_client_new/views/single_question/single_question.dart';
+import 'package:mobile_client_new/widgets/info_widget.dart';
 import "../../utils/list_extensions/list_extensions.dart";
 
 final questionController =
@@ -64,33 +65,49 @@ class _QuestionPageState extends ConsumerState<QuestionPage> {
         "";
 
     return SafeArea(
-      child: Row(
-        children: [
-          const _QuestionList(),
-          const VerticalDivider(
-            width: 50,
-          ),
-          Expanded(
-            child: state != null
-                ? SingleQuestion(
-                    key: UniqueKey(),
-                    questionModel: state,
-                    textController: _textController,
-                    onAnswer: (answer) async {
-                      ref
-                          .read(questionController.originProvider)
-                          .answerQuestion(answer);
-                      ref
-                          .read(questionsListController.originProvider)
-                          .updateState();
-                      await ref
-                          .read(questionnaireController.originProvider)
-                          .updateState();
-                    },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16),
+        child: Column(
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  const _QuestionList(),
+                  const VerticalDivider(
+                    width: 50,
+                  ),
+                  Expanded(
+                    child: state != null
+                        ? SingleQuestion(
+                            key: UniqueKey(),
+                            questionModel: state,
+                            textController: _textController,
+                            onAnswer: (answer) async {
+                              ref
+                                  .read(questionController.originProvider)
+                                  .answerQuestion(answer);
+                              ref
+                                  .read(questionsListController.originProvider)
+                                  .updateState();
+                              await ref
+                                  .read(questionnaireController.originProvider)
+                                  .updateState();
+                            },
+                          )
+                        : Container(),
                   )
-                : Container(),
-          )
-        ],
+                ],
+              ),
+            ),
+            const Divider(),
+            const InfoWidget(
+                text:
+                    "You can select the questions from the list and answer them."),
+            const SizedBox(
+              height: 16,
+            ),
+          ],
+        ),
       ),
     );
   }

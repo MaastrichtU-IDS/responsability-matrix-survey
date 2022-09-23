@@ -74,7 +74,7 @@ type Question
 #     ]
 # )
 {
-    id: ID!
+    id: ID! @id(autogenerate: false)
     component: String!
     scope: String!
     question: String!
