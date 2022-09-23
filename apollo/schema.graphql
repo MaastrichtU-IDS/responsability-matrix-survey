@@ -1,21 +1,21 @@
 type User
-# @auth(
-#     rules:[
-#         {
-#             # Prevents users from changing their own uuid
-#             bind: {uuid: "$jwt.sub"}
-#             operations: [UPDATE]
-#         },
-#         {
-#             allow: {uuid: "$jwt.sub"}
-#             operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
-#         },
-#         {
-#             isAuthenticated: true
-#             operations: [CREATE]
-#         }
-#     ]
-# ) 
+@auth(
+    rules:[
+        {
+            # Prevents users from changing their own uuid
+            bind: {uuid: "$jwt.sub"}
+            operations: [UPDATE]
+        },
+        {
+            allow: {uuid: "$jwt.sub"}
+            operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
+        },
+        {
+            isAuthenticated: true
+            operations: [CREATE]
+        }
+    ]
+) 
 {
     uuid: String! @id(autogenerate: false,)
     email: String!
@@ -27,14 +27,14 @@ type User
 }
 
 type Questionnaire
-# @auth (
-#     rules: [
-#         {
-#             allow: {User: {uuid: "$jwt.sub"}}
-#             operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
-#         }
-#     ]
-# ) 
+@auth (
+    rules: [
+        {
+            allow: {User: {uuid: "$jwt.sub"}}
+            operations: [READ, UPDATE, DELETE, CONNECT, DISCONNECT]
+        }
+    ]
+) 
 {
     User: User! @relationship(type: "has_questionnaire", direction: IN)
     id: ID @id
@@ -47,11 +47,11 @@ type Questionnaire
 }
 
 type Answer
-# @auth(
-#     rules:[
-#         {isAuthenticated: true}
-#     ]
-# ) 
+@auth(
+    rules:[
+        {isAuthenticated: true}
+    ]
+) 
 {
     Questionnaire: [Questionnaire!]! @relationship(type: "has_answered", direction: IN)
     Question: Question @relationship(type: "has_question", direction: IN)
