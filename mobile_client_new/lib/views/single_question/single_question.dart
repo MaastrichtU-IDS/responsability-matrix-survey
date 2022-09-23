@@ -21,13 +21,16 @@ class SingleQuestion extends StatefulWidget {
   State<SingleQuestion> createState() => _SingleQuestionState();
 }
 
-class _SingleQuestionState extends State<SingleQuestion> {
+class _SingleQuestionState extends State<SingleQuestion>
+    with SingleTickerProviderStateMixin {
   late TextEditingController _textEditingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late TabController _tabController;
 
   @override
   void initState() {
     _textEditingController = widget.textController ?? TextEditingController();
+    _tabController = TabController(length: 1, vsync: this);
     super.initState();
   }
 
@@ -36,6 +39,7 @@ class _SingleQuestionState extends State<SingleQuestion> {
     if (widget.textController == null) {
       _textEditingController.dispose();
     }
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -92,6 +96,34 @@ class _SingleQuestionState extends State<SingleQuestion> {
                 },
                 child: const Text('Submit'),
               ),
+              Text(
+                "Example answers",
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5!
+                    .copyWith(fontWeight: FontWeight.w500, height: 1.5),
+              ),
+              const Divider(),
+              Expanded(
+                child: TabBarView(controller: _tabController, children: [
+                  Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.questionModel.exampleAnswer,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5!
+                            .copyWith(fontWeight: FontWeight.w500, height: 1.5),
+                      ),
+                    ),
+                  )
+                ]),
+              )
             ],
           ),
         ));
