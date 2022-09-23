@@ -2,8 +2,15 @@
 
 # Script to initialize the neo4j database with some questions
 
-GRAPHQL_URL="https://api.responsability-matrix.137.120.31.148.nip.io/graphql"
-# GRAPHQL_URL="http://localhost:4000/graphql"
+# ./init.sh https://api.responsability-matrix.137.120.31.102.nip.io/graphql
+
+
+if [ -z "$1" ]
+then
+  GRAPHQL_URL="http://localhost:4000/graphql"
+else
+  GRAPHQL_URL=$1
+fi
 
 # script=$(cat apollo/feed.gql)
 
@@ -16,7 +23,3 @@ echo $script
 
 curl -i -H 'Content-Type: application/json' -X POST -d "{ \"query\": \"$script\"}" $GRAPHQL_URL
 
-
-# curl -i -H 'Content-Type: application/json' \
-#    -H "Authorization: bearer ........." \
-#    -X POST -d "{ \"query\": \"$script\"}" $GRAPHQL_URL
