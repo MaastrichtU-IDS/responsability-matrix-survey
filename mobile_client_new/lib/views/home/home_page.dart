@@ -8,6 +8,7 @@ import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
 import 'package:mobile_client_new/utils/pdf_creator/pdf_creator.dart';
 import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
+import 'package:mobile_client_new/views/home/edit_questionnaire_dialog.dart';
 import 'package:mobile_client_new/views/root/root.dart';
 import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
 import 'package:mobile_client_new/widgets/navbar/nav_bar_controller.dart';
@@ -121,8 +122,18 @@ class ProjectCard extends ConsumerWidget {
                     PopupMenuButton(
                       itemBuilder: (context) {
                         return <PopupMenuItem<String>>[
-                          const PopupMenuItem(
+                          PopupMenuItem(
                             value: "edit",
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => EditQuestionnaireDialog(
+                                    id: questionnaireModel.id,
+                                    title: questionnaireModel.title,
+                                    description:
+                                        questionnaireModel.description),
+                              );
+                            },
                             child: Text("Edit"),
                           ),
                           PopupMenuItem(
