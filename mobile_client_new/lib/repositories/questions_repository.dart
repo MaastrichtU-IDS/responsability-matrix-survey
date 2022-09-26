@@ -57,6 +57,10 @@ class QuestionsRepository {
 
     _logger.i("QuestionsRepository: init: ${_allQuestions.length} questions");
   }
+
+  QuestionModel getQuestionByPosition(int position) {
+    return _allQuestions.firstWhere((element) => element.position == position);
+  }
 }
 
 enum Scope { actors, objects, processes, impacts }

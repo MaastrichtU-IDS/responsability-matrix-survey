@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller.dart';
 import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller_states.dart';
+import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
 import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
+import 'package:mobile_client_new/utils/pdf_creator/pdf_creator.dart';
 import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
 import 'package:mobile_client_new/views/root/root.dart';
 import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
@@ -113,30 +115,29 @@ class ProjectCard extends ConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ((ref
-                                  .read(questionnaireController.originProvider)
-                                  .selectedQuestionnaire
-                                  ?.id ??
-                              "") !=
-                          questionnaireModel.id)
-                      ? PrimaryButton(
-                          child: const Text("Select"),
-                          onPressed: () {
-                            ref
-                                .read(questionnaireController.originProvider)
-                                .selectQuestionnarie(questionnaireModel);
-                          },
-                        )
-                      : PrimaryButton(
-                          isPrimary: false,
-                          onPressed: () {
-                            ref
-                                .read(questionnaireController.originProvider)
-                                .deselectQuestionnarie();
-                          },
-                          child: const Text("Deselect",
-                              style: TextStyle(color: Colors.black)),
+                  _getSelectButton(ref, questionnaireModel),
+                  const SizedBox(width: 10),
+                  PopupMenuButton(
+                    itemBuilder: (context) {
+                      return <PopupMenuItem<String>>[
+                        const PopupMenuItem(
+                          value: "delete",
+                          child: Text("Delete"),
                         ),
+                        const PopupMenuItem(
+                          value: "edit",
+                          child: Text("Edit"),
+                        ),
+                        PopupMenuItem(
+                            value: "pdf",
+                            onTap: () {
+                              PdfCreator.createPdfFromQuestionairee(
+                                  questionnaireModel);
+                            },
+                            child: Text("Export to PDF"))
+                      ];
+                    },
+                  )
                 ],
               )
             ],
@@ -144,5 +145,33 @@ class ProjectCard extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Widget _getSelectButton(
+      WidgetRef ref, QuestionnaireModel questionnaireModel) {
+    return ((ref
+                    .read(questionnaireController.originProvider)
+                    .selectedQuestionnaire
+                    ?.id ??
+                "") !=
+            questionnaireModel.id)
+        ? PrimaryButton(
+            child: const Text("Select"),
+            onPressed: () {
+              ref
+                  .read(questionnaireController.originProvider)
+                  .selectQuestionnarie(questionnaireModel);
+            },
+          )
+        : PrimaryButton(
+            isPrimary: false,
+            onPressed: () {
+              ref
+                  .read(questionnaireController.originProvider)
+                  .deselectQuestionnarie();
+            },
+            child:
+                const Text("Deselect", style: TextStyle(color: Colors.black)),
+          );
   }
 }
