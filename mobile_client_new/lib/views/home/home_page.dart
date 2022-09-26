@@ -78,100 +78,102 @@ class ProjectCard extends ConsumerWidget {
     final questionnaireModel = state.questionnaires[index];
     final double complation = questionnaireModel.ClosedQuestions.length /
         _questionsRepository.allQuestions.length;
-    return SizedBox(
-      width: 400,
-      height: 200,
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(questionnaireModel.title,
-                  textScaleFactor: 1.2,
-                  style: Theme.of(context).textTheme.headline5!.copyWith(
-                        color: Theme.of(context).primaryColor,
-                      )),
-              Text(
-                questionnaireModel.description,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.caption,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text("Completion : ${complation * 100 ~/ 1}%",
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
-                        color: Theme.of(context).primaryColor,
-                      )),
-              const SizedBox(
-                height: 10,
-              ),
-              LinearProgressIndicator(
-                  backgroundColor: Colors.grey,
-                  minHeight: 15,
-                  value: complation),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  _getSelectButton(ref, questionnaireModel),
-                  const SizedBox(width: 10),
-                  PopupMenuButton(
-                    itemBuilder: (context) {
-                      return <PopupMenuItem<String>>[
-                        const PopupMenuItem(
-                          value: "edit",
-                          child: Text("Edit"),
-                        ),
-                        PopupMenuItem(
-                            value: "pdf",
-                            onTap: () {
-                              PdfCreator.createPdfFromQuestionairee(
-                                  questionnaireModel);
-                            },
-                            child: Text("Export to PDF")),
-                        PopupMenuItem(
-                          value: "delete",
-                          onTap: () async {
-                            bool? confirm = await showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: Text(
-                                        "Delete Questionnaire: ${questionnaireModel.title}"),
-                                    content: const Text(
-                                        "Are you sure you want to delete this questionnaire?"),
-                                    actions: [
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop(true);
-                                          },
-                                          child: const Text("Yes")),
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop(false);
-                                          },
-                                          child: const Text("No")),
-                                    ],
-                                  );
-                                }) as bool;
+    return IntrinsicHeight(
+      child: SizedBox(
+        width: 400,
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(questionnaireModel.title,
+                    textScaleFactor: 1.2,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                          color: Theme.of(context).primaryColor,
+                        )),
+                Text(
+                  questionnaireModel.description,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.caption,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text("Completion : ${complation * 100 ~/ 1}%",
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          color: Theme.of(context).primaryColor,
+                        )),
+                const SizedBox(
+                  height: 10,
+                ),
+                LinearProgressIndicator(
+                    backgroundColor: Colors.grey,
+                    minHeight: 15,
+                    value: complation),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    _getSelectButton(ref, questionnaireModel),
+                    const SizedBox(width: 10),
+                    PopupMenuButton(
+                      itemBuilder: (context) {
+                        return <PopupMenuItem<String>>[
+                          const PopupMenuItem(
+                            value: "edit",
+                            child: Text("Edit"),
+                          ),
+                          PopupMenuItem(
+                              value: "pdf",
+                              onTap: () {
+                                PdfCreator.createPdfFromQuestionairee(
+                                    questionnaireModel);
+                              },
+                              child: Text("Export to PDF")),
+                          PopupMenuItem(
+                            value: "delete",
+                            onTap: () async {
+                              bool? confirm = await showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text(
+                                          "Delete Questionnaire: ${questionnaireModel.title}"),
+                                      content: const Text(
+                                          "Are you sure you want to delete this questionnaire?"),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop(true);
+                                            },
+                                            child: const Text("Yes")),
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop(false);
+                                            },
+                                            child: const Text("No")),
+                                      ],
+                                    );
+                                  }) as bool;
 
-                            if (confirm) {
-                              await ref
-                                  .read(questionnaireController.originProvider)
-                                  .deleteQuestionnaire(questionnaireModel);
-                            }
-                          },
-                          child: const Text("Delete"),
-                        ),
-                      ];
-                    },
-                  )
-                ],
-              )
-            ],
+                              if (confirm) {
+                                await ref
+                                    .read(
+                                        questionnaireController.originProvider)
+                                    .deleteQuestionnaire(questionnaireModel);
+                              }
+                            },
+                            child: const Text("Delete"),
+                          ),
+                        ];
+                      },
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
