@@ -10,6 +10,7 @@ import 'package:mobile_client_new/utils/pdf_creator/pdf_creator.dart';
 import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
 import 'package:mobile_client_new/views/root/root.dart';
 import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
+import 'package:mobile_client_new/widgets/navbar/nav_bar_controller.dart';
 
 final questionnaireController = StateNotifierProvider<QuestionnaireController,
     QuestionnaireControllerStates>((ref) {

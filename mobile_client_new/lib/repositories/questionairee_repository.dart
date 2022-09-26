@@ -69,6 +69,12 @@ class QuestionnarieRepository {
     _selectedQuestionnaire =
         QuestionnaireModel.fromJson(result.data!['questionnaires'][0]);
 
+    final index = _questionnaires
+        .indexWhere((element) => element.id == _selectedQuestionnaire!.id);
+    if (index != -1) {
+      _questionnaires[index] = _selectedQuestionnaire!;
+    }
+
     return _selectedQuestionnaire!;
   }
 
