@@ -55,4 +55,19 @@ class QuestionnaireController
     state = QuestionnaireControllerStates.initial(
         questionnaires: [..._questionnarieRepository.questionnaires]);
   }
+
+  Future<void> deleteQuestionnaire(
+      QuestionnaireModel questionnaireModel) async {
+    await _questionnarieRepository.deleteQuestionnaire(questionnaireModel);
+    if (questionnaireModel.id == selectedQuestionnaire?.id ||
+        _questionnarieRepository.questionnaires.isEmpty) {
+      deselectQuestionnarie();
+      state = QuestionnaireControllerStates.initial(
+          questionnaires: [..._questionnarieRepository.questionnaires]);
+      return;
+    }
+    state = QuestionnaireControllerStates.selected(
+        selectedQuestionnaire: _questionnarieRepository.questionnaires.first,
+        questionnaires: [..._questionnarieRepository.questionnaires]);
+  }
 }

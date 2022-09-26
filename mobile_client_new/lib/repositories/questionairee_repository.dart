@@ -2,6 +2,7 @@ import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart'
 import 'package:mobile_client_new/repositories/user_repository.dart';
 import 'package:mobile_client_new/services/graphql/graphql_service.dart';
 import 'package:mobile_client_new/services/graphql/mutations/create_questionnaire_mutation.dart';
+import 'package:mobile_client_new/services/graphql/mutations/delete_questionnaire_mutation.dart';
 import 'package:mobile_client_new/services/graphql/quaries/get_all_quetionnarie_query.dart';
 import 'package:mobile_client_new/services/graphql/quaries/get_questionnarie_query.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
@@ -103,5 +104,15 @@ class QuestionnarieRepository {
 
   void deselectQuestionnarie() {
     _selectedQuestionnaire = null;
+  }
+
+  Future<void> deleteQuestionnaire(QuestionnaireModel questionnaireModel) async {
+    final result = await _graphQLService.mutate(const DeleteQuestionnaire(),
+        DeleteQuestionnaireArgs(id: questionnaireModel.id));
+    if (result.hasException) {
+      throw result.exception!;
+    }
+
+    await syncQuestionnaires();
   }
 }

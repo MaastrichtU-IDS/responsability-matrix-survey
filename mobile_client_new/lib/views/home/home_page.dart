@@ -122,10 +122,6 @@ class ProjectCard extends ConsumerWidget {
                     itemBuilder: (context) {
                       return <PopupMenuItem<String>>[
                         const PopupMenuItem(
-                          value: "delete",
-                          child: Text("Delete"),
-                        ),
-                        const PopupMenuItem(
                           value: "edit",
                           child: Text("Edit"),
                         ),
@@ -135,7 +131,41 @@ class ProjectCard extends ConsumerWidget {
                               PdfCreator.createPdfFromQuestionairee(
                                   questionnaireModel);
                             },
-                            child: Text("Export to PDF"))
+                            child: Text("Export to PDF")),
+                        PopupMenuItem(
+                          value: "delete",
+                          onTap: () async {
+                            bool? confirm = await showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                        "Delete Questionnaire: ${questionnaireModel.title}"),
+                                    content: const Text(
+                                        "Are you sure you want to delete this questionnaire?"),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop(true);
+                                          },
+                                          child: const Text("Yes")),
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop(false);
+                                          },
+                                          child: const Text("No")),
+                                    ],
+                                  );
+                                }) as bool;
+
+                            if (confirm) {
+                              await ref
+                                  .read(questionnaireController.originProvider)
+                                  .deleteQuestionnaire(questionnaireModel);
+                            }
+                          },
+                          child: const Text("Delete"),
+                        ),
                       ];
                     },
                   )
