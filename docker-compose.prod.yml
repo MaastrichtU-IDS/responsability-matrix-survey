@@ -1,8 +1,9 @@
 version: '3.4'
 
 services:
-
+  
   neo4j:
+    image: neo4j:4.4.11
     volumes:
       - /data/responsability-matrix/neo4j/conf:/conf
       - /data/responsability-matrix/neo4j/data:/data

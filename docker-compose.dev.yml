@@ -3,6 +3,7 @@ version: '3.4'
 services:
 
   neo4j:
+    image: neo4j/neo4j-arm64-experimental:4.4.0
     ports:
       - 7474:7474
       - 7687:7687
@@ -22,5 +23,7 @@ services:
 
 
   flutter:
+    profiles:
+      - donotbuild
     restart: "no"
     entrypoint: ["echo", "Flutter disabled for development!"]
