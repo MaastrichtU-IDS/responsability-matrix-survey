@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_client_new/views/learn_more/learn_more_page.dart';
+import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
 import 'package:mobile_client_new/widgets/uni_logo.dart';
 
 class InfoColumn extends StatelessWidget {
@@ -15,9 +17,22 @@ class InfoColumn extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod convallis tincidunt. Vestibulum pharetra lectus sit amet elit placerat, ac volutpat velit sagittis. Proin et commodo lectus. Sed nec quam vitae odio ornare condimentum eu ut ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+            'With FAIR (findable, accessible, interoperable, and reusable) as a foundation, the Institute of Data Science (IDS) has an emerging focus on responsible data science by design. The Responsibility Matrix is developed as a general framework to explicitly design responsibility in data science projects. The Matrix stimulates thinking along dimensions that data scientists may be prone to overlook. The matrix helps you achieve the “responsible by design” as an integral part of your project by introducing eight dimensions composed of four components and four scopes. Within a two-dimensional space several questions arise whose answer will identify the responsibilities and outlook of the project.',
             textAlign: TextAlign.start,
             style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: PrimaryButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(LearnMorePage.routeName);
+            },
+            isPrimary: false,
+            child: const Text(
+              'Learn More',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         )
       ],

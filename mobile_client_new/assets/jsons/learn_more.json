@@ -1,0 +1,89 @@
+[
+    {
+        "key": "title",
+        "title": "The Responsibility Matrix",
+        "content": "With FAIR (findable, accessible, interoperable, and reusable) as a foundation, the Institute of Data Science (IDS) has an emerging focus on responsible data science by design. The Responsibility Matrix is developed as a general framework to explicitly design responsibility in data science projects. The Matrix stimulates thinking along dimensions that data scientists may be prone to overlook. The matrix helps you achieve the “responsible by design” as an integral part of your project by introducing eight dimensions composed of four components and four scopes. Within a two-dimensional space several questions arise whose answer will identify the responsibilities and outlook of the project.",
+        "subContent": []
+    },
+    {
+        "key": "components",
+        "title": "The four components of responsibility",
+        "content": "There are four important dimensions of responsible approaches to data science which uniformly “tile the space” of responsible data science by design:",
+        "subContent": [
+            {
+                "key": "component1",
+                "title": "1. Transparency",
+                "content": "Refers to all the information that is needed to guarantee the reproducibility of a study, as well as to avoid  unwanted/unintended consequences and misinterpretation of it. Transparency allows other researchers to check the validity of scientific methods, to ensure that desired results can be achieved and to prevent misinterpretation of the results.",
+                "subContent": []
+            },
+            {
+                "key": "component2",
+                "title": "2. Privacy/Confidentiality",
+                "content": "Modern data societies are evolving the sense that certain uses of data might challenge the autonomy of data subjects, and there are several existing concepts for talking about that autonomy.",
+                "subContent": [
+                    {
+                        "key": "component2.1",
+                        "title": "a. Privacy",
+                        "content": "has been defined from various points of view, such as the law, organisation, and philosophy. In this context we define privacy as the right and the freedom of a person to determine which personal information about himself/herself may be shared and accessed by others.",
+                        "subContent": []
+                    },
+                    {
+                        "key": "component2.2",
+                        "title": "b. Confidentiality",
+                        "content": "refers to personal and non-personal information shared with a group or for an explicit purpose that generally cannot be divulged to third parties without the expressed consent of the individual data subject. This consent is granted with the expectation that it will not be revealed to others or used for non-compatible purposes.",
+                        "subContent": []
+                    }
+                ]
+            },
+            {
+                "key": "component3",
+                "title": "3. Accountability",
+                "content": "Accountability pertains to how a particular responsibility agenda is implemented and empowered within the structure of an organisation. An organisation will show its commitments to supporting responsible data science in its internal ethical stances and disciplinary processes, its organisation of teams, and budgetary priorities.",
+                "subContent": []
+            },
+            {
+                "key": "component4",
+                "title": "4. Social Values",
+                "content": "The social values dimension of our responsibility matrix concerns the fact that societies differ in which norms and values they prioritise, and societies often hold inconsistent or paradoxical norms and values. These norms and values can also change, often in unpredictable ways. Therefore, if an organisation needs to implement a particular responsibility agenda, it must also consider the values of the particular society in which it is embedded, and those that it interacts with.",
+                "subContent": []
+            }
+        ]
+    },
+    {
+        "key": "scopes",
+        "title": "The four scopes of responsibility",
+        "content": "We define four scopes over which the components of a responsibility agenda operate:",
+        "subContent": [
+            {
+                "key": "scope1",
+                "title": "1. Actors/agents",
+                "content": "These are the people and/or legal entities (such as organisations) who are involved in data science projects, such as researchers, data subjects, annotators, Mechanical Turk contractors, etc.",
+                "subContent": []
+            },
+            {
+                "key": "scope2",
+                "title": "2. Objects",
+                "content": "These are the objects produced by a data science life cycle, such as algorithms, databases, knowledge graphs, etc. Essentially, an object is anything that would be considered a deliverable for a client or funding agency.",
+                "subContent": []
+            },
+            {
+                "key": "scope3",
+                "title": "3. Processes",
+                "content": "These are the canonical components of the data science lifecycle, but they also include activities like project planning and solution scoping.",
+                "subContent": []
+            },
+            {
+                "key": "scope4",
+                "title": "4. Impacts",
+                "content": "These are the intended and unintended outcomes of a data science project: what change does it make in the world? How does it impact people’s lives? How does it impact innovation?",
+                "subContent": []
+            }
+        ]
+    },
+    {
+        "key": "matrix",
+        "title": "The responsibility matrix in detail",
+        "content": "The result of applying the components of responsibility across the scopes of responsibility is a two-dimensional matrix of spaces that we call a “responsibility matrix.” The table below shows the responsibility matrix and defines each cell of the 2-dimensional space:",
+        "subContent": []
+    }
+]

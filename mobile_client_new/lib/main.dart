@@ -14,6 +14,7 @@ import 'package:mobile_client_new/style/style_provider.dart';
 import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
 import 'package:mobile_client_new/views/auth_gate/login/login_page.dart';
 import 'package:mobile_client_new/views/auth_gate/register/register_page.dart';
+import 'package:mobile_client_new/views/learn_more/learn_more_page.dart';
 import 'package:mobile_client_new/views/root/root.dart';
 import 'package:mobile_client_new/views/splash_view/splash_page.dart';
 
@@ -79,6 +80,9 @@ class MyApp extends ConsumerWidget {
         switch (settings.name) {
           case SplashPage.routeName:
             widget = const SplashPage();
+            break;
+          case LearnMorePage.routeName:
+            widget = const LearnMorePage();
             break;
           case LoginPage.routeName:
             widget = const LoginPage();
