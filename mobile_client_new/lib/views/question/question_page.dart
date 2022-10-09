@@ -4,7 +4,6 @@ import '../../controllers/question_controller/question_controller.dart';
 import '../../controllers/question_controller/questions_list_provider.dart';
 import '../../models/answer/answer_model.dart';
 import '../../models/question/question_model.dart';
-import '../../repositories/questions_repository.dart';
 import '../home/home_page.dart';
 import 'widgets/questions_list.dart';
 import 'widgets/single_question.dart';
