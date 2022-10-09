@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/controllers/question_controller/question_controller.dart';
-import 'package:mobile_client_new/controllers/question_controller/questions_list_provider.dart';
-import 'package:mobile_client_new/models/answer/answer_model.dart';
-import 'package:mobile_client_new/models/question/question_model.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/views/home/home_page.dart';
-import 'package:mobile_client_new/views/question/widgets/questions_list.dart';
-import 'package:mobile_client_new/views/question/widgets/single_question.dart';
-import 'package:mobile_client_new/widgets/info_widget.dart';
+import '../../controllers/question_controller/question_controller.dart';
+import '../../controllers/question_controller/questions_list_provider.dart';
+import '../../models/answer/answer_model.dart';
+import '../../models/question/question_model.dart';
+import '../../repositories/questions_repository.dart';
+import '../home/home_page.dart';
+import 'widgets/questions_list.dart';
+import 'widgets/single_question.dart';
+import '../../widgets/info_widget.dart';
 import "../../utils/list_extensions/list_extensions.dart";
 
 final questionController =

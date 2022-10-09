@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
+import '../../../repositories/questions_repository.dart';
+import '../question_page.dart';
 
 class QuestionList extends ConsumerStatefulWidget {
   const QuestionList({Key? key}) : super(key: key);

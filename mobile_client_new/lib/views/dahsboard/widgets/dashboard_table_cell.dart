@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/consts/matrix_explanation.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
-import 'package:mobile_client_new/views/root/root.dart';
+import '../../../consts/matrix_explanation.dart';
+import '../../../repositories/questions_repository.dart';
+import '../../question/question_page.dart';
+import '../../root/root.dart';
 
 class DashboardTableCell extends ConsumerWidget {
   const DashboardTableCell(

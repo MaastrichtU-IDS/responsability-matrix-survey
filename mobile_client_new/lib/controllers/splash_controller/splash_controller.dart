@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/views/splash_view/splash_page.dart';
+import '../../repositories/questionairee_repository.dart';
+import '../../repositories/questions_repository.dart';
+import '../../views/splash_view/splash_page.dart';
 import 'splash_controller_states.dart';
 import '../../models/user/user_model.dart';
 import '../../repositories/user_repository.dart';

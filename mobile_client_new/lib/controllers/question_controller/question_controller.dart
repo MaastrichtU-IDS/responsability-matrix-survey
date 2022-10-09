@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/models/question/question_model.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
-import 'package:mobile_client_new/services/graphql/graphql_service.dart';
-import 'package:mobile_client_new/services/graphql/mutations/create_answer_mutation.dart';
-import 'package:mobile_client_new/services/graphql/mutations/update_answer_mutation.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
-import 'package:mobile_client_new/views/root/root.dart';
+import '../../models/question/question_model.dart';
+import '../../repositories/questionairee_repository.dart';
+import '../../services/graphql/graphql_service.dart';
+import '../../services/graphql/mutations/create_answer_mutation.dart';
+import '../../services/graphql/mutations/update_answer_mutation.dart';
+import '../../utils/instance_controller/instance_controller.dart';
+import '../../views/root/root.dart';
 
 class QuestionController extends StateNotifier<QuestionModel?> {
   QuestionController(this.ref) : super(null);

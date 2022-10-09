@@ -1,5 +1,5 @@
 import 'package:flutter/animation.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
+import '../repositories/questions_repository.dart';
 
 const scopeExp = <Scope, String>{
   Scope.actors: "Who is part of the project?",

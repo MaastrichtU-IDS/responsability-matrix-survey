@@ -1,6 +1,6 @@
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
+import '../../models/questionnaire/questionnaire_model.dart';
+import '../../repositories/questions_repository.dart';
+import '../instance_controller/instance_controller.dart';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;

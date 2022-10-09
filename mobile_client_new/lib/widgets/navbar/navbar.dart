@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/widgets/navbar/nav_bar_controller.dart';
-import 'package:mobile_client_new/widgets/navbar/navigation_notification.dart';
+import 'nav_bar_controller.dart';
+import 'navigation_notification.dart';
 
 class Navbar extends ConsumerStatefulWidget {
   const Navbar(

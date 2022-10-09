@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/controllers/nav_bar_loading_controller/nav_bar_loading_controller.dart';
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
-import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
-import 'package:mobile_client_new/views/home/home_page.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
-import 'package:mobile_client_new/views/root/add_quetionnarie_dialog.dart';
-import 'package:mobile_client_new/widgets/navbar/nav_bar_controller.dart';
-import 'package:mobile_client_new/widgets/navbar/navbar.dart';
-import 'package:mobile_client_new/widgets/navbar/navbar_item.dart';
-import 'package:mobile_client_new/widgets/uni_logo.dart';
+import '../../controllers/nav_bar_loading_controller/nav_bar_loading_controller.dart';
+import '../../models/questionnaire/questionnaire_model.dart';
+import '../dahsboard/dashboard.dart';
+import '../home/home_page.dart';
+import '../question/question_page.dart';
+import 'add_quetionnarie_dialog.dart';
+import '../../widgets/navbar/nav_bar_controller.dart';
+import '../../widgets/navbar/navbar.dart';
+import '../../widgets/navbar/navbar_item.dart';
+import '../../widgets/uni_logo.dart';
 
 final rootLoading = StateNotifierProvider<NavBarLoadingController, bool>(
   (ref) {

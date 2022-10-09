@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/views/auth_gate/login/login_page.dart';
-import 'package:mobile_client_new/views/auth_gate/register/register_page.dart';
-import 'package:mobile_client_new/views/root/root.dart';
+import '../auth_gate/login/login_page.dart';
+import '../auth_gate/register/register_page.dart';
+import '../root/root.dart';
 import '../../controllers/splash_controller/splash_controller.dart';
 import '../../controllers/splash_controller/splash_controller_states.dart';
 

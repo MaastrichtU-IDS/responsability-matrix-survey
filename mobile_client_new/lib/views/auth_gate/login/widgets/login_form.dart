@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_client_new/views/auth_gate/register/register_page.dart';
-import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
+import '../../register/register_page.dart';
+import '../../../../widgets/buttons/primary_button.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm(

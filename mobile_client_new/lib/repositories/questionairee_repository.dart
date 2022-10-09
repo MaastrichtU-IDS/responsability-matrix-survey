@@ -1,12 +1,12 @@
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
-import 'package:mobile_client_new/repositories/user_repository.dart';
-import 'package:mobile_client_new/services/graphql/graphql_service.dart';
-import 'package:mobile_client_new/services/graphql/mutations/create_questionnaire_mutation.dart';
-import 'package:mobile_client_new/services/graphql/mutations/delete_questionnaire_mutation.dart';
-import 'package:mobile_client_new/services/graphql/mutations/update_questionnaire_mutation.dart';
-import 'package:mobile_client_new/services/graphql/quaries/get_all_quetionnarie_query.dart';
-import 'package:mobile_client_new/services/graphql/quaries/get_questionnarie_query.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
+import '../models/questionnaire/questionnaire_model.dart';
+import 'user_repository.dart';
+import '../services/graphql/graphql_service.dart';
+import '../services/graphql/mutations/create_questionnaire_mutation.dart';
+import '../services/graphql/mutations/delete_questionnaire_mutation.dart';
+import '../services/graphql/mutations/update_questionnaire_mutation.dart';
+import '../services/graphql/quaries/get_all_quetionnarie_query.dart';
+import '../services/graphql/quaries/get_questionnarie_query.dart';
+import '../utils/instance_controller/instance_controller.dart';
 
 class QuestionnarieRepository {
   final GraphQLService _graphQLService = InstanceController()[GraphQLService];

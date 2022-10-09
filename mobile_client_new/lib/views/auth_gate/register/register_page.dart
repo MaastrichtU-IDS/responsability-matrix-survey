@@ -2,12 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/controllers/auth_gate/autg_gate_states.dart';
-import 'package:mobile_client_new/views/auth_gate/login/login_page.dart';
-import 'package:mobile_client_new/views/splash_view/splash_page.dart';
-import 'package:mobile_client_new/widgets/uni_logo.dart';
-import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
-import 'package:mobile_client_new/widgets/text_fields/generic_text_field.dart';
+import '../../../controllers/auth_gate/autg_gate_states.dart';
+import '../login/login_page.dart';
+import '../../splash_view/splash_page.dart';
+import '../../../widgets/uni_logo.dart';
+import '../../../widgets/buttons/primary_button.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

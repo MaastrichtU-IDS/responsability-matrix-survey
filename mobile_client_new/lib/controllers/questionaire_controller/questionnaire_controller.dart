@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller_states.dart';
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
-import 'package:mobile_client_new/views/root/root.dart';
+import 'questionnaire_controller_states.dart';
+import '../../models/questionnaire/questionnaire_model.dart';
+import '../../repositories/questionairee_repository.dart';
+import '../../utils/instance_controller/instance_controller.dart';
+import '../../views/root/root.dart';
 
 class QuestionnaireController
     extends StateNotifier<QuestionnaireControllerStates> {

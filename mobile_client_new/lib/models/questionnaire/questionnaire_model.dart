@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mobile_client_new/models/answer/answer_model.dart';
+import '../answer/answer_model.dart';
 
 part 'questionnaire_model.freezed.dart';
 part 'questionnaire_model.g.dart';

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_client_new/views/learn_more/widgets/content_item.dart';
-import 'package:mobile_client_new/views/learn_more/widgets/table_of_content_item.dart';
-import 'package:mobile_client_new/widgets/responsive_layout/responsive_layout.dart';
+import 'widgets/content_item.dart';
+import 'widgets/table_of_content_item.dart';
+import '../../widgets/responsive_layout/responsive_layout.dart';
 
 part 'views/learn_more_small.dart';
 part 'views/learn_more_large.dart';

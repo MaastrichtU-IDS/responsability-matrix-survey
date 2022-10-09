@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller.dart';
-import 'package:mobile_client_new/controllers/questionaire_controller/questionnaire_controller_states.dart';
-import 'package:mobile_client_new/repositories/user_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
-import 'package:mobile_client_new/views/dahsboard/dashboard.dart';
-import 'package:mobile_client_new/views/home/widgets/project_card.dart';
-import 'package:mobile_client_new/views/root/root.dart';
+import '../../controllers/questionaire_controller/questionnaire_controller.dart';
+import '../../controllers/questionaire_controller/questionnaire_controller_states.dart';
+import '../../repositories/user_repository.dart';
+import '../../utils/instance_controller/instance_controller.dart';
+import '../dahsboard/dashboard.dart';
+import 'widgets/project_card.dart';
+import '../root/root.dart';
 
 final questionnaireController = StateNotifierProvider<QuestionnaireController,
     QuestionnaireControllerStates>((ref) {

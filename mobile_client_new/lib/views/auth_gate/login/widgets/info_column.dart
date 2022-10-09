@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_client_new/views/learn_more/learn_more_page.dart';
-import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
-import 'package:mobile_client_new/widgets/uni_logo.dart';
+import '../../../learn_more/learn_more_page.dart';
+import '../../../../widgets/buttons/primary_button.dart';
+import '../../../../widgets/uni_logo.dart';
 
 class InfoColumn extends StatelessWidget {
   const InfoColumn({super.key});

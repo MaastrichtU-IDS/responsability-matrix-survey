@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/views/home/home_page.dart';
+import '../home/home_page.dart';
 
 class AddQuestionnarieDialog extends ConsumerStatefulWidget {
   const AddQuestionnarieDialog({super.key});

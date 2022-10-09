@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/models/questionnaire/questionnaire_model.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
-import 'package:mobile_client_new/utils/pdf_creator/pdf_creator.dart';
-import 'package:mobile_client_new/views/home/edit_questionnaire_dialog.dart';
-import 'package:mobile_client_new/views/home/home_page.dart';
-import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
+import '../../../models/questionnaire/questionnaire_model.dart';
+import '../../../repositories/questions_repository.dart';
+import '../../../utils/instance_controller/instance_controller.dart';
+import '../../../utils/pdf_creator/pdf_creator.dart';
+import '../edit_questionnaire_dialog.dart';
+import '../home_page.dart';
+import '../../../widgets/buttons/primary_button.dart';
 
 class ProjectCard extends ConsumerWidget {
   ProjectCard({super.key, required this.index});
@@ -76,7 +76,7 @@ class ProjectCard extends ConsumerWidget {
                                         questionnaireModel.description),
                               );
                             },
-                            child: Text("Edit"),
+                            child: const Text("Edit"),
                           ),
                           PopupMenuItem(
                               value: "pdf",
@@ -84,7 +84,7 @@ class ProjectCard extends ConsumerWidget {
                                 PdfCreator.createPdfFromQuestionairee(
                                     questionnaireModel);
                               },
-                              child: Text("Export to PDF")),
+                              child: const Text("Export to PDF")),
                           PopupMenuItem(
                             value: "delete",
                             onTap: () async {

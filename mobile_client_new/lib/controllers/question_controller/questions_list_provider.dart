@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/models/question/question_model.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
+import '../../models/question/question_model.dart';
+import '../../repositories/questionairee_repository.dart';
+import '../../repositories/questions_repository.dart';
+import '../../utils/instance_controller/instance_controller.dart';
 
 class QuestionsListController extends StateNotifier<List<QuestionModel>> {
   QuestionsListController(this.ref) : super([..._qusetionsRepository.allQuestions]);

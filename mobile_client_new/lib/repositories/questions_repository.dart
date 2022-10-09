@@ -1,8 +1,8 @@
 import 'package:logger/logger.dart';
-import 'package:mobile_client_new/models/question/question_model.dart';
-import 'package:mobile_client_new/services/graphql/graphql_service.dart';
-import 'package:mobile_client_new/services/graphql/quaries/get_question_query.dart';
-import 'package:mobile_client_new/utils/instance_controller/instance_controller.dart';
+import '../models/question/question_model.dart';
+import '../services/graphql/graphql_service.dart';
+import '../services/graphql/quaries/get_question_query.dart';
+import '../utils/instance_controller/instance_controller.dart';
 
 class QuestionsRepository {
   final GraphQLService _graphQLService = InstanceController()[GraphQLService];

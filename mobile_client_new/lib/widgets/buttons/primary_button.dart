@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_client_new/style/style_provider.dart';
+import '../../style/style_provider.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton(

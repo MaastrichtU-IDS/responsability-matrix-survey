@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_client_new/models/question/question_model.dart';
+import '../../../models/question/question_model.dart';
 
 class SingleQuestion extends StatefulWidget {
   const SingleQuestion(

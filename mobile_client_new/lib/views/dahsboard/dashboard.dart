@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile_client_new/consts/matrix_explanation.dart';
-import 'package:mobile_client_new/repositories/questions_repository.dart';
-import 'package:mobile_client_new/style/style_provider.dart';
-import 'package:mobile_client_new/views/dahsboard/widgets/dashboard_table_cell.dart';
-import 'package:mobile_client_new/views/dahsboard/widgets/dashboard_table_header_cell.dart';
-import 'package:mobile_client_new/views/question/question_page.dart';
-import 'package:mobile_client_new/views/root/root.dart';
-import 'package:mobile_client_new/widgets/info_widget.dart';
+import '../../consts/matrix_explanation.dart';
+import '../../style/style_provider.dart';
+import 'widgets/dashboard_table_cell.dart';
+import 'widgets/dashboard_table_header_cell.dart';
+import '../../widgets/info_widget.dart';
 
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({super.key});
