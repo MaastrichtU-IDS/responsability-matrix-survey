@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/consts/matrix_explanation.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
 import 'package:mobile_client_new/style/style_provider.dart';
+import 'package:mobile_client_new/views/dahsboard/widgets/dashboard_table_cell.dart';
+import 'package:mobile_client_new/views/dahsboard/widgets/dashboard_table_header_cell.dart';
 import 'package:mobile_client_new/views/question/question_page.dart';
 import 'package:mobile_client_new/views/root/root.dart';
 import 'package:mobile_client_new/widgets/info_widget.dart';
@@ -36,99 +38,23 @@ class DashboardPage extends ConsumerWidget {
                       height: 80,
                     ),
                     for (final scope in scopeExp.keys)
-                      Container(
+                      DashboardTableHeaderCell(
                         height: 90,
-                        color: scopeColors[scope],
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                scope.name,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline5!
-                                    .copyWith(
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                              ),
-                              Text(
-                                scopeExp[scope]!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        scope: scope,
                       ),
                   ],
                 ),
                 for (final comp in componentExp.keys)
                   TableRow(children: [
-                    Container(
+                    DashboardTableHeaderCell(
                       height: rowHeight,
-                      color: componentColors[comp],
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              comp.name,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline5!
-                                  .copyWith(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                            ),
-                            Text(
-                              componentExp[comp]!,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      component: comp,
                     ),
                     for (final scope in scopeExp.keys)
-                      SizedBox(
+                      DashboardTableCell(
+                        scope: scope,
+                        component: comp,
                         height: rowHeight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              ref
-                                  .read(questionsListController.notifier)
-                                  .setScopeAndComponent(scope, comp);
-                              ref
-                                  .read(questionController.originProvider)
-                                  .clearQuestion();
-                              ref
-                                  .read(navController.notifier)
-                                  .navigateTo(QuestionPage.routeName);
-                            },
-                            child: SingleChildScrollView(
-                              child: Text(
-                                matrixExp[scope]![comp]!,
-                                textAlign: TextAlign.left,
-                                style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.5),
-                              ),
-                            ),
-                          ),
-                        ),
                       ),
                   ])
               ],
