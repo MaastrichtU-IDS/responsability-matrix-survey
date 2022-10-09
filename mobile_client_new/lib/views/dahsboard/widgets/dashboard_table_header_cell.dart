@@ -19,24 +19,26 @@ class DashboardTableHeaderCell extends StatelessWidget {
       color: scope != null ? scopeColors[scope!] : componentColors[component!],
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
-          width: 270,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                scope?.name ?? component!.name,
-                style: Theme.of(context).textTheme.headline5!.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-              ),
-              Text(
-                scope != null ? scopeExp[scope!]! : componentExp[component!]!,
-                style: Theme.of(context).textTheme.headline6!.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: 270,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  scope?.name ?? component!.name,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                ),
+                Text(
+                  scope != null ? scopeExp[scope!]! : componentExp[component!]!,
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
