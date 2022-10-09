@@ -20,53 +20,59 @@ class DashboardPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(top: 16),
-      child: SingleChildScrollView(
-        primary: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Table(
-              defaultColumnWidth: const FixedColumnWidth(175),
-              defaultVerticalAlignment: TableCellVerticalAlignment.top,
-              border: TableBorder.all(
-                  color: StyleProvider.of(context).colors.appPrimaryColor,
-                  style: BorderStyle.solid),
-              children: [
-                TableRow(
-                  children: [
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    for (final scope in scopeExp.keys)
-                      DashboardTableHeaderCell(
-                        height: 90,
-                        scope: scope,
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              primary: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Table(
+                    defaultColumnWidth: const FixedColumnWidth(175),
+                    defaultVerticalAlignment: TableCellVerticalAlignment.top,
+                    border: TableBorder.all(
+                        color: StyleProvider.of(context).colors.appPrimaryColor,
+                        style: BorderStyle.solid),
+                    children: [
+                      TableRow(
+                        children: [
+                          const SizedBox(
+                            height: 80,
+                          ),
+                          for (final scope in scopeExp.keys)
+                            DashboardTableHeaderCell(
+                              height: 90,
+                              scope: scope,
+                            ),
+                        ],
                       ),
-                  ],
-                ),
-                for (final comp in componentExp.keys)
-                  TableRow(children: [
-                    DashboardTableHeaderCell(
-                      height: rowHeight,
-                      component: comp,
-                    ),
-                    for (final scope in scopeExp.keys)
-                      DashboardTableCell(
-                        scope: scope,
-                        component: comp,
-                        height: rowHeight,
-                      ),
-                  ])
-              ],
+                      for (final comp in componentExp.keys)
+                        TableRow(children: [
+                          DashboardTableHeaderCell(
+                            height: rowHeight,
+                            component: comp,
+                          ),
+                          for (final scope in scopeExp.keys)
+                            DashboardTableCell(
+                              scope: scope,
+                              component: comp,
+                              height: rowHeight,
+                            ),
+                        ])
+                    ],
+                  ),
+                ],
+              ),
             ),
-            const Divider(),
-            const InfoWidget(
-                text: 'Click on a cell to see questions related to it'),
-            const SizedBox(
-              height: 16,
-            ),
-          ],
-        ),
+          ),
+          const Divider(),
+          const InfoWidget(
+              text: 'Click on a cell to see questions related to it'),
+          const SizedBox(
+            height: 16,
+          ),
+        ],
       ),
     );
   }
