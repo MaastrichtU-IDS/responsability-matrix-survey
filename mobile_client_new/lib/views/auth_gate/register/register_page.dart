@@ -61,87 +61,104 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         key: formKey,
         child: Center(
           child: SizedBox(
-            height: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.8,
             width: max(MediaQuery.of(context).size.width / 3.5, 500),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const UniLogo(),
-                const SizedBox(height: 48.0),
-                GenericTextField(
-                    hText: "Username",
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const UniLogo(),
+                  const SizedBox(height: 48.0),
+                  TextFormField(
                     controller: usernameController,
-                    validator: (String? value) {
+                    textInputAction: TextInputAction.next,
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter username';
+                        return 'Please enter a username';
                       }
                       return null;
-                    }),
-                const SizedBox(height: 16.0),
-                GenericTextField(
-                    hText: "Email",
+                    },
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextFormField(
                     controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (String? value) {
+                    textInputAction: TextInputAction.next,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter email';
+                        return 'Please enter an email';
                       }
                       return null;
-                    }),
-                const SizedBox(height: 16.0),
-                GenericTextField(
-                    hText: "Password",
+                    },
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextFormField(
                     controller: passwordController,
-                    obscureText: true,
-                    validator: (String? value) {
+                    textInputAction: TextInputAction.next,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter password';
+                        return 'Please enter a password';
                       }
                       return null;
-                    }),
-                const SizedBox(height: 16.0),
-                GenericTextField(
-                    hText: "Confirm Password",
+                    },
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextFormField(
                     controller: passwordConfirmController,
-                    obscureText: true,
-                    validator: (String? value) {
+                    textInputAction: TextInputAction.done,
+                    decoration: const InputDecoration(
+                      labelText: 'Confirm Password',
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please confirm password';
-                      }
-                      if (value != passwordController.text) {
-                        return 'Passwords do not match';
+                        return 'Please confirm your password';
                       }
                       return null;
-                    }),
-                const SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    PrimaryButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        isPrimary: false,
-                        child: const Text(
-                          "Back",
-                          style: TextStyle(color: Colors.black),
-                        )),
-                    PrimaryButton(
-                        child: const Text('Register'),
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            ref
-                                .read(authGateControllerProvider.originProvider)
-                                .createAccountWithEmailAndPassword(
-                                    emailController.text,
-                                    passwordController.text,
-                                    usernameController.text);
-                          }
-                        }),
-                  ],
-                ),
-              ],
+                    },
+                  ),
+                  const SizedBox(height: 16.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      PrimaryButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          isPrimary: false,
+                          child: const Text(
+                            "Back",
+                            style: TextStyle(color: Colors.black),
+                          )),
+                      PrimaryButton(
+                          child: const Text('Register'),
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              ref
+                                  .read(
+                                      authGateControllerProvider.originProvider)
+                                  .createAccountWithEmailAndPassword(
+                                      emailController.text,
+                                      passwordController.text,
+                                      usernameController.text);
+                            }
+                          }),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

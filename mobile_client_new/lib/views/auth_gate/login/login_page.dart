@@ -6,10 +6,7 @@ import 'package:mobile_client_new/controllers/auth_gate/autg_gate_states.dart';
 import 'package:mobile_client_new/controllers/auth_gate/auth_gate_controller.dart';
 import 'package:mobile_client_new/views/auth_gate/login/widgets/info_column.dart';
 import 'package:mobile_client_new/views/auth_gate/login/widgets/login_form.dart';
-import 'package:mobile_client_new/views/auth_gate/register/register_page.dart';
 import 'package:mobile_client_new/views/splash_view/splash_page.dart';
-import 'package:mobile_client_new/widgets/uni_logo.dart';
-import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
 
 final authGateControllerProvider =
     StateNotifierProvider<AuthGateController, AuthGateStates>(

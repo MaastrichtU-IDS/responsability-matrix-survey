@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobile_client_new/views/auth_gate/register/register_page.dart';
 import 'package:mobile_client_new/widgets/buttons/primary_button.dart';
 
@@ -26,6 +24,7 @@ class LoginForm extends StatelessWidget {
           keyboardType: TextInputType.emailAddress,
           validator: (value) =>
               (value?.isEmpty ?? true) ? 'Email is required' : null,
+          textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
               labelText: 'Email', border: OutlineInputBorder()),
         ),
@@ -35,6 +34,7 @@ class LoginForm extends StatelessWidget {
           obscureText: true,
           validator: (value) =>
               (value?.isEmpty ?? true) ? 'Password is required' : null,
+          textInputAction: TextInputAction.done,
           decoration: const InputDecoration(
               labelText: 'Password', border: OutlineInputBorder()),
         ),
