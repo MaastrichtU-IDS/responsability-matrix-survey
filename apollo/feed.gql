@@ -1,97 +1,822 @@
 mutation {
-  createQuestions(
-    input: [
-      { id: "1", scope: "Actors", component: "Transparency", position: 1, question: "Who is involved in this project? e.g. researchers, organizations, end users", exampleAnswer: "This project is a collaboration between IDS and MUMC+ - Maastricht University. The main involved researchers are J. Doe as Principal investigator of IDS and X.White as Principal Investigator of MUMC+. Heart failure patients from MUMC+ are involved via a clinical trial." },
-        { id: "2", scope: "Objects", component: "Transparency", position: 2, question: "What the outputs or deliverables of the project are? e.g. types of data to collect/re-use, models or algorithms", exampleAnswer: "In two phases the project creates Output1: Predictive models for heart failure Output2: A trial to externally evaluate the defined models." },
-        { id: "3", scope: "Processes", component: "Transparency", position: 3, question: "What tools or processes make those outputs or deliverables (including data science lifecycle and project planning)? e.g. data collection, cleaning, data management", exampleAnswer: "Phase 1: The data containing dr reports, labs and examinations  is extracted from the EHR of patients. The data is anonymized by removing all sensitive fields as well as names of patients.  The data then goes through a data science lifecycle of selecting, cleaning and transforming the input for the analysis. Several Machine learning models (Logistic regression, LSTM and SVM) are tested to select the best performing models. The process is re-iterated to optimise performance. Phase 2: Through randomised clinical trials, patients are selected to be involved in this study in addition to the standard care. A cohort of 100 patients is selected. At random they are assigned"  },
-        { id: "4", scope: "Impacts", component: "Transparency", position: 4, question: "What outcomes and impacts the project will have in the world?  What are the intended aims of the project? What is the intended impact?", exampleAnswer: "Better care for patients with heart failure risk Patient stratification for HF Identification of biomarkers for HF" },
-        { id: "5", scope: "Actors", component: "Transparency", position: 5, question: "Have all the humans involved in the project been identified? This includes data scientists, downstream users of data science objects, & data subjects (e.g., patients).", exampleAnswer: "The project team includes a RA (T. Ross) and a PhD student (M.Black). The downstream users will be the heart specialist doctors as well as the patients." },
-        { id: "6", scope: "Actors", component: "Transparency", position: 6, question: "Are there formal agreements or explicitly described relationships between them? Examples of formal agreements: employment contracts (specifically length of contract, percentage of work, employee classifications, & other characteristics that might interact with ACCOUNTABILITY), consent forms, ethical approvals, intellectual property protocols, patents, non-disclosure agreements, contracts governing engagements", exampleAnswer: "T. Ross has a postdoc contract for 3 years and will work 80% of time for the project. M. Black is a PhD student who has a 4-year contract. He will work 50% on the project.  Their responsibilities are described in the project plan. PIs (J. Doe and X.White) are responsible for managing and directing the work." },
-        { id: "7", scope: "Actors", component: "Transparency", position: 7, question: "Are these formal agreements accessible by all of the actors?", exampleAnswer: "The workpackage descriptions and responsibilities are shared with the project team." },
-        { id: "8", scope: "Actors", component: "Transparency", position: 8, question: "Have the contributions of the humans who are involved been described?", exampleAnswer: "Yes. The PhD will contribute to Phase 1 and will aid the execution of phase 1 of the project. The  research assistant will model and execute phase 2 of the project. Both principal investigators will supervise these phases." },
-        { id: "9", scope: "Actors", component: "Transparency", position: 9, question: "Are there mechanisms in place to mitigate potential conflicts?", exampleAnswer: "IPRs (Intellectual Property Rights) are regulated by Maastricht University." },
-        { id: "10", scope: "Actors", component: "Transparency", position: 10, question: "Is there a provision for continuity and sustainability of the project and its resources over time? (e.g., do contact emails go to institutional email addresses, not individuals’?)", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "11", scope: "Objects", component: "Transparency", position: 11, question: "Have all data/metadata/algorithms been described [this may be a link to a document]", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "12", scope: "Objects", component: "Transparency", position: 12, question: "How will you make data and algorithms you used in the analysis transparent?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "13", scope: "Objects", component: "Transparency", position: 13, question: "How will you make data and algorithms that you used in the analysis accessible to others? (such as following the FAIR principles, meeting Open Science guidelines)", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "14", scope: "Objects", component: "Transparency", position: 14, question: "Is any metadata given for the dataset?", exampleAnswer: "Yes. The metadata contains the features and their corresponding descriptions: PatientID, Documents, Date, Department, Caregiver, Outcome" },
-        { id: "15", scope: "Objects", component: "Transparency", position: 15, question: "Which algorithms/tools were used for analysis (if known)?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "16", scope: "Objects", component: "Transparency", position: 16, question: "Are your data and metadata in a repository? (provide links such as Github, Zenodo etc.)", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "17", scope: "Objects", component: "Transparency", position: 17, question: "Are the data and metadata publicly available?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "18", scope: "Objects", component: "Transparency", position: 18, question: "What is the licence associated with the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "19", scope: "Objects", component: "Transparency", position: 19, question: "What is the quality of the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "20", scope: "Objects", component: "Transparency", position: 20, question: "What is the quantity of missing values in the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "21", scope: "Objects", component: "Transparency", position: 21, question: "Are there any terms and conditions specified on the use of the data/algorithm?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "22", scope: "Processes", component: "Transparency", position: 22, question: "How will you collect the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "23", scope: "Processes", component: "Transparency", position: 23, question: "How do you clean/preprocess the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "24", scope: "Processes", component: "Transparency", position: 24, question: "How do you analyze the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "25", scope: "Processes", component: "Transparency", position: 25, question: "Are all of the goals of the project accessible and understandable by all of the actors?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "26", scope: "Processes", component: "Transparency", position: 26, question: "How do you maintain/serve the project or your data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "27", scope: "Impacts", component: "Transparency", position: 27, question: "Within subcomponents of a process, are data FAIR?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "28", scope: "Impacts", component: "Transparency", position: 28, question: "Can you describe the implications of the project so that it is understandable by everyone?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "29", scope: "Impacts", component: "Transparency", position: 29, question: "Can you articulate how this project will affect people's life or research?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "30", scope: "Impacts", component: "Transparency", position: 30, question: "Have you described how this project might be misused?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "31", scope: "Impacts", component: "Transparency", position: 31, question: "Are there any terms and conditions specified on the use of data/algorithm?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "32", scope: "Actors", component: "Privacy", position: 32, question: "Is there an informed consent form signed by the human subjects in the project?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "33", scope: "Actors", component: "Privacy", position: 33, question: "Has a confidentiality agreement or non disclosure agreement been signed (if applicable)?", exampleAnswer: "No NDA was required. A template for  NDA agreement can be found here." },
-        { id: "34", scope: "Actors", component: "Privacy", position: 34, question: "Has a data usage agreement been signed by the researchers involved?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "35", scope: "Objects", component: "Privacy", position: 35, question: "Has a privacy protection method been used to make the data anonymous or pseudonymous?", exampleAnswer: "In phase 1 the data were independently anonymised by the data collector. In phase the data was anonymised using random ids, and removing personal identifiable data fields." },
-        { id: "36", scope: "Objects", component: "Privacy", position: 36, question: "Are you collecting identifiable personal information?", exampleAnswer: "In phase 1 no.In phase 2, the data is initially recorded in EHR systems in which patients are fully identified. However, when the data is used for analysis the personal identifiable information is removed." },
-        { id: "37", scope: "Objects", component: "Privacy", position: 37, question: "Are you collecting sensitive data (as defined by GDPR)", exampleAnswer: "Yes, Data on the Physical condition of the participants" },
-        { id: "38", scope: "Objects", component: "Privacy", position: 38, question: "Are the data you collected necessary to answer your research questions?", exampleAnswer: "Yes, without the outputs of the project are not achievable." },
-        { id: "39", scope: "Objects", component: "Privacy", position: 39, question: "Where/how do you process the data? (do you upload data to some servers to execute processing? Which tools do you use?)", exampleAnswer: "The data is stored in Maastricht University Servers. For processing, the data might be downloaded to other machines but they remain within the Maastricht University Network. The data is deleted after the processing has finished and no further analysis is needed." },
-        { id: "40", scope: "Objects", component: "Privacy", position: 40, question: "Where do you store data during and after your project?", exampleAnswer: "During the project the data are securely stored at Maastricht University servers. After the project is over, the data are managed in cooperation with the Data Hub Maastricht University." },
-        { id: "41", scope: "Objects", component: "Privacy", position: 41, question: "Is it secure?", exampleAnswer: "yes" },
-        { id: "42", scope: "Objects", component: "Privacy", position: 42, question: "Did you do your data management plan or use a template (such as https://dmponline.dcc.ac.uk/)?", exampleAnswer: "Yes. Research Data Management Plan: https://www.zonmw.nl/en/research-and-results/fair-data-and-data-management/data-management-in-your-project/ " },
-        { id: "43", scope: "Objects", component: "Privacy", position: 43, question: "Can third parties use the data? if so, how?", exampleAnswer: "Not unless specific agreements are made. This is because of data privacy concerns." },
-        { id: "44", scope: "Objects", component: "Privacy", position: 44, question: "Do your models and results reveal personal information directly?", exampleAnswer: "No" },
-        { id: "45", scope: "Objects", component: "Privacy", position: 45, question: "Can the outcome can be used to identify individuals indirectly?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "46", scope: "Objects", component: "Privacy", position: 46, question: "Is it possible that other people can combine your model/algorithm with other resources to identify individuals?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "47", scope: "Objects", component: "Privacy", position: 47, question: "Do participants have full control over their data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "48", scope: "Objects", component: "Privacy", position: 48, question: "Can they withdraw from the study at any point in time?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "49", scope: "Objects", component: "Privacy", position: 49, question: "Can they provide consent for secondary re-use of the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "50", scope: "Processes", component: "Privacy", position: 50, question: "Has a distributed learning method, such as the personal health train, been used where the algorithm is sent to the data provider and not the other way around?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "51", scope: "Processes", component: "Privacy", position: 51, question: "Has the analysis been conducted on the individual or on the group level?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "52", scope: "Processes", component: "Privacy", position: 52, question: "Has an information management system been set in place for auditing purposes?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "53", scope: "Impacts", component: "Privacy", position: 53, question: "Does your project help individuals protect their privacy and confidentiality?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "54", scope: "Impacts", component: "Privacy", position: 54, question: "Does your project increase society's confidence and trust in data science projects?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "55", scope: "Impacts", component: "Privacy", position: 55, question: "Will your outcome deliver a positive message to people about how their privacy and confidentiality have been handled?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "56", scope: "Actors", component: "Accountability", position: 56, question: "Has the researcher signed a code of conduct agreement?", exampleAnswer: "Visara https://www.maastrichtuniversity.nl/about-um/organisation/codes-conduct-regulations Integrity code of conduct UM Processing of Personal Data https://www.maastrichtuniversity.nl/research/integrity-ethics/ethics-review" },
-        { id: "57", scope: "Actors", component: "Accountability", position: 57, question: "Is it clear who is responsible for which part of the analysis outcome?", exampleAnswer: "J. Doe is responsible for the analytical models and X.White is responsible for conducting the trial." },
-        { id: "58", scope: "Actors", component: "Accountability", position: 58, question: "Does your organisation have protocols and procedures for dealing with an intentional or unintentional breakdown of transparency, privacy/confidentiality, or norm breaking?", exampleAnswer: "UM  maintains a data processing of personal data in a registry. The project was registered by the principal investigators with the Data Protection Officer  via email (fg@maastrichtuniversity.nl)  In case of a data breach the project team needs to report via the ICTS Servicedesk under 'Report possible UM data leak'" },
-        { id: "59", scope: "Actors", component: "Accountability", position: 59, question: "Are there protocols and procedures for dealing with conflicts between legal and ethical positions in projects?", exampleAnswer: "https://www.maastrichtuniversity.nl/about-um/um-general-privacy-statement Whenever UM processes your personal data, it does so with a lawful basis for processing. A lawful basis for processing is the grounds for processing personal data. UM primarily processes your personal data to perform its public tasks in the field of the provision of academic education and research." },
-        { id: "60", scope: "Actors", component: "Accountability", position: 60, question: "Does your organisation have a data protection officer? Data ethics review committees? Data stewards?", exampleAnswer: "UM has a data protection officer. Raoul Winkens is the Data Protection Officer of Maastricht University. The person may be reached at: privacy@maastrichtuniversity.nl or fg@maastrichtuniversity.nl address" },
-        { id: "61", scope: "Actors", component: "Accountability", position: 61, question: "Do employees have access to resources (e.g., training) for doing responsible data science?", exampleAnswer: "The University Library offers courses on Research Data Management https://library.maastrichtuniversity.nl/research-support/rdm/services-tools-training/" },
-        { id: "62", scope: "Actors", component: "Accountability", position: 62, question: "Do protections exist against lawsuit or damages for individual data scientists, users, or organisations?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "63", scope: "Objects", component: "Accountability", position: 63, question: "Has provenance been presented to track the origin of the data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "64", scope: "Objects", component: "Accountability", position: 64, question: "Do you know the original permissions attached to the data (in the case of re-use)?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "65", scope: "Objects", component: "Accountability", position: 65, question: "Are you following the original permissions that are attached to that data?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "66", scope: "Objects", component: "Accountability", position: 66, question: "Is there a description provided about potential biases, such as confounding factors?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "67", scope: "Objects", component: "Accountability", position: 67, question: "Is data quality an issue? If yes, what is the specific issue and how is it resolved?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "68", scope: "Objects", component: "Accountability", position: 68, question: "Is there a threshold for missing values? Is there a mechanism for reacting to missed thresholds?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "69", scope: "Processes", component: "Accountability", position: 69, question: "Is there a clear and transparent description of the process that is accessible?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "70", scope: "Processes", component: "Accountability", position: 70, question: "Who is responsible for which part of the analysis?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "71", scope: "Processes", component: "Accountability", position: 71, question: "Is there any control/checkpoints within the process?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "72", scope: "Impacts", component: "Accountability", position: 72, question: "What is the impact or the outcome of the analysis?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "73", scope: "Impacts", component: "Accountability", position: 73, question: "Is the outcome of your project understandable by others?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "74", scope: "Impacts", component: "Accountability", position: 74, question: "How are unintended outcomes communicated to the relevant organisation?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "75", scope: "Impacts", component: "Accountability", position: 75, question: "Are there protocols and procedures for dealing with conflicts between legal and ethical positions in projects?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "76", scope: "Impacts", component: "Accountability", position: 76, question: "Is there a procedure for dealing with unintended outcomes, either positive or negative?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "77", scope: "Impacts", component: "Accountability", position: 77, question: "How does your organisation deal with evaluations by external parties about the responsibility aspects of the project?", exampleAnswer: "This question does not have an example answer yet." },
-        { id: "78", scope: "Actors", component: "Societal values", position: 78, question: "What are the operative social values and norms that touch on who is involved in the project and how their roles are governed?", exampleAnswer: "In which country is the work being conducted (Europe, US, Asia, etc)? Are there any code of conducts in place? Like this one: Netherlands Code of Conduct for Research Integrity https://www.universiteitenvannederland.nl/files/documents/Netherlands%20Code%20of%20Conduct%20for%20Research%20Integrity%202018.pdf Integrity and behaviour code for ICT staff at UM https://www.maastrichtuniversity.nl/file/7429/download?token=I_9r4Ek7" },
-        { id: "79", scope: "Objects", component: "Societal values", position: 79, question: "What are the operative social values and norms that touch on data, algorithms, and other outputs or deliverables of the project?", exampleAnswer: "Are there any laws or regulations in place to secure data protection (like the GDPR, CCPA in California), use of medical devices or other digital applications? For example the European Artificial Intelligence Act." },
-        { id: "80", scope: "Processes", component: "Societal values", position: 80, question: "What are the operative social values and norms that touch on research processes and the data science lifecycle?", exampleAnswer: "Are there any rules or standards for data collection? Did you pre-register your study somewhere (share your research data management plan)? For example via Center for Open Science (OSF)." },
-        { id: "81", scope: "Impacts", component: "Societal values", position: 81, question: "What are the operative social values and norms that touch on the intended and unintended consequences and outcomes of your project?", exampleAnswer: "Did you create a Data protection impact assessment (DPIA) which is obligatory under the GDPR in the Netherlands." },
-        { id: "82", scope: "Impacts", component: "Societal values", position: 82, question: "Do the operative social values and norms conflict with each other?", exampleAnswer: "No" },
-        { id: "83", scope: "Impacts", component: "Societal values", position: 83, question: "Are all of the operative social values and norms in agreement with each other?", exampleAnswer: "Yes" ,}
-    ]
-  ) {
-    questions {
-    id
-    question,
-    component,
-    scope,
-    position
+    createQuestions(
+        input: [
+            {
+                id: "1"
+                scope: "Actors"
+                component: "Transparency"
+                position: 1
+                question: "Who is involved in this project? e.g. researchers, organizations, end users"
+                exampleAnswer: "This project is a collaboration between two partners: the Institute of Data Science (IDS) and Maastricht University Hospital (MUMC+) within  MaastrichtUniversity. The main involved researchers are J. Doe as Principal investigator of IDS and X.White as Principal Investigator of MUMC+. Heart failure patients from MUMC+ are involved via a clinical trial."
+            }
+            {
+                id: "2"
+                scope: "Actors"
+                component: "Transparency"
+                position: 2
+                question: "Have all the humans involved in the project been identified? This includes data scientists, downstream users of data science objects, & data subjects (e.g., patients)."
+                exampleAnswer: "The project team includes a RA (T. Ross) and a PhD student (M.Black). The downstream users will be the heart specialist doctors as well as the patients.¶"
+            }
+            {
+                id: "3"
+                scope: "Actors"
+                component: "Transparency"
+                position: 3
+                question: "Are there formal agreements or explicitly described relationships between them? Examples of formal agreements: employment contracts (specifically length of contract, percentage of work, employee classifications, & other characteristics that might interact with ACCOUNTABILITY), consent forms, ethical approvals, intellectual property protocols, patents, non-disclosure agreements, contracts governing engagements"
+                exampleAnswer: "T. Ross has a postdoc contract for 3 years and will work 80% of time for the project. M. Black is a PhD student who has a 4-year contract. He will work 50% on the project.  Their responsibilities are described in the project plan. PIs (J. Doe and X.White) are responsible for managing and directing the work. "
+            }
+            {
+                id: "4"
+                scope: "Actors"
+                component: "Transparency"
+                position: 4
+                question: "Are these formal agreements accessible by all of the actors?"
+                exampleAnswer: "The work package descriptions and responsibilities are shared with the project team. "
+            }
+            {
+                id: "5"
+                scope: "Actors"
+                component: "Transparency"
+                position: 5
+                question: "Have the contributions of the humans who are involved been described?"
+                exampleAnswer: "Yes. The PhD will contribute to Phase 1 and will aid the execution of phase 1 of the project. The  research assistant will model and execute phase 2 of the project. Both principal investigators will supervise these phases."
+            }
+            {
+                id: "6"
+                scope: "Actors"
+                component: "Transparency"
+                position: 6
+                question: "Are there mechanisms in place to mitigate potential conflicts between actors?"
+                exampleAnswer: "IPRs (Intellectual Property Rights) are regulated by Maastricht University. "
+            }
+            {
+                id: "7"
+                scope: "Actors"
+                component: "Transparency"
+                position: 7
+                question: "Is there a provision for continuity and sustainability of the project and its resources over time? (e.g., do contact emails go to institutional email addresses, not individuals’?)"
+                exampleAnswer: "The project is funded from Sept 2023- August 2026. In the absence of further continuation, the associated website will be hosted until August 2027. The contact form remains to be checked by the PIs.. Any non sensitive data resulting from the research findings will be made available via Data Hub (https://portal.datahubmaastricht.nl/ ) "
+            }
+            {
+                id: "8"
+                scope: "Actors"
+                component: "Transparency"
+                position: 8
+                question: "Are there any other secondary actors involved or affected  by  the project? (e.g., investors, funding agency)"
+                exampleAnswer: "No"
+            }
+            {
+                id: "9"
+                scope: "Objects"
+                component: "Transparency"
+                position: 9
+                question: "What the outputs or deliverables of the project are? e.g. types of data to collect/re-use, models or algorithms"
+                exampleAnswer: "In two phases the project creates Output1: Predictive models for heart failure Output2: A trial to externally evaluate the defined models."
+            }
+            {
+                id: "10"
+                scope: "Objects"
+                component: "Transparency"
+                position: 10
+                question: "Have all data/metadata/algorithms been described [this may be a link to a document]"
+                exampleAnswer: "Not yet. All future publications will be linked here."
+            }
+            {
+                id: "11"
+                scope: "Objects"
+                component: "Transparency"
+                position: 11
+                question: "How will you make data and algorithms you used in the analysis transparent?"
+                exampleAnswer: "The work will be reported to open peer-reviewed journals. The TRIPOD model will be used as a standard for data analysis reporting. A github repository will share the code."
+            }
+            {
+                id: "12"
+                scope: "Objects"
+                component: "Transparency"
+                position: 12
+                question: "How will you make data and algorithms that you used in the analysis accessible to others? (such as following the FAIR principles, meeting Open Science guidelines)"
+                exampleAnswer: "The build model will be made available in the following  gitHubPage https://github.com/MaastrichtU-IDS "
+            }
+            {
+                id: "13"
+                scope: "Objects"
+                component: "Transparency"
+                position: 13
+                question: "Is any metadata given for the dataset?"
+                exampleAnswer: "Yes. The metadata contains the features and their corresponding descriptions: PatientID, Documents, Date, Department, Caregiver, Outcome"
+            }
+            {
+                id: "14"
+                scope: "Objects"
+                component: "Transparency"
+                position: 14
+                question: "Are your data and metadata in a repository? (provide links such as Github, Zenodo etc.)"
+                exampleAnswer: "The project’s work  will be made available in the following  gitHubPage https://github.com/MaastrichtU-IDS . "
+            }
+            {
+                id: "15"
+                scope: "Objects"
+                component: "Transparency"
+                position: 15
+                question: "Are the data and metadata publicly available?"
+                exampleAnswer: "No"
+            }
+            {
+                id: "16"
+                scope: "Objects"
+                component: "Transparency"
+                position: 16
+                question: "What is the licence associated with the data?"
+                exampleAnswer: "The cohort data has no attached licence. The data remain private and are internally used for research purposes."
+            }
+            {
+                id: "17"
+                scope: "Objects"
+                component: "Transparency"
+                position: 17
+                question: "Have you measured the quality of the data? If yes, what quality dimensions and metrics did you use (i.e.  accuracy, completeness, consistency, timeliness, uniqueness, and validity )? What is the overall quality of the data?"
+                exampleAnswer: "Yes. The main metrics used was data missing value ratio. The data is considered to be of high quality: due to the nature of collection (hospital records), data should represent a coherent picture of the patient. "
+            }
+            {
+                id: "18"
+                scope: "Objects"
+                component: "Transparency"
+                position: 18
+                question: "What is the quantity of missing values in the data?"
+                exampleAnswer: "The selected data do not include missing values. Doctor notes under 50 characters are removed in the selection phase. "
+            }
+            {
+                id: "19"
+                scope: "Objects"
+                component: "Transparency"
+                position: 19
+                question: "Are there any terms and conditions specified on the use of the data/algorithm?"
+                exampleAnswer: "The data is private but the algorithm can be openly used and tried with different data inputs."
+            }
+            {
+                id: "20"
+                scope: "Process"
+                component: "Transparency"
+                position: 20
+                question: "Describe the overall process used  to achieve the project’s outputs or deliverables (including data science lifecycle and project planning)? e.g. data collection, cleaning, data management"
+                exampleAnswer: "Phase 1: The data containing doctor’s reports, labs and examinations  is extracted from the EHR of patients. The data is anonymized by removing all sensitive fields as well as names of patients.  The data then goes through a data science lifecycle of selecting, cleaning and transforming the input for the analysis. Several Machine learning models (Logistic regression, LSTM and SVM) are tested to select the best performing models. The process is re-iterated to optimise performance.¶Phase 2: Through randomised clinical trials, patients are selected to be involved in this study in addition to the standard care. A cohort of 100 patients are randomly selected."
+            }
+            {
+                id: "21"
+                scope: "Process"
+                component: "Transparency"
+                position: 21
+                question: "How will you collect the data?"
+                exampleAnswer: "In phase 1 data is collected from EHR systems as a retrospective cohort study. Phase 2 will use a prospective study design."
+            }
+            {
+                id: "22"
+                scope: "Process"
+                component: "Transparency"
+                position: 22
+                question: "How do you clean/preprocess the data?"
+                exampleAnswer: "The documents need to be cleaned against personal information such as telephone number or doctor names. Spelling mistakes and common words are removed from the documents. Furthermore stemming is applied to extract common words. Finally, further cleaning of irrelevant words is achieved in discussion with the doctors."
+            }
+            {
+                id: "23"
+                scope: "Process"
+                component: "Transparency"
+                position: 23
+                question: "How do you analyse the data?"
+                exampleAnswer: "Python will be used for the data analysis. Deep learning techniques such as (Long short term memory) will be used for the analysis of the data. Furthermore, the outcomes of the algorithm will be compared with simple machine learning approaches such as (Logistic regression and random forest)"
+            }
+            {
+                id: "24"
+                scope: "Process"
+                component: "Transparency"
+                position: 24
+                question: "How do you maintain/serve the project or your data?"
+                exampleAnswer: "At the end of the project, the work will be at a proof of concept level (TRL4-TRL5). In order to maintain the work on the project  further, the principal investigators  will seek  more funding to advance the overall project. The data and results will remain stored within the Maastricht University system as well as within the shared publications."
+            }
+            {
+                id: "25"
+                scope: "Impact"
+                component: "Transparency"
+                position: 25
+                question: "What are the aims of the project? "
+                exampleAnswer: "This project aims to predict which heart failure patients have a higher risk of an exacerbated condition. "
+            }
+            {
+                id: "26"
+                scope: "Impact"
+                component: "Transparency"
+                position: 26
+                question: "What are the outcomes of the project?"
+                exampleAnswer: "An AI model to detect patient stratification for Heart Failure patients¶An integrated app  to support patients and  doctors in the  identification  Heart Failure interventions"
+            }
+            {
+                id: "27"
+                scope: "Impact"
+                component: "Transparency"
+                position: 27
+                question: "What are the expected impacts of the project?"
+                exampleAnswer: "Better care outcomes  for patients suffering from  heart failure  and a¶lower economic burden for healthcare systems.¶"
+            }
+            {
+                id: "28"
+                scope: "Impact"
+                component: "Transparency"
+                position: 28
+                question: "Can you describe the implications of the project so that it is understandable by everyone?"
+                exampleAnswer: ". The implications are that more medical attention may be placed on the patients at a higher risk of exacerbation."
+            }
+            {
+                id: "29"
+                scope: "Impact"
+                component: "Transparency"
+                position: 29
+                question: "Can you articulate how this project will affect people's life or research?"
+                exampleAnswer: "Heart Failure Patients might benefit from this in the form of improved care. Doctors can benefit in the form of support in their decision making.¶Overall healthcare costs might also improve as resources are provided for those who most need them, thus with a greater possibility of avoiding deteriorations or further hospitalisations.¶Research can benefit from the identification of new high risk biomarkers for heart failure patients."
+            }
+            {
+                id: "30"
+                scope: "Impact"
+                component: "Transparency"
+                position: 30
+                question: "Have you described how this project might be misused?"
+                exampleAnswer: "In case doctors rely too much on the produced predictive algorithms. Some cases might end up with less care because the algorithm misclassified them.¶If insurance companies are able to reproduce the same or a similar solution this might have implications towards premiums of the patients that we are trying to help the most."
+            }
+            {
+                id: "31"
+                scope: "Impact"
+                component: "Transparency"
+                position: 31
+                question: "Are there any terms and conditions specified on the use of data/algorithm?"
+                exampleAnswer: "Yes. The algorithms can be openly used for non profit and with attribution"
+            }
+            {
+                id: "32"
+                scope: "Actors"
+                component: "Privacy"
+                position: 32
+                question: "Is there an informed consent form signed by the human subjects in the project?"
+                exampleAnswer: "Yes, in Phase 2 we involve the patients with informed consent. Given that the participants are dutch patients, the informed consent is in dutch by legal requirements. The document can be found here."
+            }
+            {
+                id: "33"
+                scope: "Actors"
+                component: "Privacy"
+                position: 33
+                question: "Has a confidentiality agreement or non disclosure agreement been signed (if applicable)?"
+                exampleAnswer: "No NDA was required. A template for  NDA agreement can be found here."
+            }
+            {
+                id: "34"
+                scope: "Actors"
+                component: "Privacy"
+                position: 34
+                question: "Has a data usage agreement been signed by the researchers involved?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "35"
+                scope: "Objects"
+                component: "Privacy"
+                position: 35
+                question: "Has a privacy protection method been used to make the data anonymous or pseudonymous?"
+                exampleAnswer: "In phase 1 the data were independently anonymised by the data collector. ¶In phase 2 the data was anonymised using random ids, and removing personal identifiable data fields."
+            }
+            {
+                id: "36"
+                scope: "Objects"
+                component: "Privacy"
+                position: 36
+                question: "Are you collecting identifiable personal information?"
+                exampleAnswer: "In phase 1 no.¶In phase 2, the data is initially recorded in EHR systems in which patients are fully identified. However, when the data is used for analysis the personal identifiable information is removed."
+            }
+            {
+                id: "37"
+                scope: "Objects"
+                component: "Privacy"
+                position: 37
+                question: "Are you collecting sensitive data (as defined by GDPR)?"
+                exampleAnswer: "Yes, the  data represents information on the physical condition of the participants"
+            }
+            {
+                id: "38"
+                scope: "Objects"
+                component: "Privacy"
+                position: 38
+                question: "Are the data you collect or re-use necessary to answer your research questions?"
+                exampleAnswer: "Yes, without the outputs of the project are not achievable. "
+            }
+            {
+                id: "39"
+                scope: "Objects"
+                component: "Privacy"
+                position: 39
+                question: "Where/how do you process the data? (do you upload data to some servers to execute processing? Which tools do you use?)"
+                exampleAnswer: "The data is stored in Maastricht University Servers. For processing, the data might be downloaded to other machines but they remain within the Maastricht University Network. The data is deleted after the processing has finished and no further analysis is needed."
+            }
+            {
+                id: "40"
+                scope: "Objects"
+                component: "Privacy"
+                position: 40
+                question: "Where do you store data during and after your project?"
+                exampleAnswer: "During the project the data are securely stored at Maastricht University servers. After the project is over, the data are managed in cooperation with the Data Hub Maastricht University."
+            }
+            {
+                id: "41"
+                scope: "Objects"
+                component: "Privacy"
+                position: 41
+                question: "Is it secure?"
+                exampleAnswer: "yes"
+            }
+            {
+                id: "42"
+                scope: "Objects"
+                component: "Privacy"
+                position: 42
+                question: "Did you do your data management plan or use a template (such as https://dmponline.dcc.ac.uk/)?"
+                exampleAnswer: "Yes. Research Data Management Plan: https://www.zonmw.nl/en/research-and-results/fair-data-and-data-management/data-management-in-your-project/ "
+            }
+            {
+                id: "43"
+                scope: "Objects"
+                component: "Privacy"
+                position: 43
+                question: "Can third parties use the data? if so, how?"
+                exampleAnswer: "Not unless specific agreements are made. This is because of data privacy concerns. "
+            }
+            {
+                id: "44"
+                scope: "Objects"
+                component: "Privacy"
+                position: 44
+                question: "Do your models and results reveal personal information directly?"
+                exampleAnswer: "No"
+            }
+            {
+                id: "45"
+                scope: "Objects"
+                component: "Privacy"
+                position: 45
+                question: "Can the outcome  be used to identify individuals indirectly?"
+                exampleAnswer: "No"
+            }
+            {
+                id: "46"
+                scope: "Objects"
+                component: "Privacy"
+                position: 46
+                question: "Is it possible that other people can combine your model/algorithm with other resources to identify individuals?"
+                exampleAnswer: "No"
+            }
+            {
+                id: "47"
+                scope: "Process"
+                component: "Privacy"
+                position: 47
+                question: "Did you collect the data from the individuals in question directly, or obtain it via third¶parties or other sources (e.g., websites)?¶"
+                exampleAnswer: "The data are collected during hospital care. The data is retrospectively analysed."
+            }
+            {
+                id: "48"
+                scope: "Process"
+                component: "Privacy"
+                position: 48
+                question: "Were the individuals in question notified about the data collection? If so, please describe¶(or show with screenshots or other information) how notice was provided, and provide a link¶or other access point to, or otherwise reproduce, the exact language of the notification itself ¶"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "49"
+                scope: "Process"
+                component: "Privacy"
+                position: 49
+                question: "Did the individuals in question consent to the collection and use of their data? If so,¶please describe how consent was requested¶and provided, and provide a link or other access point to, or otherwise reproduce, the exact¶language to which the individuals consented.¶"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "50"
+                scope: "Process"
+                component: "Privacy"
+                position: 50
+                question: "What procedures were used to ensure the anonymity of personal data? For example, removing sensitive data fields, aggregating at a group level, data encryption mechanisms...ect"
+                exampleAnswer: "Sensitive fields (personal identifiable fields) such as patient names, patient id and personal identifier numbers are replaced with an anonymized id. Documents are also analysed for personal identifying information, however this process does not guarantee a full anonymisation.¶"
+            }
+            {
+                id: "51"
+                scope: "Process"
+                component: "Privacy"
+                position: 51
+                question: "If consent was obtained, were the consenting individuals provided with a mechanism to¶revoke their consent in the future or for certain uses? If so, please provide a description, as¶well as a link or other access point to the mechanism (if appropriate). ¶"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "52"
+                scope: "Process"
+                component: "Privacy"
+                position: 52
+                question: "Has an information management system been set in place for auditing purposes?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "53"
+                scope: "Impact"
+                component: "Privacy"
+                position: 53
+                question: "Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a¶data protection impact analysis) been conducted? If so, please provide a description of this¶analysis, including the outcomes, as well as a link or other access point to any supporting¶documentation ¶"
+                exampleAnswer: "No such analysis is present at this time."
+            }
+            {
+                id: "54"
+                scope: "Impact"
+                component: "Privacy"
+                position: 54
+                question: "Does your project have the potential to  impact the privacy and confidentiality of individuals? If yes, how?"
+                exampleAnswer: "Yes, privacy can be impacted if the data were to be shared with third parties without a confidentiality agreement. This is because we are unable to guarantee the full anonymisation of the documents (unstructured data in the form of notes). Names of the caring doctors or other potentially identifying elements such as previous care clinics might still be present also after cleaning the data. "
+            }
+            {
+                id: "55"
+                scope: "Impact"
+                component: "Privacy"
+                position: 55
+                question: "Can  your project change society's confidence and trust in data science projects? If yes, how?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "56"
+                scope: "Impact"
+                component: "Privacy"
+                position: 56
+                question: "Will your outcome deliver a positive message to people about how their privacy and confidentiality have been handled?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "57"
+                scope: "Actors"
+                component: "Accountability"
+                position: 57
+                question: "Has the researcher signed a code of conduct agreement?"
+                exampleAnswer: "Visara  ¶https://www.maastrichtuniversity.nl/about-um/organisation/codes-conduct-regulations ¶Integrity code of conduct¶UM Processing of Personal Data¶https://www.maastrichtuniversity.nl/research/integrity-ethics/ethics-review"
+            }
+            {
+                id: "58"
+                scope: "Actors"
+                component: "Accountability"
+                position: 58
+                question: "Is it clear who is responsible for which part of the outcome?"
+                exampleAnswer: "J. Doe is responsible for the analytical models and X.White is responsible for conducting the trial."
+            }
+            {
+                id: "59"
+                scope: "Actors"
+                component: "Accountability"
+                position: 59
+                question: "Does your organisation have protocols and procedures for dealing with an intentional or unintentional breakdown of transparency, privacy/confidentiality, or norm breaking?"
+                exampleAnswer: "UM  maintains a data processing of personal data in a registry. The project was registered by the principal investigators with the Data Protection Officer  via email (fg@maastrichtuniversity.nl) ¶In case of a data breach the project team needs to report via the ICTS Servicedesk under “Report possible UM data leak” "
+            }
+            {
+                id: "60"
+                scope: "Actors"
+                component: "Accountability"
+                position: 60
+                question: "Are there protocols and procedures for dealing with conflicts between legal and ethical positions in projects?"
+                exampleAnswer: "¶https://www.maastrichtuniversity.nl/about-um/um-general-privacy-statement¶Whenever UM processes your personal data, it does so with a lawful basis for processing. A lawful basis for processing is the grounds for processing personal data.¶UM primarily processes your personal data to perform its public tasks in the field of the provision of academic education and research. ¶"
+            }
+            {
+                id: "61"
+                scope: "Actors"
+                component: "Accountability"
+                position: 61
+                question: "Does your organisation have a data protection officer? Data ethics review committees? Data stewards?"
+                exampleAnswer: "UM has a data protection officer. ¶Raoul Winkens is the Data Protection Officer of Maastricht University. The person may be reached at: ¶privacy@maastrichtuniversity.nl or fg@maastrichtuniversity.nl address"
+            }
+            {
+                id: "62"
+                scope: "Actors"
+                component: "Accountability"
+                position: 62
+                question: "Do employees have access to resources (e.g., training) for doing responsible data science?"
+                exampleAnswer: "The University Library offers courses on Research Data Management https://library.maastrichtuniversity.nl/research-support/rdm/services-tools-training/ "
+            }
+            {
+                id: "63"
+                scope: "Actors"
+                component: "Accountability"
+                position: 63
+                question: "Do protections exist against lawsuit or damages for individual data scientists, users, or organisations?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "64"
+                scope: "Objects"
+                component: "Accountability"
+                position: 64
+                question: "What is the  provenance of the data?"
+                exampleAnswer: "The data are obtained from  Maastricht Hospital within the Cardiovascular Clinic."
+            }
+            {
+                id: "65"
+                scope: "Objects"
+                component: "Accountability"
+                position: 65
+                question: "Do you know the original permissions attached to the data (in the case of re-use)?"
+                exampleAnswer: "The data is collected with the permission to be used for research purposes."
+            }
+            {
+                id: "66"
+                scope: "Objects"
+                component: "Accountability"
+                position: 66
+                question: "Are you following the original permissions that are attached to that data?"
+                exampleAnswer: "Yes"
+            }
+            {
+                id: "67"
+                scope: "Objects"
+                component: "Accountability"
+                position: 67
+                question: "Is there a description provided about potential biases, such as confounding factors?"
+                exampleAnswer: "No specific biases were identified in the data. We expect that some bias is present due to  healthcare processes. In particular, the Dutch healthcare has a specific process on how care is delivered to heart failure patients, how often patients come for a check-up, ect. This means that the findings might not be reflective of the general heart failure population. Moreover 85% of the cohort is above 65 years old. The gender ratio is 55% male."
+            }
+            {
+                id: "68"
+                scope: "Objects"
+                component: "Accountability"
+                position: 68
+                question: "Is data quality an issue? If yes, what is the specific issue and how is it resolved?"
+                exampleAnswer: "Several notes are very short (< than 100 characters). In an assumption that they do not convey new information these notes  are removed."
+            }
+            {
+                id: "69"
+                scope: "Objects"
+                component: "Accountability"
+                position: 69
+                question: "Is there any missing data or missing variables and how are these values handled? "
+                exampleAnswer: "Missing data is labelled as N/A. The data scientists work on handling the missing data in the proper way according to the selected AI method such as imputation or resampling to achieve better representation."
+            }
+            {
+                id: "70"
+                scope: "Process"
+                component: "Accountability"
+                position: 70
+                question: "Is there a clear, transparent and accessible description of the data collection and data management  processes in the project? "
+                exampleAnswer: "Yes. both patient selection and  data collection processes are described and  documented within the clinical trial description."
+            }
+            {
+                id: "71"
+                scope: "Process"
+                component: "Accountability"
+                position: 71
+                question: "How  responsibilities  for the processes  ( data collection, management or analysys) are assigned?"
+                exampleAnswer: "In accordance with the ethical approval, Operators, Doctors, Nurses support the  data collection process. The training and instructions are provided by the scientist in the post-doc role. The research assistant and PhD will work on the identification of representative data. The whole team contributes to the development of the models. The findings are reported by the whole team for domain experts, the research and medical community. Moreover continuous medical and technical input is provided from the principal investigators.  "
+            }
+            {
+                id: "72"
+                scope: "Process"
+                component: "Accountability"
+                position: 72
+                question: "Is there any control/checkpoints within the process?"
+                exampleAnswer: "Collected data is evaluated based on criteria defined in EHR collection guidelines. Selection of data is evaluated for conformity to use in AI models. AI results are validated for decision making."
+            }
+            {
+                id: "73"
+                scope: "Impact"
+                component: "Accountability"
+                position: 73
+                question: "What is the impact or the outcome of the analysis?"
+                exampleAnswer: "Validated datasets enable researchers to develop statistical and AI models. Helps decision makers to consolidate their decisions. The results of the analysis are expected to reduce the errors  in decision making by %12."
+            }
+            {
+                id: "74"
+                scope: "Impact"
+                component: "Accountability"
+                position: 74
+                question: "How are  the outcomes of the project communicated to the stakeholders?"
+                exampleAnswer: "The outcomes are documented and reported to the scientific community as well as to the stakeholders.  For reports in the scientific communities, open science venues and FAIR data sharing approach is preferred in order to enable others to reproduce the findings. The communication of the outcomes to health practitioners  is made also with the use of explanations and visual representations of the reasoning process. Patients are reached via press releases. The team always has the lead on these tasks. Any press releases  must be mediated  with  the communication offices at Maastricht University. "
+            }
+            {
+                id: "75"
+                scope: "Impact"
+                component: "Accountability"
+                position: 75
+                question: "How are unintended outcomes communicated to the relevant organisation?"
+                exampleAnswer: "The unintended outcomes are shared with the relevant organisation according to their defined procedures and protocols and with their consent."
+            }
+            {
+                id: "76"
+                scope: "Impact"
+                component: "Accountability"
+                position: 76
+                question: "Are there protocols and procedures for dealing with conflicts between legal and ethical positions in the project?"
+                exampleAnswer: "The relevant protocols defined by UM and MUMC+ are followed in case of any conflict."
+            }
+            {
+                id: "77"
+                scope: "Impact"
+                component: "Accountability"
+                position: 77
+                question: "Is there a procedure for dealing with unintended outcomes, either positive or negative?"
+                exampleAnswer: "UM and MUMC+ protocols data collection and sharing define the procedures to follow in case of conflicts.  "
+            }
+            {
+                id: "78"
+                scope: "Impact"
+                component: "Accountability"
+                position: 78
+                question: "How does your organisation deal with evaluations by external parties about the responsibility aspects of the project?"
+                exampleAnswer: "External evaluations are conducted to the relevant researchers and officers to give them a chance to achieve feedbacks."
+            }
+            {
+                id: "79"
+                scope: "Actors"
+                component: "Societal values"
+                position: 79
+                question: "What are the operative social values and norms of the actors that are involved in the project? (i.e. cultural or ethical norms)"
+                exampleAnswer: "¶We work in interdisciplinary projects and when possible with mixed cultural and gender background teams.  ¶We work on projects with positive social impact.¶We collaboratively design and produce the knowledge output with stakeholders.¶¶¶"
+            }
+            {
+                id: "80"
+                scope: "Actors"
+                component: "Societal values"
+                position: 80
+                question: "In which country(is) or location(s) is the work being conducted (Europe, US, Asia, etc)?"
+                exampleAnswer: "Netherlands"
+            }
+            {
+                id: "81"
+                scope: "Actors"
+                component: "Societal values"
+                position: 81
+                question: "Are there any code of conducts that your project should follow? "
+                exampleAnswer: "Researchers will follow the Netherlands Code of Conduct for Research Integrity https://www.universiteitenvannederland.nl/files/documents/Netherlands%20Code%20of%20Conduct%20for%20Research%20Integrity%202018.pdf ¶¶Moreover, the Integrity and behaviour code for ICT staff at UM¶https://www.maastrichtuniversity.nl/file/7429/download?token=I_9r4Ek7 "
+            }
+            {
+                id: "82"
+                scope: "Objects"
+                component: "Societal values"
+                position: 82
+                question: "What are the operative social values and norms that touch on data, algorithms, and other outputs or deliverables of the project?"
+                exampleAnswer: "Are there any laws or regulations in place to secure data protection (like the GDPR, CCPA in California), use of medical devices or other digital applications? For example the European Artificial Intelligence Act. "
+            }
+            {
+                id: "83"
+                scope: "Objects"
+                component: "Societal values"
+                position: 83
+                question: "Are there any laws or regulations in place to secure data protection (like the GDPR, CCPA in California)?"
+                exampleAnswer: "Yes. We must comply to the GDPR regulations"
+            }
+            {
+                id: "84"
+                scope: "Objects"
+                component: "Societal values"
+                position: 84
+                question: "What are e practices for sharing research data with the community that your project strives to follow? "
+                exampleAnswer: "All research will be published in open research journals and the produced non privacy sensitive research data will be made available via open repositories."
+            }
+            {
+                id: "85"
+                scope: "Objects"
+                component: "Societal values"
+                position: 85
+                question: "Is there a data sharing agreement between the partners within or beyond the project?"
+                exampleAnswer: "Both partners are within the same institute, therefore explicit data sharing agreement is not needed. In case of a cooperation with other partners on the same project the data sharing would have to comply with the norms of Netherlands (GDPR) and the norms of the partner's location. For example, if the cooperation is extended to a Chinese institute, the cooperating party should keep complying to GDPR. Should a data bridge happen on their side, the details of the data bridge, the affected data should be reported. "
+            }
+            {
+                id: "86"
+                scope: "Objects"
+                component: "Societal values"
+                position: 86
+                question: "Are there any governing rules affecting your project in regards to use of devices and/or digital applications?¶"
+                exampleAnswer: "Not at the moment but, our digital application may soon have to comply with the European Artificial Intelligence Act. ¶"
+            }
+            {
+                id: "87"
+                scope: "Process"
+                component: "Societal values"
+                position: 87
+                question: "Are there any rules or standards for data collection? "
+                exampleAnswer: "An ethical approval should be obtained prior to the start of data collection. The responsible committee for our project is the medical committee  (secretariaat.metc@mumc.nl)can be found here."
+            }
+            {
+                id: "88"
+                scope: "Process"
+                component: "Societal values"
+                position: 88
+                question: "Did you pre-register your study somewhere (share your research data management plan)? For example via Center for Open Science (OSF). "
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "89"
+                scope: "Process"
+                component: "Societal values"
+                position: 89
+                question: "Does the data analysis process affect specific population groups?"
+                exampleAnswer: "The developed predictive models are intended for Heart Failure patients only. The analysed data are collected in a hospital setting thereby the models might not transfer well to emergency or primary healthcare settings."
+            }
+            {
+                id: "90"
+                scope: "Process"
+                component: "Societal values"
+                position: 90
+                question: "If you are collecting data, what are the steps taken to reduce possible societal bias (i.e gender, population, cultural, age biases)"
+                exampleAnswer: "Data Collection happens in the second phase of the project. The patients are selected based on a randomised clinical trial.  No distinction is made on gender, societal status. Patients with comorbidities are not excluded. The patients are enrolled from the normal caregiving process."
+            }
+            {
+                id: "91"
+                scope: "Process"
+                component: "Societal values"
+                position: 91
+                question: "If you are using already collected data, what are the steps taken to reduce  possible societal biases existing in these data (i.e gender, population, cultural, age biases)?"
+                exampleAnswer: "In the first phase of the project we use a retrospective cohort to define predictive models. We assume that gender distribution is reflective of the overall disease distribution in the area. There are slightly more male than female subjects in the cohort ( respectively 53%, 47%). We will not balance this distribution (as it will also bias the data), rather we calculate the prediction accuracy of the algorithm also per gender.  Cultural and population bias is not explicit in the data. Age is a relevant feature for  this disease so it is left unchanged. "
+            }
+            {
+                id: "92"
+                scope: "Impact"
+                component: "Societal values"
+                position: 92
+                question: "What are the societal impacts of this project?"
+                exampleAnswer: "Improved preventive actions towards heart failure deterioration can lead to improved patient care and lower healthcare costs. ¶Negative impacts may occur if the algorithm fails to generalise to the intended population. Several steps have been taken (see process) to make sure that this does not happen."
+            }
+            {
+                id: "93"
+                scope: "Impact"
+                component: "Societal values"
+                position: 93
+                question: "Will the project inform the stakeholders about any possible side-effects or negative impacts?"
+                exampleAnswer: "We have not identified  side-effects for patients as they would still be receiving the standard caregiving process. We will communicate to doctors and medical practitioners the limitations of the algorithm. To overcome the back-box effect of deep learning algorithms, a user interface will show the most relevant features for the decision as well as similar cases. "
+            }
+            {
+                id: "94"
+                scope: "Impact"
+                component: "Societal values"
+                position: 94
+                question: "What could be possible commercial interests in the project’s outcomes?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "95"
+                scope: "Impact"
+                component: "Societal values"
+                position: 95
+                question: "What is the public interest in the project's outcomes once they mature? "
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "96"
+                scope: "Impact"
+                component: "Societal values"
+                position: 96
+                question: "Is there an identifiable conflict between societal values of the commercial and public interests in the outcomes?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "97"
+                scope: "Impact"
+                component: "Societal values"
+                position: 97
+                question: "Are there any procedures or norms in place to resolve different interests between public interest and commercial interests?"
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "98"
+                scope: "Impact"
+                component: "Societal values"
+                position: 98
+                question: "Did you create a Data protection impact assessment (DPIA) which is obligatory under the GDPR in the Netherlands. "
+                exampleAnswer: "This question has no example answer yet."
+            }
+            {
+                id: "99"
+                scope: "Impact"
+                component: "Societal values"
+                position: 99
+                question: "Are all of the operative social values and norms in agreement with each other? If not please explain."
+                exampleAnswer: "As far as we know, Yes"
+            }
+            {
+                id: "100"
+                scope: "Impact"
+                component: "Societal values"
+                position: 100
+                question: "Can you describe or estimate the environmental impact of the project (for example: energy consumption)?"
+                exampleAnswer: "The main energy consumption happens at the server side: We estimate a single socket server rated at 118W , running 10% capacity, 24 hrs a day consumes 118W*10%*24*365 days = 103368 Wh or 103 units/yr. "
+            }
+            {
+                id: "101"
+                scope: "Impact"
+                component: "Societal values"
+                position: 101
+                question: "Does the project rely on the use of any toxic or non recyclable materials?"
+                exampleAnswer: "The second phase of the project relies on smart-phones. There is not a specific brand requirement. Smart-phones, broadly speaking, are 80% recyclable. The project in itself does not increment or decrement smart-phone consumption as all users would already own one. Other than the smart-phone and its composition, no additional materials are used."
+            }
+        ]
+    ) {
+        questions {
+            id
+            question
+            component
+            scope
+            position
+        }
     }
-  }
 }
