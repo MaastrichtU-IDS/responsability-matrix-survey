@@ -106,6 +106,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       labelText: 'Password',
                       border: OutlineInputBorder(),
                     ),
+                    obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a password';
@@ -121,6 +122,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       labelText: 'Confirm Password',
                       border: OutlineInputBorder(),
                     ),
+                    obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
