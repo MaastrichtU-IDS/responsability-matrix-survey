@@ -95,7 +95,7 @@ class _QuestionListState extends ConsumerState {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500, height: 1.5),
                   ),
-                  leading: Text(question.position.toString()),
+                  leading: Text('${index + 1}'),
                   selected: ref.watch(questionController)?.position ==
                       question.position,
                   selectedColor: Colors.blue,
