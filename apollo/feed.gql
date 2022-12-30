@@ -15,7 +15,7 @@ mutation {
                 component: "Transparency"
                 position: 2
                 question: "Have all the humans involved in the project been identified? This includes data scientists, downstream users of data science objects, & data subjects (e.g., patients)."
-                exampleAnswer: "The project team includes a RA (T. Ross) and a PhD student (M.Black). The downstream users will be the heart specialist doctors as well as the patients.¶"
+                exampleAnswer: "The project team includes a RA (T. Ross) and a PhD student (M.Black). The downstream users will be the heart specialist doctors as well as the patients. "
             }
             {
                 id: "3"
@@ -159,7 +159,7 @@ mutation {
                 component: "Transparency"
                 position: 20
                 question: "Describe the overall process used  to achieve the project’s outputs or deliverables (including data science lifecycle and project planning)? e.g. data collection, cleaning, data management"
-                exampleAnswer: "Phase 1: The data containing doctor’s reports, labs and examinations  is extracted from the EHR of patients. The data is anonymized by removing all sensitive fields as well as names of patients.  The data then goes through a data science lifecycle of selecting, cleaning and transforming the input for the analysis. Several Machine learning models (Logistic regression, LSTM and SVM) are tested to select the best performing models. The process is re-iterated to optimise performance.¶Phase 2: Through randomised clinical trials, patients are selected to be involved in this study in addition to the standard care. A cohort of 100 patients are randomly selected."
+                exampleAnswer: "Phase 1: The data containing doctor’s reports, labs and examinations  is extracted from the EHR of patients. The data is anonymized by removing all sensitive fields as well as names of patients.  The data then goes through a data science lifecycle of selecting, cleaning and transforming the input for the analysis. Several Machine learning models (Logistic regression, LSTM and SVM) are tested to select the best performing models. The process is re-iterated to optimise performance. Phase 2: Through randomised clinical trials, patients are selected to be involved in this study in addition to the standard care. A cohort of 100 patients are randomly selected."
             }
             {
                 id: "21"
@@ -207,7 +207,7 @@ mutation {
                 component: "Transparency"
                 position: 26
                 question: "What are the outcomes of the project?"
-                exampleAnswer: "An AI model to detect patient stratification for Heart Failure patients¶An integrated app  to support patients and  doctors in the  identification  Heart Failure interventions"
+                exampleAnswer: "An AI model to detect patient stratification for Heart Failure patients An integrated app  to support patients and  doctors in the  identification  Heart Failure interventions"
             }
             {
                 id: "27"
@@ -215,7 +215,7 @@ mutation {
                 component: "Transparency"
                 position: 27
                 question: "What are the expected impacts of the project?"
-                exampleAnswer: "Better care outcomes  for patients suffering from  heart failure  and a¶lower economic burden for healthcare systems.¶"
+                exampleAnswer: "Better care outcomes  for patients suffering from  heart failure  and a lower economic burden for healthcare systems. "
             }
             {
                 id: "28"
@@ -231,7 +231,7 @@ mutation {
                 component: "Transparency"
                 position: 29
                 question: "Can you articulate how this project will affect people's life or research?"
-                exampleAnswer: "Heart Failure Patients might benefit from this in the form of improved care. Doctors can benefit in the form of support in their decision making.¶Overall healthcare costs might also improve as resources are provided for those who most need them, thus with a greater possibility of avoiding deteriorations or further hospitalisations.¶Research can benefit from the identification of new high risk biomarkers for heart failure patients."
+                exampleAnswer: "Heart Failure Patients might benefit from this in the form of improved care. Doctors can benefit in the form of support in their decision making. Overall healthcare costs might also improve as resources are provided for those who most need them, thus with a greater possibility of avoiding deteriorations or further hospitalisations. Research can benefit from the identification of new high risk biomarkers for heart failure patients."
             }
             {
                 id: "30"
@@ -239,7 +239,7 @@ mutation {
                 component: "Transparency"
                 position: 30
                 question: "Have you described how this project might be misused?"
-                exampleAnswer: "In case doctors rely too much on the produced predictive algorithms. Some cases might end up with less care because the algorithm misclassified them.¶If insurance companies are able to reproduce the same or a similar solution this might have implications towards premiums of the patients that we are trying to help the most."
+                exampleAnswer: "In case doctors rely too much on the produced predictive algorithms. Some cases might end up with less care because the algorithm misclassified them. If insurance companies are able to reproduce the same or a similar solution this might have implications towards premiums of the patients that we are trying to help the most."
             }
             {
                 id: "31"
@@ -279,7 +279,7 @@ mutation {
                 component: "Privacy"
                 position: 35
                 question: "Has a privacy protection method been used to make the data anonymous or pseudonymous?"
-                exampleAnswer: "In phase 1 the data were independently anonymised by the data collector. ¶In phase 2 the data was anonymised using random ids, and removing personal identifiable data fields."
+                exampleAnswer: "In phase 1 the data were independently anonymised by the data collector.  In phase 2 the data was anonymised using random ids, and removing personal identifiable data fields."
             }
             {
                 id: "36"
@@ -287,7 +287,7 @@ mutation {
                 component: "Privacy"
                 position: 36
                 question: "Are you collecting identifiable personal information?"
-                exampleAnswer: "In phase 1 no.¶In phase 2, the data is initially recorded in EHR systems in which patients are fully identified. However, when the data is used for analysis the personal identifiable information is removed."
+                exampleAnswer: "In phase 1 no. In phase 2, the data is initially recorded in EHR systems in which patients are fully identified. However, when the data is used for analysis the personal identifiable information is removed."
             }
             {
                 id: "37"
@@ -374,7 +374,7 @@ mutation {
                 scope: "Process"
                 component: "Privacy"
                 position: 47
-                question: "Did you collect the data from the individuals in question directly, or obtain it via third¶parties or other sources (e.g., websites)?¶"
+                question: "Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)? "
                 exampleAnswer: "The data are collected during hospital care. The data is retrospectively analysed."
             }
             {
@@ -382,7 +382,7 @@ mutation {
                 scope: "Process"
                 component: "Privacy"
                 position: 48
-                question: "Were the individuals in question notified about the data collection? If so, please describe¶(or show with screenshots or other information) how notice was provided, and provide a link¶or other access point to, or otherwise reproduce, the exact language of the notification itself ¶"
+                question: "Were the individuals in question notified about the data collection? If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself  "
                 exampleAnswer: "This question has no example answer yet."
             }
             {
@@ -390,7 +390,7 @@ mutation {
                 scope: "Process"
                 component: "Privacy"
                 position: 49
-                question: "Did the individuals in question consent to the collection and use of their data? If so,¶please describe how consent was requested¶and provided, and provide a link or other access point to, or otherwise reproduce, the exact¶language to which the individuals consented.¶"
+                question: "Did the individuals in question consent to the collection and use of their data? If so, please describe how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented. "
                 exampleAnswer: "This question has no example answer yet."
             }
             {
@@ -399,14 +399,14 @@ mutation {
                 component: "Privacy"
                 position: 50
                 question: "What procedures were used to ensure the anonymity of personal data? For example, removing sensitive data fields, aggregating at a group level, data encryption mechanisms...ect"
-                exampleAnswer: "Sensitive fields (personal identifiable fields) such as patient names, patient id and personal identifier numbers are replaced with an anonymized id. Documents are also analysed for personal identifying information, however this process does not guarantee a full anonymisation.¶"
+                exampleAnswer: "Sensitive fields (personal identifiable fields) such as patient names, patient id and personal identifier numbers are replaced with an anonymized id. Documents are also analysed for personal identifying information, however this process does not guarantee a full anonymisation. "
             }
             {
                 id: "51"
                 scope: "Process"
                 component: "Privacy"
                 position: 51
-                question: "If consent was obtained, were the consenting individuals provided with a mechanism to¶revoke their consent in the future or for certain uses? If so, please provide a description, as¶well as a link or other access point to the mechanism (if appropriate). ¶"
+                question: "If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses? If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate).  "
                 exampleAnswer: "This question has no example answer yet."
             }
             {
@@ -422,7 +422,7 @@ mutation {
                 scope: "Impact"
                 component: "Privacy"
                 position: 53
-                question: "Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a¶data protection impact analysis) been conducted? If so, please provide a description of this¶analysis, including the outcomes, as well as a link or other access point to any supporting¶documentation ¶"
+                question: "Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted? If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation  "
                 exampleAnswer: "No such analysis is present at this time."
             }
             {
@@ -455,7 +455,7 @@ mutation {
                 component: "Accountability"
                 position: 57
                 question: "Has the researcher signed a code of conduct agreement?"
-                exampleAnswer: "Visara  ¶https://www.maastrichtuniversity.nl/about-um/organisation/codes-conduct-regulations ¶Integrity code of conduct¶UM Processing of Personal Data¶https://www.maastrichtuniversity.nl/research/integrity-ethics/ethics-review"
+                exampleAnswer: "Visara   https://www.maastrichtuniversity.nl/about-um/organisation/codes-conduct-regulations  Integrity code of conduct UM Processing of Personal Data https://www.maastrichtuniversity.nl/research/integrity-ethics/ethics-review"
             }
             {
                 id: "58"
@@ -471,7 +471,7 @@ mutation {
                 component: "Accountability"
                 position: 59
                 question: "Does your organisation have protocols and procedures for dealing with an intentional or unintentional breakdown of transparency, privacy/confidentiality, or norm breaking?"
-                exampleAnswer: "UM  maintains a data processing of personal data in a registry. The project was registered by the principal investigators with the Data Protection Officer  via email (fg@maastrichtuniversity.nl) ¶In case of a data breach the project team needs to report via the ICTS Servicedesk under “Report possible UM data leak” "
+                exampleAnswer: "UM  maintains a data processing of personal data in a registry. The project was registered by the principal investigators with the Data Protection Officer  via email (fg@maastrichtuniversity.nl)  In case of a data breach the project team needs to report via the ICTS Servicedesk under “Report possible UM data leak” "
             }
             {
                 id: "60"
@@ -479,7 +479,7 @@ mutation {
                 component: "Accountability"
                 position: 60
                 question: "Are there protocols and procedures for dealing with conflicts between legal and ethical positions in projects?"
-                exampleAnswer: "¶https://www.maastrichtuniversity.nl/about-um/um-general-privacy-statement¶Whenever UM processes your personal data, it does so with a lawful basis for processing. A lawful basis for processing is the grounds for processing personal data.¶UM primarily processes your personal data to perform its public tasks in the field of the provision of academic education and research. ¶"
+                exampleAnswer: " https://www.maastrichtuniversity.nl/about-um/um-general-privacy-statement Whenever UM processes your personal data, it does so with a lawful basis for processing. A lawful basis for processing is the grounds for processing personal data. UM primarily processes your personal data to perform its public tasks in the field of the provision of academic education and research.  "
             }
             {
                 id: "61"
@@ -487,7 +487,7 @@ mutation {
                 component: "Accountability"
                 position: 61
                 question: "Does your organisation have a data protection officer? Data ethics review committees? Data stewards?"
-                exampleAnswer: "UM has a data protection officer. ¶Raoul Winkens is the Data Protection Officer of Maastricht University. The person may be reached at: ¶privacy@maastrichtuniversity.nl or fg@maastrichtuniversity.nl address"
+                exampleAnswer: "UM has a data protection officer.  Raoul Winkens is the Data Protection Officer of Maastricht University. The person may be reached at:  privacy@maastrichtuniversity.nl or fg@maastrichtuniversity.nl address"
             }
             {
                 id: "62"
@@ -631,7 +631,7 @@ mutation {
                 component: "Societal values"
                 position: 79
                 question: "What are the operative social values and norms of the actors that are involved in the project? (i.e. cultural or ethical norms)"
-                exampleAnswer: "¶We work in interdisciplinary projects and when possible with mixed cultural and gender background teams.  ¶We work on projects with positive social impact.¶We collaboratively design and produce the knowledge output with stakeholders.¶¶¶"
+                exampleAnswer: " We work in interdisciplinary projects and when possible with mixed cultural and gender background teams.   We work on projects with positive social impact. We collaboratively design and produce the knowledge output with stakeholders.   "
             }
             {
                 id: "80"
@@ -647,7 +647,7 @@ mutation {
                 component: "Societal values"
                 position: 81
                 question: "Are there any code of conducts that your project should follow? "
-                exampleAnswer: "Researchers will follow the Netherlands Code of Conduct for Research Integrity https://www.universiteitenvannederland.nl/files/documents/Netherlands%20Code%20of%20Conduct%20for%20Research%20Integrity%202018.pdf ¶¶Moreover, the Integrity and behaviour code for ICT staff at UM¶https://www.maastrichtuniversity.nl/file/7429/download?token=I_9r4Ek7 "
+                exampleAnswer: "Researchers will follow the Netherlands Code of Conduct for Research Integrity https://www.universiteitenvannederland.nl/files/documents/Netherlands%20Code%20of%20Conduct%20for%20Research%20Integrity%202018.pdf   Moreover, the Integrity and behaviour code for ICT staff at UM https://www.maastrichtuniversity.nl/file/7429/download?token=I_9r4Ek7 "
             }
             {
                 id: "82"
@@ -686,8 +686,8 @@ mutation {
                 scope: "Objects"
                 component: "Societal values"
                 position: 86
-                question: "Are there any governing rules affecting your project in regards to use of devices and/or digital applications?¶"
-                exampleAnswer: "Not at the moment but, our digital application may soon have to comply with the European Artificial Intelligence Act. ¶"
+                question: "Are there any governing rules affecting your project in regards to use of devices and/or digital applications? "
+                exampleAnswer: "Not at the moment but, our digital application may soon have to comply with the European Artificial Intelligence Act.  "
             }
             {
                 id: "87"
@@ -735,7 +735,7 @@ mutation {
                 component: "Societal values"
                 position: 92
                 question: "What are the societal impacts of this project?"
-                exampleAnswer: "Improved preventive actions towards heart failure deterioration can lead to improved patient care and lower healthcare costs. ¶Negative impacts may occur if the algorithm fails to generalise to the intended population. Several steps have been taken (see process) to make sure that this does not happen."
+                exampleAnswer: "Improved preventive actions towards heart failure deterioration can lead to improved patient care and lower healthcare costs.  Negative impacts may occur if the algorithm fails to generalise to the intended population. Several steps have been taken (see process) to make sure that this does not happen."
             }
             {
                 id: "93"
