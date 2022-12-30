@@ -63,7 +63,7 @@ class QuestionsRepository {
   }
 }
 
-enum Scope { actors, objects, processes, impacts }
+enum Scope { actors, objects, process, impact }
 
 extension ScpoeExtension on Scope {
   String get name {
@@ -72,10 +72,10 @@ extension ScpoeExtension on Scope {
         return "Actors";
       case Scope.objects:
         return "Objects";
-      case Scope.processes:
-        return "Processes";
-      case Scope.impacts:
-        return "Impacts";
+      case Scope.process:
+        return "Process";
+      case Scope.impact:
+        return "Impact";
     }
   }
 }
@@ -86,10 +86,10 @@ Scope _getScope(String scope) {
       return Scope.actors;
     case "Objects":
       return Scope.objects;
-    case "Processes":
-      return Scope.processes;
-    case "Impacts":
-      return Scope.impacts;
+    case "Process":
+      return Scope.process;
+    case "Impact":
+      return Scope.impact;
     default:
       return Scope.actors;
   }

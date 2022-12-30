@@ -85,7 +85,7 @@ class _RootPageState extends ConsumerState<RootPage>
             ],
             rightItems: [
               Text(
-                  "Selected Questionnaire: ${ref.watch(questionnaireController.originProvider).selectedQuestionnaire?.title ?? "None"}",
+                  "Selected Project: ${ref.watch(questionnaireController.originProvider).selectedQuestionnaire?.title ?? "None"}",
                   style: Theme.of(context).textTheme.headline6),
               const SizedBox(width: 16),
               ElevatedButton.icon(
@@ -95,7 +95,7 @@ class _RootPageState extends ConsumerState<RootPage>
                         builder: (context) => const AddQuestionnarieDialog());
                   },
                   icon: const Icon(Icons.add),
-                  label: const Text("Add Questionnaire")),
+                  label: const Text("Add Project")),
               const SizedBox(width: 20),
               ElevatedButton.icon(
                   onPressed: () {

@@ -4,15 +4,15 @@ import '../repositories/questions_repository.dart';
 const scopeExp = <Scope, String>{
   Scope.actors: "Who is part of the project?",
   Scope.objects: "What objects do the actors create/use?",
-  Scope.processes: "How is it done?",
-  Scope.impacts: "What impacts do the objects create?",
+  Scope.process: "How is it done?",
+  Scope.impact: "What impacts do the objects create?",
 };
 
 const scopeColors = <Scope, Color>{
   Scope.actors: Color.fromRGBO(230, 184, 175, 1),
   Scope.objects: Color.fromRGBO(244, 204, 204, 1),
-  Scope.processes: Color.fromRGBO(234, 153, 153, 1),
-  Scope.impacts: Color.fromRGBO(221, 126, 107, 1),
+  Scope.process: Color.fromRGBO(234, 153, 153, 1),
+  Scope.impact: Color.fromRGBO(221, 126, 107, 1),
 };
 
 const componentExp = <Component, String>{
@@ -51,7 +51,7 @@ const matrixExp = <Scope, Map<Component, String>>{
     Component.societalValues:
         "Explicits social values and norms apply to  the  objects. I.e.Avoiding specific  biases that may arise from  the produced algorithms",
   },
-  Scope.processes: {
+  Scope.process: {
     Component.transparancy:
         "Describes the  processes (i.e. methodology, interaction protocols, pre-registering or business processes)  employed in the project.",
     Component.accountability:
@@ -61,7 +61,7 @@ const matrixExp = <Scope, Map<Component, String>>{
     Component.societalValues:
         "Identifies the processes that are in place to address societal values. For example,  how are possible biases addressed?",
   },
-  Scope.impacts: {
+  Scope.impact: {
     Component.transparancy:
         "Identifies and describes  the short, and long term impacts (both negative and positive) of the project (i.e. key exploitable results, recognisable possible negative and positive downstream impacts).",
     Component.accountability:

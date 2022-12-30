@@ -51,7 +51,7 @@ class _EditQuestionnaireDialogState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Add Questionnarie",
+              Text("Add Project",
                   style: Theme.of(context).textTheme.headline6),
               Divider(
                 color: Theme.of(context).primaryColor,
