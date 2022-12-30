@@ -25,12 +25,10 @@ class _SingleQuestionState extends State<SingleQuestion>
     with SingleTickerProviderStateMixin {
   late TextEditingController _textEditingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  late TabController _tabController;
 
   @override
   void initState() {
     _textEditingController = widget.textController ?? TextEditingController();
-    _tabController = TabController(length: 1, vsync: this);
     super.initState();
   }
 
@@ -39,16 +37,18 @@ class _SingleQuestionState extends State<SingleQuestion>
     if (widget.textController == null) {
       _textEditingController.dispose();
     }
-    _tabController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-        key: _formKey,
-        child: Center(
+    return SingleChildScrollView(
+      child: Form(
+          key: _formKey,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text("Question No. ${widget.questionModel.position}",
                   style: Theme.of(context).textTheme.headline6),
@@ -105,27 +105,26 @@ class _SingleQuestionState extends State<SingleQuestion>
                     .copyWith(fontWeight: FontWeight.w500, height: 1.5),
               ),
               const Divider(),
-              Expanded(
-                child: TabBarView(controller: _tabController, children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        widget.questionModel.exampleAnswer,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5!
-                            .copyWith(fontWeight: FontWeight.w500, height: 1.5),
-                      ),
+              SizedBox(
+                width: double.infinity,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      widget.questionModel.exampleAnswer,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5!
+                          .copyWith(fontWeight: FontWeight.w500, height: 1.5),
                     ),
-                  )
-                ]),
+                  ),
+                ),
               )
             ],
-          ),
-        ));
+          )),
+    );
   }
 }
