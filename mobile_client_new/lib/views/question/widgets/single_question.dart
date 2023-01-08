@@ -115,6 +115,7 @@ class _SingleQuestionState extends State<SingleQuestion>
                     child: SelectableText(
                       widget.questionModel.exampleAnswer,
                       textAlign: TextAlign.center,
+                      textScaleFactor: .7,
                       style: Theme.of(context)
                           .textTheme
                           .headline5!
