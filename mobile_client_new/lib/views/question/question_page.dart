@@ -81,6 +81,9 @@ class _QuestionPageState extends ConsumerState<QuestionPage> {
                         ? SingleQuestion(
                             key: UniqueKey(),
                             questionModel: state,
+                            questionCode: ref
+                                .read(questionController.notifier)
+                                .getQuestionCode(state.position),
                             textController: _textController,
                             onAnswer: (answer) async {
                               ref

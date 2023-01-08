@@ -58,7 +58,7 @@ class _RootPageState extends ConsumerState<RootPage>
           Navbar(
             navController: navController,
             leftItems: [
-              const UniLogo(width: 30, height: 50),
+              const UniLogo(height: 50),
               const SizedBox(width: 10),
               NavbarItem(
                 key: const Key("Home-nav"),

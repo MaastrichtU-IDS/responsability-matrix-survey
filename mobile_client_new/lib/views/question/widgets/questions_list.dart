@@ -27,33 +27,6 @@ class _QuestionListState extends ConsumerState {
           Row(
             children: [
               Expanded(
-                child: DropdownButtonFormField<Scope>(
-                  decoration: const InputDecoration(
-                    labelText: "Scope",
-                  ),
-                  value: _scope,
-                  items: [
-                    const DropdownMenuItem<Scope>(
-                        value: null, child: Text('All')),
-                    ...Scope.values
-                        .map((e) => DropdownMenuItem<Scope>(
-                              value: e,
-                              child: Text(e.name),
-                            ))
-                        .toList()
-                  ],
-                  onChanged: (value) {
-                    setState(() {
-                      _scope = value;
-                    });
-                    ref
-                        .read(questionsListController.notifier)
-                        .setScopeAndComponent(_scope, _component);
-                  },
-                ),
-              ),
-              const Spacer(),
-              Expanded(
                 child: DropdownButtonFormField<Component>(
                   decoration: const InputDecoration(
                     labelText: "Component",
@@ -72,6 +45,33 @@ class _QuestionListState extends ConsumerState {
                   onChanged: (value) {
                     setState(() {
                       _component = value;
+                    });
+                    ref
+                        .read(questionsListController.notifier)
+                        .setScopeAndComponent(_scope, _component);
+                  },
+                ),
+              ),
+              const Spacer(),
+              Expanded(
+                child: DropdownButtonFormField<Scope>(
+                  decoration: const InputDecoration(
+                    labelText: "Scope",
+                  ),
+                  value: _scope,
+                  items: [
+                    const DropdownMenuItem<Scope>(
+                        value: null, child: Text('All')),
+                    ...Scope.values
+                        .map((e) => DropdownMenuItem<Scope>(
+                              value: e,
+                              child: Text(e.name),
+                            ))
+                        .toList()
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _scope = value;
                     });
                     ref
                         .read(questionsListController.notifier)

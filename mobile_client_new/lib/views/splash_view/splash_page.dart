@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_client_new/widgets/uni_logo.dart';
 import '../auth_gate/login/login_page.dart';
 import '../auth_gate/register/register_page.dart';
 import '../root/root.dart';
@@ -39,6 +40,17 @@ class SplashPage extends ConsumerWidget {
       ref.read(splashPageController.originProvider).checkAuthentication();
     });
 
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            UniLogo(),
+            SizedBox(width: 10),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
   }
 }

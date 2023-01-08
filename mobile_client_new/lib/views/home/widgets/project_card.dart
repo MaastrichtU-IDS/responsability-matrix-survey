@@ -93,15 +93,20 @@ class ProjectCard extends ConsumerWidget {
                                   builder: (context) {
                                     return AlertDialog(
                                       title: Text(
-                                          "Delete Questionnaire: ${questionnaireModel.title}"),
+                                          "Delete Project: ${questionnaireModel.title}"),
                                       content: const Text(
-                                          "Are you sure you want to delete this questionnaire?"),
+                                          "Are you sure you want to delete this project?"),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
                                               Navigator.of(context).pop(true);
                                             },
-                                            child: const Text("Yes")),
+                                            style: TextButton.styleFrom(
+                                                backgroundColor: Colors.red,
+                                                foregroundColor: Colors.white),
+                                            child: const Text(
+                                              "Yes",
+                                            )),
                                         TextButton(
                                             onPressed: () {
                                               Navigator.of(context).pop(false);

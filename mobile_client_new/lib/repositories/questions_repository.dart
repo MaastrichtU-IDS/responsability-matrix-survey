@@ -17,6 +17,8 @@ class QuestionsRepository {
 
   final Map<Component, Map<Scope, List<QuestionModel>>> _matrixQuestions2 = {};
 
+  final List<String> questionCodes = [];
+
   Map<Scope, Map<Component, List<QuestionModel>>> get matrixQuestions =>
       _matrixQuestions;
   Map<Component, Map<Scope, List<QuestionModel>>> get matrixQuestions2 =>
@@ -40,9 +42,22 @@ class QuestionsRepository {
           .toList(),
     );
 
+    Map<Component, Map<Scope, int>> _counter = {
+      for (final component in Component.values)
+        component: {
+          for (final scope in Scope.values) scope: 1,
+        },
+    };
+
     for (final question in _allQuestions) {
       final Scope scope = _getScope(question.scope);
       final Component component = _getComponent(question.component);
+
+      questionCodes.add(component.name[0] +
+          scope.name[0] +
+          _counter[component]![scope]!.toString());
+
+      _counter[component]![scope] = _counter[component]![scope]! + 1;
 
       _matrixQuestions[scope] ??= {};
       _matrixQuestions[scope]![component] ??= [];
@@ -56,6 +71,10 @@ class QuestionsRepository {
     _allQuestions.sort((a, b) => a.position.compareTo(b.position));
 
     _logger.i("QuestionsRepository: init: ${_allQuestions.length} questions");
+  }
+
+  String getQuestionCode(int position) {
+    return questionCodes[position - 1];
   }
 
   QuestionModel getQuestionByPosition(int position) {

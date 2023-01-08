@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_client_new/repositories/questions_repository.dart';
 import '../../models/question/question_model.dart';
 import '../../repositories/questionairee_repository.dart';
 import '../../services/graphql/graphql_service.dart';
@@ -15,6 +16,8 @@ class QuestionController extends StateNotifier<QuestionModel?> {
   final GraphQLService _graphQLService = InstanceController()[GraphQLService];
   final QuestionnarieRepository _questionnarieRepository =
       InstanceController()[QuestionnarieRepository];
+  final QuestionsRepository _questionsRepository =
+      InstanceController()[QuestionsRepository];
 
   void setQuestion(QuestionModel question) {
     state = question;
@@ -79,5 +82,9 @@ class QuestionController extends StateNotifier<QuestionModel?> {
     ref.read(rootLoading.originProvider).setLoading(false);
 
     return null;
+  }
+
+  String getQuestionCode(int id) {
+    return _questionsRepository.getQuestionCode(id);
   }
 }

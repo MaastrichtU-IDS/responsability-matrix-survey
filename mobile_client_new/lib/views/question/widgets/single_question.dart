@@ -5,6 +5,7 @@ class SingleQuestion extends StatefulWidget {
   const SingleQuestion(
       {super.key,
       required this.questionModel,
+      required this.questionCode,
       this.textController,
       this.onAnswer,
       this.initialAnswer = ""});
@@ -16,6 +17,8 @@ class SingleQuestion extends StatefulWidget {
   final Function(String)? onAnswer;
 
   final TextEditingController? textController;
+
+  final String questionCode;
 
   @override
   State<SingleQuestion> createState() => _SingleQuestionState();
@@ -50,15 +53,15 @@ class _SingleQuestionState extends State<SingleQuestion>
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Question No. ${widget.questionModel.position}",
+              Text("Question ID. ${widget.questionCode}",
                   style: Theme.of(context).textTheme.headline6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Scope: ${widget.questionModel.scope}",
+                  Text("Component: ${widget.questionModel.component}",
                       style: Theme.of(context).textTheme.bodyText1),
                   const SizedBox(width: 10),
-                  Text("Component: ${widget.questionModel.component}",
+                  Text("Scope: ${widget.questionModel.scope}",
                       style: Theme.of(context).textTheme.bodyText1),
                 ],
               ),

@@ -52,7 +52,7 @@ class HomePage extends ConsumerWidget {
                     for (int i = 0; i < state.questionnaires.length; i++)
                       ProjectCard(index: i)
                   ])
-                : const Center(child: Text("No questionnaires found")),
+                : const Center(child: Text("No project found")),
             const SizedBox(
               height: 25,
             ),
@@ -60,5 +60,3 @@ class HomePage extends ConsumerWidget {
     );
   }
 }
-
-

@@ -15,12 +15,10 @@ class UniLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: 'login-hero',
-      child: SvgPicture.asset(
-        'assets/images/university_logo.svg',
+      child: Image.asset(
+        'assets/images/university_logo.png',
         width: width,
         height: height,
-        placeholderBuilder: (BuildContext context) =>
-            const CircularProgressIndicator(),
       ),
     );
   }
