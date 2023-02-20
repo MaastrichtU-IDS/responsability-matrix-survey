@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'splash_controller_states.dart';
 
@@ -26,10 +26,10 @@ mixin _$SplashControllerStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? authenticated,
-    TResult Function()? authenticatedNotRegistered,
-    TResult Function()? unauthenticated,
+    TResult? Function()? initial,
+    TResult? Function()? authenticated,
+    TResult? Function()? authenticatedNotRegistered,
+    TResult? Function()? unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,11 +55,12 @@ mixin _$SplashControllerStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SplashControllerStatesInitial value)? initial,
-    TResult Function(_SplashControllerStatesAuthenticated value)? authenticated,
-    TResult Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
+    TResult? Function(_SplashControllerStatesInitial value)? initial,
+    TResult? Function(_SplashControllerStatesAuthenticated value)?
+        authenticated,
+    TResult? Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
         authenticatedNotRegistered,
-    TResult Function(_SplashControllerStatesUnauthenticated value)?
+    TResult? Function(_SplashControllerStatesUnauthenticated value)?
         unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
@@ -80,17 +81,19 @@ mixin _$SplashControllerStates {
 abstract class $SplashControllerStatesCopyWith<$Res> {
   factory $SplashControllerStatesCopyWith(SplashControllerStates value,
           $Res Function(SplashControllerStates) then) =
-      _$SplashControllerStatesCopyWithImpl<$Res>;
+      _$SplashControllerStatesCopyWithImpl<$Res, SplashControllerStates>;
 }
 
 /// @nodoc
-class _$SplashControllerStatesCopyWithImpl<$Res>
+class _$SplashControllerStatesCopyWithImpl<$Res,
+        $Val extends SplashControllerStates>
     implements $SplashControllerStatesCopyWith<$Res> {
   _$SplashControllerStatesCopyWithImpl(this._value, this._then);
 
-  final SplashControllerStates _value;
   // ignore: unused_field
-  final $Res Function(SplashControllerStates) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -103,16 +106,13 @@ abstract class _$$_SplashControllerStatesInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SplashControllerStatesInitialCopyWithImpl<$Res>
-    extends _$SplashControllerStatesCopyWithImpl<$Res>
+    extends _$SplashControllerStatesCopyWithImpl<$Res,
+        _$_SplashControllerStatesInitial>
     implements _$$_SplashControllerStatesInitialCopyWith<$Res> {
   __$$_SplashControllerStatesInitialCopyWithImpl(
       _$_SplashControllerStatesInitial _value,
       $Res Function(_$_SplashControllerStatesInitial) _then)
-      : super(_value, (v) => _then(v as _$_SplashControllerStatesInitial));
-
-  @override
-  _$_SplashControllerStatesInitial get _value =>
-      super._value as _$_SplashControllerStatesInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -150,10 +150,10 @@ class _$_SplashControllerStatesInitial
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? authenticated,
-    TResult Function()? authenticatedNotRegistered,
-    TResult Function()? unauthenticated,
+    TResult? Function()? initial,
+    TResult? Function()? authenticated,
+    TResult? Function()? authenticatedNotRegistered,
+    TResult? Function()? unauthenticated,
   }) {
     return initial?.call();
   }
@@ -191,11 +191,12 @@ class _$_SplashControllerStatesInitial
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SplashControllerStatesInitial value)? initial,
-    TResult Function(_SplashControllerStatesAuthenticated value)? authenticated,
-    TResult Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
+    TResult? Function(_SplashControllerStatesInitial value)? initial,
+    TResult? Function(_SplashControllerStatesAuthenticated value)?
+        authenticated,
+    TResult? Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
         authenticatedNotRegistered,
-    TResult Function(_SplashControllerStatesUnauthenticated value)?
+    TResult? Function(_SplashControllerStatesUnauthenticated value)?
         unauthenticated,
   }) {
     return initial?.call(this);
@@ -235,17 +236,13 @@ abstract class _$$_SplashControllerStatesAuthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SplashControllerStatesAuthenticatedCopyWithImpl<$Res>
-    extends _$SplashControllerStatesCopyWithImpl<$Res>
+    extends _$SplashControllerStatesCopyWithImpl<$Res,
+        _$_SplashControllerStatesAuthenticated>
     implements _$$_SplashControllerStatesAuthenticatedCopyWith<$Res> {
   __$$_SplashControllerStatesAuthenticatedCopyWithImpl(
       _$_SplashControllerStatesAuthenticated _value,
       $Res Function(_$_SplashControllerStatesAuthenticated) _then)
-      : super(
-            _value, (v) => _then(v as _$_SplashControllerStatesAuthenticated));
-
-  @override
-  _$_SplashControllerStatesAuthenticated get _value =>
-      super._value as _$_SplashControllerStatesAuthenticated;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -283,10 +280,10 @@ class _$_SplashControllerStatesAuthenticated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? authenticated,
-    TResult Function()? authenticatedNotRegistered,
-    TResult Function()? unauthenticated,
+    TResult? Function()? initial,
+    TResult? Function()? authenticated,
+    TResult? Function()? authenticatedNotRegistered,
+    TResult? Function()? unauthenticated,
   }) {
     return authenticated?.call();
   }
@@ -324,11 +321,12 @@ class _$_SplashControllerStatesAuthenticated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SplashControllerStatesInitial value)? initial,
-    TResult Function(_SplashControllerStatesAuthenticated value)? authenticated,
-    TResult Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
+    TResult? Function(_SplashControllerStatesInitial value)? initial,
+    TResult? Function(_SplashControllerStatesAuthenticated value)?
+        authenticated,
+    TResult? Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
         authenticatedNotRegistered,
-    TResult Function(_SplashControllerStatesUnauthenticated value)?
+    TResult? Function(_SplashControllerStatesUnauthenticated value)?
         unauthenticated,
   }) {
     return authenticated?.call(this);
@@ -370,20 +368,14 @@ abstract class _$$_SplashControllerStatesAuthenticatedNotRegisteredCopyWith<
 
 /// @nodoc
 class __$$_SplashControllerStatesAuthenticatedNotRegisteredCopyWithImpl<$Res>
-    extends _$SplashControllerStatesCopyWithImpl<$Res>
+    extends _$SplashControllerStatesCopyWithImpl<$Res,
+        _$_SplashControllerStatesAuthenticatedNotRegistered>
     implements
         _$$_SplashControllerStatesAuthenticatedNotRegisteredCopyWith<$Res> {
   __$$_SplashControllerStatesAuthenticatedNotRegisteredCopyWithImpl(
       _$_SplashControllerStatesAuthenticatedNotRegistered _value,
       $Res Function(_$_SplashControllerStatesAuthenticatedNotRegistered) _then)
-      : super(
-            _value,
-            (v) => _then(
-                v as _$_SplashControllerStatesAuthenticatedNotRegistered));
-
-  @override
-  _$_SplashControllerStatesAuthenticatedNotRegistered get _value =>
-      super._value as _$_SplashControllerStatesAuthenticatedNotRegistered;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -421,10 +413,10 @@ class _$_SplashControllerStatesAuthenticatedNotRegistered
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? authenticated,
-    TResult Function()? authenticatedNotRegistered,
-    TResult Function()? unauthenticated,
+    TResult? Function()? initial,
+    TResult? Function()? authenticated,
+    TResult? Function()? authenticatedNotRegistered,
+    TResult? Function()? unauthenticated,
   }) {
     return authenticatedNotRegistered?.call();
   }
@@ -462,11 +454,12 @@ class _$_SplashControllerStatesAuthenticatedNotRegistered
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SplashControllerStatesInitial value)? initial,
-    TResult Function(_SplashControllerStatesAuthenticated value)? authenticated,
-    TResult Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
+    TResult? Function(_SplashControllerStatesInitial value)? initial,
+    TResult? Function(_SplashControllerStatesAuthenticated value)?
+        authenticated,
+    TResult? Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
         authenticatedNotRegistered,
-    TResult Function(_SplashControllerStatesUnauthenticated value)?
+    TResult? Function(_SplashControllerStatesUnauthenticated value)?
         unauthenticated,
   }) {
     return authenticatedNotRegistered?.call(this);
@@ -506,17 +499,13 @@ abstract class _$$_SplashControllerStatesUnauthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SplashControllerStatesUnauthenticatedCopyWithImpl<$Res>
-    extends _$SplashControllerStatesCopyWithImpl<$Res>
+    extends _$SplashControllerStatesCopyWithImpl<$Res,
+        _$_SplashControllerStatesUnauthenticated>
     implements _$$_SplashControllerStatesUnauthenticatedCopyWith<$Res> {
   __$$_SplashControllerStatesUnauthenticatedCopyWithImpl(
       _$_SplashControllerStatesUnauthenticated _value,
       $Res Function(_$_SplashControllerStatesUnauthenticated) _then)
-      : super(_value,
-            (v) => _then(v as _$_SplashControllerStatesUnauthenticated));
-
-  @override
-  _$_SplashControllerStatesUnauthenticated get _value =>
-      super._value as _$_SplashControllerStatesUnauthenticated;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -554,10 +543,10 @@ class _$_SplashControllerStatesUnauthenticated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? authenticated,
-    TResult Function()? authenticatedNotRegistered,
-    TResult Function()? unauthenticated,
+    TResult? Function()? initial,
+    TResult? Function()? authenticated,
+    TResult? Function()? authenticatedNotRegistered,
+    TResult? Function()? unauthenticated,
   }) {
     return unauthenticated?.call();
   }
@@ -595,11 +584,12 @@ class _$_SplashControllerStatesUnauthenticated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SplashControllerStatesInitial value)? initial,
-    TResult Function(_SplashControllerStatesAuthenticated value)? authenticated,
-    TResult Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
+    TResult? Function(_SplashControllerStatesInitial value)? initial,
+    TResult? Function(_SplashControllerStatesAuthenticated value)?
+        authenticated,
+    TResult? Function(_SplashControllerStatesAuthenticatedNotRegistered value)?
         authenticatedNotRegistered,
-    TResult Function(_SplashControllerStatesUnauthenticated value)?
+    TResult? Function(_SplashControllerStatesUnauthenticated value)?
         unauthenticated,
   }) {
     return unauthenticated?.call(this);

@@ -29,14 +29,13 @@ void main() async {
   final GraphQLService graphQLService = GraphQLService(
     // baseUrl: const String.fromEnvironment('GRAPHQL_URL',
     //     defaultValue: 'http://localhost:4000/graphql'),
-    baseUrl: const String.fromEnvironment("GRAPHQL_URL",
-        defaultValue: "http://localhost:4000/graphql"),
+    baseUrl: const String.fromEnvironment('GRAPHQL_URL',
+        defaultValue: 'http://localhost:4000/graphql'),
     tokenProvider: () async {
       final String? token =
           await FirebaseAuth.instance.currentUser?.getIdToken();
-      final ret = "Bearer $token";
-      if (token != null) return ret;
-      return null;
+      final ret = 'Bearer $token';
+      return ret;
     },
   );
   await graphQLService.init();
@@ -70,7 +69,7 @@ class MyApp extends ConsumerWidget {
     });
     return MaterialApp(
       navigatorKey: navigatorKey,
-      title: "UM Responsibility Matrix",
+      title: 'UM Responsibility Matrix',
       theme: ThemeData(
           primarySwatch: createMaterialColor(
               StyleProvider.of(context).colors.appPrimaryColor)),
@@ -104,14 +103,14 @@ class MyApp extends ConsumerWidget {
 
 // Create MaterialColor from color.
 MaterialColor createMaterialColor(Color color) {
-  List strengths = <double>[.05];
-  Map<int, Color> swatch = {};
+  final List strengths = <double>[.05];
+  final Map<int, Color> swatch = {};
   final int r = color.red, g = color.green, b = color.blue;
 
   for (int i = 1; i < 10; i++) {
     strengths.add(0.1 * i);
   }
-  for (var strength in strengths) {
+  for (final strength in strengths) {
     final double ds = 0.5 - strength;
     swatch[(strength * 1000).round()] = Color.fromRGBO(
       r + ((ds < 0 ? r : (255 - r)) * ds).round(),

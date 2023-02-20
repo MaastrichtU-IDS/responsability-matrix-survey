@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_client_new/models/answer/answer_model.dart';
 import '../../../models/question/question_model.dart';
 
 class SingleQuestion extends StatefulWidget {
@@ -8,15 +9,18 @@ class SingleQuestion extends StatefulWidget {
       required this.questionCode,
       this.textController,
       this.onAnswer,
-      this.initialAnswer = ""});
+      this.initialAnswerStatus = AnswerStatus.applicable,
+      this.initialAnswer = ''});
 
   final QuestionModel questionModel;
 
   final String initialAnswer;
 
-  final Function(String)? onAnswer;
+  final Function(String answer, AnswerStatus status)? onAnswer;
 
   final TextEditingController? textController;
+
+  final AnswerStatus initialAnswerStatus;
 
   final String questionCode;
 
@@ -28,10 +32,12 @@ class _SingleQuestionState extends State<SingleQuestion>
     with SingleTickerProviderStateMixin {
   late TextEditingController _textEditingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late AnswerStatus _answerStatus;
 
   @override
   void initState() {
     _textEditingController = widget.textController ?? TextEditingController();
+    _answerStatus = widget.initialAnswerStatus;
     super.initState();
   }
 
@@ -50,19 +56,17 @@ class _SingleQuestionState extends State<SingleQuestion>
           key: _formKey,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Question ID. ${widget.questionCode}",
-                  style: Theme.of(context).textTheme.headline6),
+              Text('Question ID. ${widget.questionCode}',
+                  style: Theme.of(context).textTheme.titleLarge),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Component: ${widget.questionModel.component}",
-                      style: Theme.of(context).textTheme.bodyText1),
+                  Text('Component: ${widget.questionModel.component}',
+                      style: Theme.of(context).textTheme.bodyLarge),
                   const SizedBox(width: 10),
-                  Text("Scope: ${widget.questionModel.scope}",
-                      style: Theme.of(context).textTheme.bodyText1),
+                  Text('Scope: ${widget.questionModel.scope}',
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ],
               ),
               const SizedBox(height: 10),
@@ -71,14 +75,52 @@ class _SingleQuestionState extends State<SingleQuestion>
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .headline5!
+                    .headlineSmall!
                     .copyWith(fontWeight: FontWeight.w500, height: 1.5),
+              ),
+              const Divider(),
+              DropdownButtonFormField<AnswerStatus>(
+                value: _answerStatus,
+                decoration: const InputDecoration(
+                  labelText: 'Answer Status',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null) {
+                    return 'Please select an answer status';
+                  }
+                  return null;
+                },
+                items: AnswerStatus.values
+                    .map<DropdownMenuItem<AnswerStatus>>(
+                        (e) => DropdownMenuItem<AnswerStatus>(
+                              value: e,
+                              child: Row(children: [
+                                Icon(
+                                  answerStatusItems[e]!.icon,
+                                  color: answerStatusItems[e]!.color,
+                                ),
+                                const SizedBox(width: 10),
+                                Text(answerStatusItems[e]!.text),
+                              ]),
+                            ))
+                    .toList(),
+                onChanged: (value) {
+                  if (value == null || value == _answerStatus) {
+                    return;
+                  }
+                  setState(() {
+                    _answerStatus = value;
+                  });
+                  widget.onAnswer
+                      ?.call(_textEditingController.text, _answerStatus);
+                },
               ),
               const Divider(),
               TextFormField(
                 controller: _textEditingController,
                 decoration: const InputDecoration(
-                  labelText: "Answer",
+                  labelText: 'Answer',
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
@@ -94,17 +136,18 @@ class _SingleQuestionState extends State<SingleQuestion>
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    widget.onAnswer?.call(_textEditingController.text);
+                    widget.onAnswer
+                        ?.call(_textEditingController.text, _answerStatus);
                   }
                 },
                 child: const Text('Submit'),
               ),
               Text(
-                "Example answers",
+                'Example answers',
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .headline5!
+                    .headlineSmall!
                     .copyWith(fontWeight: FontWeight.w500, height: 1.5),
               ),
               const Divider(),
@@ -121,7 +164,7 @@ class _SingleQuestionState extends State<SingleQuestion>
                       textScaleFactor: .7,
                       style: Theme.of(context)
                           .textTheme
-                          .headline5!
+                          .headlineSmall!
                           .copyWith(fontWeight: FontWeight.w500, height: 1.5),
                     ),
                   ),
@@ -132,3 +175,26 @@ class _SingleQuestionState extends State<SingleQuestion>
     );
   }
 }
+
+class AnswerStatusData {
+  const AnswerStatusData(
+      {required this.text, required this.color, required this.icon});
+
+  final String text;
+  final Color color;
+  final IconData icon;
+}
+
+const answerStatusItems = <AnswerStatus, AnswerStatusData>{
+  AnswerStatus.applicable: AnswerStatusData(
+      text: 'Applicable',
+      color: Colors.green,
+      icon: Icons.check_circle_outline),
+  AnswerStatus.notApplicable: AnswerStatusData(
+      text: 'Not Applicable', color: Colors.red, icon: Icons.cancel_outlined),
+  AnswerStatus.dontKnow: AnswerStatusData(
+      text: "It is applicable but, don't know how to answer",
+      color: Colors.grey,
+      icon: Icons.help_outline),
+
+};

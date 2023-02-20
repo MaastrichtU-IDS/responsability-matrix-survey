@@ -27,7 +27,7 @@ class DashboardTableCell extends ConsumerWidget {
             ref
                 .read(questionsListController.notifier)
                 .setScopeAndComponent(scope, component);
-            ref.read(questionController.originProvider).clearQuestion();
+            ref.read(questionController.notifier).clearQuestion();
             ref.read(navController.notifier).navigateTo(QuestionPage.routeName);
           },
           child: SizedBox(

@@ -37,7 +37,7 @@ class SplashPage extends ConsumerWidget {
       );
     });
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      ref.read(splashPageController.originProvider).checkAuthentication();
+      ref.read(splashPageController.notifier).checkAuthentication();
     });
 
     return Scaffold(

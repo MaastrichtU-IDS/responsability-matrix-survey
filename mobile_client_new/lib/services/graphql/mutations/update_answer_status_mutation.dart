@@ -16,17 +16,16 @@ import 'package:graphql/client.dart';
 import 'package:mobile_client_new/services/graphql/interfaces/graphql_args_i.dart';
 import 'package:mobile_client_new/services/graphql/interfaces/graphql_mutation_i.dart';
 
-class UpdateAnswerMutation extends MutatorCreatorI {
-  const UpdateAnswerMutation() : super(mutation: r'''
-  mutation updateAnswer($answerId: ID!, $answer: String!, $status: String!) {
-    updateAnswers(where: { id: $answerId }, update: { answer: $answer, status: $status }) {
+class UpdateAnswerStatusMutation extends MutatorCreatorI {
+  const UpdateAnswerStatusMutation() : super(mutation: r'''
+  mutation updateQuestionStatus($answerId: ID!, $status: String!) {
+    updateAnswers(where: { id: $answerId }, update: { status: $status }) {
       info {
         bookmark
       }
     }
   }
-
-''', mutationName: 'UpdateAnswerMutation');
+''', mutationName: 'UpdateAnswerStatusMutation');
 
   @override
   MutationOptions<Object?> createMutationOptions({GraphQlArgsI? args}) {
@@ -37,22 +36,19 @@ class UpdateAnswerMutation extends MutatorCreatorI {
   }
 }
 
-class UpdateAnswerMutationArgs extends GraphQlArgsI {
+class UpdateAnswerStatusMutationArgs extends GraphQlArgsI {
   final String answerId;
-  final String answer;
   final String status;
 
-  const UpdateAnswerMutationArgs({
+  const UpdateAnswerStatusMutationArgs({
     required this.answerId,
-    required this.answer,
     required this.status,
-  }) : super(queryName: 'UpdateAnswerMutation');
+  }) : super(queryName: 'UpdateAnswerStatusMutation');
 
   @override
   Map<String, dynamic> createQueryArgs() {
     return {
       'answerId': answerId,
-      'answer': answer,
       'status': status,
     };
   }

@@ -43,10 +43,10 @@ class _NavbarItemState extends State<NavbarItem>
       duration: const Duration(milliseconds: 250),
     );
     _textStyleAnimation = TextStyleTween(
-      end: Theme.of(context).textTheme.headline6!.copyWith(
+      end: Theme.of(context).textTheme.titleLarge!.copyWith(
             color: StyleProvider.of(context).colors.appPrimaryColor,
           ),
-      begin: Theme.of(context).textTheme.headline6!.copyWith(
+      begin: Theme.of(context).textTheme.titleLarge!.copyWith(
             color: Colors.grey[500],
           ),
     ).animate(_controller)

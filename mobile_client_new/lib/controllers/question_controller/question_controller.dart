@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_client_new/models/answer/answer_model.dart';
 import 'package:mobile_client_new/repositories/questions_repository.dart';
 import '../../models/question/question_model.dart';
 import '../../repositories/questionairee_repository.dart';
@@ -23,12 +24,16 @@ class QuestionController extends StateNotifier<QuestionModel?> {
     state = question;
   }
 
+  void updateState() {
+    state = state?.copyWith();
+  }
+
   void clearQuestion() {
     state = null;
   }
 
-  Future<String?> answerQuestion(String answer) async {
-    ref.read(rootLoading.originProvider).setLoading(true);
+  Future<String?> answerQuestion(String answer, AnswerStatus status) async {
+    ref.read(rootLoading.notifier).setLoading(true);
     if ((_questionnarieRepository
                 .selectedQuestionnaire?.ClosedQuestionsIndex.isNotEmpty ??
             false) &&
@@ -40,7 +45,7 @@ class QuestionController extends StateNotifier<QuestionModel?> {
           .firstWhere((element) => element.position == state!.position)
           .id;
 
-      return await updateAnswer(answerId, answer);
+      return await updateAnswer(answerId, answer, status);
     }
     final result = await _graphQLService.mutate(
         const CreateAnswerMutation(),
@@ -50,6 +55,7 @@ class QuestionController extends StateNotifier<QuestionModel?> {
           questionId: state!.id,
           questionPosition: state!.position,
           questionScope: state!.scope,
+          questionStatus: status.name,
           questionnaireId: _questionnarieRepository.selectedQuestionnaire!.id,
         ));
 
@@ -61,15 +67,18 @@ class QuestionController extends StateNotifier<QuestionModel?> {
 
     state = state?.copyWith();
 
-    ref.read(rootLoading.originProvider).setLoading(false);
+    ref.read(rootLoading.notifier).setLoading(false);
 
     return null;
   }
 
-  Future<String?> updateAnswer(String answerId, String answer) async {
-    ref.read(rootLoading.originProvider).setLoading(true);
-    final result = await _graphQLService.mutate(const UpdateAnswerMutation(),
-        UpdateAnswerMutationArgs(answerId: answerId, answer: answer));
+  Future<String?> updateAnswer(
+      String answerId, String answer, AnswerStatus status) async {
+    ref.read(rootLoading.notifier).setLoading(true);
+    final result = await _graphQLService.mutate(
+        const UpdateAnswerMutation(),
+        UpdateAnswerMutationArgs(
+            answerId: answerId, answer: answer, status: status.name));
 
     if (result.hasException) {
       return result.exception.toString();
@@ -79,7 +88,7 @@ class QuestionController extends StateNotifier<QuestionModel?> {
 
     state = state?.copyWith();
 
-    ref.read(rootLoading.originProvider).setLoading(false);
+    ref.read(rootLoading.notifier).setLoading(false);
 
     return null;
   }

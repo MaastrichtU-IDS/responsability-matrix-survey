@@ -62,7 +62,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               width: max(MediaQuery.of(context).size.width / 3.5, 1000),
               child: OverflowBar(
                 spacing: 16.0,
-                overflowDirection: VerticalDirection.down,
                 overflowAlignment: OverflowBarAlignment.center,
                 overflowSpacing: 16.0,
                 alignment: MainAxisAlignment.center,
@@ -79,7 +78,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       onLoginPressed: () {
                         if (formKey.currentState!.validate()) {
                           ref
-                              .read(authGateControllerProvider.originProvider)
+                              .read(authGateControllerProvider.notifier)
                               .loginWithEmailAndPassword(emailController.text,
                                   passwordController.text);
                         }

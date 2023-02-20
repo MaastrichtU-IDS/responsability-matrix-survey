@@ -51,7 +51,7 @@ class UpdateQuestionnaireArgs extends GraphQlArgsI {
   @override
   Map<String, dynamic> createQueryArgs() {
     return {
-      "id": id,
+      'id': id,
       if (title != null) 'title': title,
       if (description != null) 'description': description,
     };

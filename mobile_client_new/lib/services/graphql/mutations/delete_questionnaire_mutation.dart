@@ -47,7 +47,7 @@ class DeleteQuestionnaireArgs extends GraphQlArgsI {
   @override
   Map<String, dynamic> createQueryArgs() {
     return {
-      "id": id,
+      'id': id,
     };
   }
 }

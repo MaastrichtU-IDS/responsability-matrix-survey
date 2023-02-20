@@ -7,7 +7,6 @@ class InfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Icon(
           Icons.info_outline,
@@ -18,7 +17,7 @@ class InfoWidget extends StatelessWidget {
         ),
         Text(
           text,
-          style: Theme.of(context).textTheme.headline6!.copyWith(
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.w500,
               ),
         ),

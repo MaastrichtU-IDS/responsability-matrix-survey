@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'questionnaire_model.dart';
 
@@ -36,7 +36,8 @@ mixin _$QuestionnaireModel {
 abstract class $QuestionnaireModelCopyWith<$Res> {
   factory $QuestionnaireModelCopyWith(
           QuestionnaireModel value, $Res Function(QuestionnaireModel) then) =
-      _$QuestionnaireModelCopyWithImpl<$Res>;
+      _$QuestionnaireModelCopyWithImpl<$Res, QuestionnaireModel>;
+  @useResult
   $Res call(
       {String id,
       List<int> ClosedQuestionsIndex,
@@ -46,44 +47,46 @@ abstract class $QuestionnaireModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$QuestionnaireModelCopyWithImpl<$Res>
+class _$QuestionnaireModelCopyWithImpl<$Res, $Val extends QuestionnaireModel>
     implements $QuestionnaireModelCopyWith<$Res> {
   _$QuestionnaireModelCopyWithImpl(this._value, this._then);
 
-  final QuestionnaireModel _value;
   // ignore: unused_field
-  final $Res Function(QuestionnaireModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? ClosedQuestionsIndex = freezed,
-    Object? ClosedQuestions = freezed,
-    Object? title = freezed,
-    Object? description = freezed,
+    Object? id = null,
+    Object? ClosedQuestionsIndex = null,
+    Object? ClosedQuestions = null,
+    Object? title = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      ClosedQuestionsIndex: ClosedQuestionsIndex == freezed
+      ClosedQuestionsIndex: null == ClosedQuestionsIndex
           ? _value.ClosedQuestionsIndex
           : ClosedQuestionsIndex // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      ClosedQuestions: ClosedQuestions == freezed
+      ClosedQuestions: null == ClosedQuestions
           ? _value.ClosedQuestions
           : ClosedQuestions // ignore: cast_nullable_to_non_nullable
               as List<AnswerModel>,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +97,7 @@ abstract class _$$_QuestionnaireModelCopyWith<$Res>
           $Res Function(_$_QuestionnaireModel) then) =
       __$$_QuestionnaireModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       List<int> ClosedQuestionsIndex,
@@ -104,41 +108,39 @@ abstract class _$$_QuestionnaireModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_QuestionnaireModelCopyWithImpl<$Res>
-    extends _$QuestionnaireModelCopyWithImpl<$Res>
+    extends _$QuestionnaireModelCopyWithImpl<$Res, _$_QuestionnaireModel>
     implements _$$_QuestionnaireModelCopyWith<$Res> {
   __$$_QuestionnaireModelCopyWithImpl(
       _$_QuestionnaireModel _value, $Res Function(_$_QuestionnaireModel) _then)
-      : super(_value, (v) => _then(v as _$_QuestionnaireModel));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionnaireModel get _value => super._value as _$_QuestionnaireModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? ClosedQuestionsIndex = freezed,
-    Object? ClosedQuestions = freezed,
-    Object? title = freezed,
-    Object? description = freezed,
+    Object? id = null,
+    Object? ClosedQuestionsIndex = null,
+    Object? ClosedQuestions = null,
+    Object? title = null,
+    Object? description = null,
   }) {
     return _then(_$_QuestionnaireModel(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      ClosedQuestionsIndex: ClosedQuestionsIndex == freezed
+      ClosedQuestionsIndex: null == ClosedQuestionsIndex
           ? _value._ClosedQuestionsIndex
           : ClosedQuestionsIndex // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      ClosedQuestions: ClosedQuestions == freezed
+      ClosedQuestions: null == ClosedQuestions
           ? _value._ClosedQuestions
           : ClosedQuestions // ignore: cast_nullable_to_non_nullable
               as List<AnswerModel>,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -166,6 +168,8 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
   final List<int> _ClosedQuestionsIndex;
   @override
   List<int> get ClosedQuestionsIndex {
+    if (_ClosedQuestionsIndex is EqualUnmodifiableListView)
+      return _ClosedQuestionsIndex;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_ClosedQuestionsIndex);
   }
@@ -173,6 +177,7 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
   final List<AnswerModel> _ClosedQuestions;
   @override
   List<AnswerModel> get ClosedQuestions {
+    if (_ClosedQuestions is EqualUnmodifiableListView) return _ClosedQuestions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_ClosedQuestions);
   }
@@ -192,28 +197,29 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionnaireModel &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._ClosedQuestionsIndex, _ClosedQuestionsIndex) &&
             const DeepCollectionEquality()
                 .equals(other._ClosedQuestions, _ClosedQuestions) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      id,
       const DeepCollectionEquality().hash(_ClosedQuestionsIndex),
       const DeepCollectionEquality().hash(_ClosedQuestions),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(description));
+      title,
+      description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionnaireModelCopyWith<_$_QuestionnaireModel> get copyWith =>
       __$$_QuestionnaireModelCopyWithImpl<_$_QuestionnaireModel>(
           this, _$identity);
@@ -273,34 +279,38 @@ mixin _$QuestionnaireModelMini {
 abstract class $QuestionnaireModelMiniCopyWith<$Res> {
   factory $QuestionnaireModelMiniCopyWith(QuestionnaireModelMini value,
           $Res Function(QuestionnaireModelMini) then) =
-      _$QuestionnaireModelMiniCopyWithImpl<$Res>;
+      _$QuestionnaireModelMiniCopyWithImpl<$Res, QuestionnaireModelMini>;
+  @useResult
   $Res call({String id, String title});
 }
 
 /// @nodoc
-class _$QuestionnaireModelMiniCopyWithImpl<$Res>
+class _$QuestionnaireModelMiniCopyWithImpl<$Res,
+        $Val extends QuestionnaireModelMini>
     implements $QuestionnaireModelMiniCopyWith<$Res> {
   _$QuestionnaireModelMiniCopyWithImpl(this._value, this._then);
 
-  final QuestionnaireModelMini _value;
   // ignore: unused_field
-  final $Res Function(QuestionnaireModelMini) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
+    Object? id = null,
+    Object? title = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -311,32 +321,31 @@ abstract class _$$_QuestionnaireModelMiniCopyWith<$Res>
           $Res Function(_$_QuestionnaireModelMini) then) =
       __$$_QuestionnaireModelMiniCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String title});
 }
 
 /// @nodoc
 class __$$_QuestionnaireModelMiniCopyWithImpl<$Res>
-    extends _$QuestionnaireModelMiniCopyWithImpl<$Res>
+    extends _$QuestionnaireModelMiniCopyWithImpl<$Res,
+        _$_QuestionnaireModelMini>
     implements _$$_QuestionnaireModelMiniCopyWith<$Res> {
   __$$_QuestionnaireModelMiniCopyWithImpl(_$_QuestionnaireModelMini _value,
       $Res Function(_$_QuestionnaireModelMini) _then)
-      : super(_value, (v) => _then(v as _$_QuestionnaireModelMini));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionnaireModelMini get _value =>
-      super._value as _$_QuestionnaireModelMini;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
+    Object? id = null,
+    Object? title = null,
   }) {
     return _then(_$_QuestionnaireModelMini(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
@@ -367,19 +376,17 @@ class _$_QuestionnaireModelMini implements _QuestionnaireModelMini {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionnaireModelMini &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title));
+  int get hashCode => Object.hash(runtimeType, id, title);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionnaireModelMiniCopyWith<_$_QuestionnaireModelMini> get copyWith =>
       __$$_QuestionnaireModelMiniCopyWithImpl<_$_QuestionnaireModelMini>(
           this, _$identity);

@@ -27,7 +27,7 @@ class GraphQLService {
   bool _isInitialized = false;
 
   Future<void> init() async {
-    _cache = await HiveStore.open(boxName: "cache_graphql");
+    _cache = await HiveStore.open(boxName: 'cache_graphql');
 
     final http = HttpLink(_baseUrl);
     final auth = AuthLink(
@@ -38,7 +38,7 @@ class GraphQLService {
       cache: GraphQLCache(store: _cache),
       link: link,
     );
-    InstanceController()[Logger].i("GraphQL client initialized");
+    InstanceController()[Logger].i('GraphQL client initialized');
     // Last code!!!
     _isInitialized = true;
   }
@@ -52,7 +52,7 @@ class GraphQLService {
     final response = await _client.query(query);
 
     if (response.hasException) {
-      throw response.exception ?? Exception("Unknown error");
+      throw response.exception ?? Exception('Unknown error');
     }
 
     return response;
@@ -67,7 +67,7 @@ class GraphQLService {
     final response = await _client.mutate(query);
 
     if (response.hasException) {
-      throw response.exception ?? Exception("Unknown error");
+      throw response.exception ?? Exception('Unknown error');
     }
 
     return response;
@@ -78,6 +78,6 @@ class GraphQLService {
   }
 
   Never _notInitialized() {
-    throw Exception("GraphQLService is not initialized");
+    throw Exception('GraphQLService is not initialized');
   }
 }

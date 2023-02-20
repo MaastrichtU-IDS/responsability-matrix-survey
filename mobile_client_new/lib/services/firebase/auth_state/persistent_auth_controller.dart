@@ -17,7 +17,7 @@ class PersistentAuthController extends StateNotifier<AuthStates> {
     }
 
     FirebaseAuth.instance.authStateChanges().listen((authState) {
-      InstanceController()[Logger].i("AuthState Changed!: $authState");
+      InstanceController()[Logger].i('AuthState Changed!: $authState');
       if (authState == null) {
         state = const AuthStates.unauthenticated();
       } else {

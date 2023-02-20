@@ -15,7 +15,7 @@ abstract class QueryCreatorI<T extends GraphQlArgsI> {
 
   void checkArgsType(GraphQlArgsI args) {
     if (args.queryName != queryName) {
-      throw Exception("Args must be of type $queryName");
+      throw Exception('Args must be of type $queryName');
     }
   }
 }

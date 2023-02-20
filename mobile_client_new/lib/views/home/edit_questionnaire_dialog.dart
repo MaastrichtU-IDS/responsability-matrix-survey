@@ -51,19 +51,19 @@ class _EditQuestionnaireDialogState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Add Project",
-                  style: Theme.of(context).textTheme.headline6),
+              Text('Add Project',
+                  style: Theme.of(context).textTheme.titleLarge),
               Divider(
                 color: Theme.of(context).primaryColor,
               ),
               TextFormField(
                 controller: _titleController,
                 decoration: const InputDecoration(
-                  labelText: "Title",
+                  labelText: 'Title',
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Title is required";
+                    return 'Title is required';
                   }
                   return null;
                 },
@@ -73,11 +73,11 @@ class _EditQuestionnaireDialogState
                 maxLines: 5,
                 minLines: 3,
                 decoration: const InputDecoration(
-                  labelText: "Description",
+                  labelText: 'Description',
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Description is required";
+                    return 'Description is required';
                   }
                   return null;
                 },
@@ -92,7 +92,7 @@ class _EditQuestionnaireDialogState
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text("Cancel"),
+                    child: const Text('Cancel'),
                   ),
                   const SizedBox(
                     width: 16,
@@ -101,7 +101,7 @@ class _EditQuestionnaireDialogState
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         await ref
-                            .read(questionnaireController.originProvider)
+                            .read(questionnaireController.notifier)
                             .updateQuestionnaire(
                                 widget.id,
                                 _titleController.text,
@@ -110,7 +110,7 @@ class _EditQuestionnaireDialogState
                         Navigator.of(context).pop();
                       }
                     },
-                    child: const Text("Edit"),
+                    child: const Text('Edit'),
                   ),
                 ],
               ),

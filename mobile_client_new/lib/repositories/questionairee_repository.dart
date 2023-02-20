@@ -37,7 +37,7 @@ class QuestionnarieRepository {
       throw result.exception!;
     }
 
-    final data = result.data!['createQuestionnaires']["questionnaires"];
+    final data = result.data!['createQuestionnaires']['questionnaires'];
     _selectedQuestionnaire = QuestionnaireModel.fromJson(data[0]);
 
     _questionnaires = [

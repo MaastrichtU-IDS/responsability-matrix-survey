@@ -26,7 +26,7 @@ class QuestionModel with _$QuestionModel {
     required String scope,
     required String question,
     required int position,
-    @Default("") String exampleAnswer,
+    @Default('') String exampleAnswer,
   }) = _QuestionModel;
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) =>

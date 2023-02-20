@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../home/home_page.dart';
+import '../../widgets/info_widget.dart';
 import '../../controllers/question_controller/question_controller.dart';
 import '../../controllers/question_controller/questions_list_provider.dart';
 import '../../models/answer/answer_model.dart';
 import '../../models/question/question_model.dart';
-import '../home/home_page.dart';
 import 'widgets/questions_list.dart';
 import 'widgets/single_question.dart';
-import '../../widgets/info_widget.dart';
-import "../../utils/list_extensions/list_extensions.dart";
+import '../../utils/list_extensions/list_extensions.dart';
 
 final questionController =
     StateNotifierProvider<QuestionController, QuestionModel?>((ref) {
@@ -31,6 +31,7 @@ class QuestionPage extends ConsumerStatefulWidget {
 
 class _QuestionPageState extends ConsumerState<QuestionPage> {
   final TextEditingController _textController = TextEditingController();
+  AnswerStatus _status = AnswerStatus.applicable;
 
   @override
   void dispose() {
@@ -44,25 +45,40 @@ class _QuestionPageState extends ConsumerState<QuestionPage> {
 
     ref.listen<QuestionModel?>(questionController, (prev, next) {
       if (next != null) {
-        _textController.text = ref
-                .read(questionnaireController.originProvider)
-                .selectedQuestionnaire
-                ?.ClosedQuestions
-                .firstWhereOrNull<AnswerModel>(
-                    (element) => element.position == next.position)
-                ?.answer ??
-            "";
+        final answerModel = ref
+            .read(questionnaireController.notifier)
+            .selectedQuestionnaire
+            ?.ClosedQuestions
+            .firstWhereOrNull<AnswerModel>(
+                (element) => element.position == next.position);
+        _textController.text = answerModel?.answer ?? '';
+
+        final String statusString =
+            answerModel?.status ?? AnswerStatus.applicable.name;
+
+        _status = answerStatusFromString(statusString);
       }
     });
 
     _textController.text = ref
-            .read(questionnaireController.originProvider)
+            .read(questionnaireController.notifier)
             .selectedQuestionnaire
             ?.ClosedQuestions
             .firstWhereOrNull<AnswerModel>(
                 (element) => element.position == state?.position)
             ?.answer ??
-        "";
+        '';
+
+    final String statusString = ref
+            .read(questionnaireController.notifier)
+            .selectedQuestionnaire
+            ?.ClosedQuestions
+            .firstWhereOrNull<AnswerModel>(
+                (element) => element.position == state?.position)
+            ?.status ??
+        AnswerStatus.applicable.name;
+
+    _status = answerStatusFromString(statusString);
 
     return SafeArea(
       child: Padding(
@@ -85,15 +101,17 @@ class _QuestionPageState extends ConsumerState<QuestionPage> {
                                 .read(questionController.notifier)
                                 .getQuestionCode(state.position),
                             textController: _textController,
-                            onAnswer: (answer) async {
-                              ref
-                                  .read(questionController.originProvider)
-                                  .answerQuestion(answer);
-                              ref
-                                  .read(questionsListController.originProvider)
-                                  .updateState();
+                            initialAnswerStatus: _status,
+                            onAnswer: (answer, status) async {
                               await ref
-                                  .read(questionnaireController.originProvider)
+                                  .read(questionController.notifier)
+                                  .answerQuestion(answer, status);
+                              ref
+                                  .read(questionsListController.notifier)
+                                  .updateState();
+
+                              await ref
+                                  .read(questionnaireController.notifier)
                                   .updateState();
                             },
                           )
@@ -105,7 +123,7 @@ class _QuestionPageState extends ConsumerState<QuestionPage> {
             const Divider(),
             const InfoWidget(
                 text:
-                    "You can select the questions from the list and answer them."),
+                    'You can select the questions from the list and answer them.'),
             const SizedBox(
               height: 16,
             ),

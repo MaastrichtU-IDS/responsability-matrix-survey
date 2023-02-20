@@ -65,7 +65,7 @@ class _LearnMorePageState extends State<LearnMorePage> {
           level: level,
         ),
       );
-      _Contents subContents = _getContent(item.subContent, level + 1);
+      final _Contents subContents = _getContent(item.subContent, level + 1);
       tableOfContents.addAll(subContents.tableOfContents);
       content.addAll(subContents.content);
     }
@@ -85,13 +85,11 @@ class _ContentModel {
   final String title;
   final String content;
   final List<_ContentModel> subContent;
-  final Widget? optionalWidget;
   const _ContentModel({
     required this.key,
     required this.title,
     required this.content,
     required this.subContent,
-    this.optionalWidget,
   });
 
   factory _ContentModel.fromJson(Map<String, dynamic> json) {

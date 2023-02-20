@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'questionnaire_controller_states.dart';
 
@@ -29,9 +29,9 @@ mixin _$QuestionnaireControllerStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<QuestionnaireModel> questionnaires)? initial,
-    TResult Function(List<QuestionnaireModel> questionnaires)? loading,
-    TResult Function(List<QuestionnaireModel> questionnaires,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? initial,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? loading,
+    TResult? Function(List<QuestionnaireModel> questionnaires,
             QuestionnaireModel selectedQuestionnaire)?
         selected,
   }) =>
@@ -58,9 +58,9 @@ mixin _$QuestionnaireControllerStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_QuestionnaireControllerStatesInitial value)? initial,
-    TResult Function(_QuestionnaireControllerStatesLoading value)? loading,
-    TResult Function(_QuestionnaireControllerStatesLoaded value)? selected,
+    TResult? Function(_QuestionnaireControllerStatesInitial value)? initial,
+    TResult? Function(_QuestionnaireControllerStatesLoading value)? loading,
+    TResult? Function(_QuestionnaireControllerStatesLoaded value)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,29 +82,34 @@ abstract class $QuestionnaireControllerStatesCopyWith<$Res> {
   factory $QuestionnaireControllerStatesCopyWith(
           QuestionnaireControllerStates value,
           $Res Function(QuestionnaireControllerStates) then) =
-      _$QuestionnaireControllerStatesCopyWithImpl<$Res>;
+      _$QuestionnaireControllerStatesCopyWithImpl<$Res,
+          QuestionnaireControllerStates>;
+  @useResult
   $Res call({List<QuestionnaireModel> questionnaires});
 }
 
 /// @nodoc
-class _$QuestionnaireControllerStatesCopyWithImpl<$Res>
+class _$QuestionnaireControllerStatesCopyWithImpl<$Res,
+        $Val extends QuestionnaireControllerStates>
     implements $QuestionnaireControllerStatesCopyWith<$Res> {
   _$QuestionnaireControllerStatesCopyWithImpl(this._value, this._then);
 
-  final QuestionnaireControllerStates _value;
   // ignore: unused_field
-  final $Res Function(QuestionnaireControllerStates) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionnaires = freezed,
+    Object? questionnaires = null,
   }) {
     return _then(_value.copyWith(
-      questionnaires: questionnaires == freezed
+      questionnaires: null == questionnaires
           ? _value.questionnaires
           : questionnaires // ignore: cast_nullable_to_non_nullable
               as List<QuestionnaireModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -116,29 +121,27 @@ abstract class _$$_QuestionnaireControllerStatesInitialCopyWith<$Res>
           $Res Function(_$_QuestionnaireControllerStatesInitial) then) =
       __$$_QuestionnaireControllerStatesInitialCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<QuestionnaireModel> questionnaires});
 }
 
 /// @nodoc
 class __$$_QuestionnaireControllerStatesInitialCopyWithImpl<$Res>
-    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res>
+    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res,
+        _$_QuestionnaireControllerStatesInitial>
     implements _$$_QuestionnaireControllerStatesInitialCopyWith<$Res> {
   __$$_QuestionnaireControllerStatesInitialCopyWithImpl(
       _$_QuestionnaireControllerStatesInitial _value,
       $Res Function(_$_QuestionnaireControllerStatesInitial) _then)
-      : super(
-            _value, (v) => _then(v as _$_QuestionnaireControllerStatesInitial));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionnaireControllerStatesInitial get _value =>
-      super._value as _$_QuestionnaireControllerStatesInitial;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionnaires = freezed,
+    Object? questionnaires = null,
   }) {
     return _then(_$_QuestionnaireControllerStatesInitial(
-      questionnaires: questionnaires == freezed
+      questionnaires: null == questionnaires
           ? _value._questionnaires
           : questionnaires // ignore: cast_nullable_to_non_nullable
               as List<QuestionnaireModel>,
@@ -157,6 +160,7 @@ class _$_QuestionnaireControllerStatesInitial
   final List<QuestionnaireModel> _questionnaires;
   @override
   List<QuestionnaireModel> get questionnaires {
+    if (_questionnaires is EqualUnmodifiableListView) return _questionnaires;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questionnaires);
   }
@@ -181,6 +185,7 @@ class _$_QuestionnaireControllerStatesInitial
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionnaireControllerStatesInitialCopyWith<
           _$_QuestionnaireControllerStatesInitial>
       get copyWith => __$$_QuestionnaireControllerStatesInitialCopyWithImpl<
@@ -201,9 +206,9 @@ class _$_QuestionnaireControllerStatesInitial
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<QuestionnaireModel> questionnaires)? initial,
-    TResult Function(List<QuestionnaireModel> questionnaires)? loading,
-    TResult Function(List<QuestionnaireModel> questionnaires,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? initial,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? loading,
+    TResult? Function(List<QuestionnaireModel> questionnaires,
             QuestionnaireModel selectedQuestionnaire)?
         selected,
   }) {
@@ -242,9 +247,9 @@ class _$_QuestionnaireControllerStatesInitial
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_QuestionnaireControllerStatesInitial value)? initial,
-    TResult Function(_QuestionnaireControllerStatesLoading value)? loading,
-    TResult Function(_QuestionnaireControllerStatesLoaded value)? selected,
+    TResult? Function(_QuestionnaireControllerStatesInitial value)? initial,
+    TResult? Function(_QuestionnaireControllerStatesLoading value)? loading,
+    TResult? Function(_QuestionnaireControllerStatesLoaded value)? selected,
   }) {
     return initial?.call(this);
   }
@@ -287,29 +292,27 @@ abstract class _$$_QuestionnaireControllerStatesLoadingCopyWith<$Res>
           $Res Function(_$_QuestionnaireControllerStatesLoading) then) =
       __$$_QuestionnaireControllerStatesLoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<QuestionnaireModel> questionnaires});
 }
 
 /// @nodoc
 class __$$_QuestionnaireControllerStatesLoadingCopyWithImpl<$Res>
-    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res>
+    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res,
+        _$_QuestionnaireControllerStatesLoading>
     implements _$$_QuestionnaireControllerStatesLoadingCopyWith<$Res> {
   __$$_QuestionnaireControllerStatesLoadingCopyWithImpl(
       _$_QuestionnaireControllerStatesLoading _value,
       $Res Function(_$_QuestionnaireControllerStatesLoading) _then)
-      : super(
-            _value, (v) => _then(v as _$_QuestionnaireControllerStatesLoading));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionnaireControllerStatesLoading get _value =>
-      super._value as _$_QuestionnaireControllerStatesLoading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionnaires = freezed,
+    Object? questionnaires = null,
   }) {
     return _then(_$_QuestionnaireControllerStatesLoading(
-      questionnaires: questionnaires == freezed
+      questionnaires: null == questionnaires
           ? _value._questionnaires
           : questionnaires // ignore: cast_nullable_to_non_nullable
               as List<QuestionnaireModel>,
@@ -328,6 +331,7 @@ class _$_QuestionnaireControllerStatesLoading
   final List<QuestionnaireModel> _questionnaires;
   @override
   List<QuestionnaireModel> get questionnaires {
+    if (_questionnaires is EqualUnmodifiableListView) return _questionnaires;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questionnaires);
   }
@@ -352,6 +356,7 @@ class _$_QuestionnaireControllerStatesLoading
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionnaireControllerStatesLoadingCopyWith<
           _$_QuestionnaireControllerStatesLoading>
       get copyWith => __$$_QuestionnaireControllerStatesLoadingCopyWithImpl<
@@ -372,9 +377,9 @@ class _$_QuestionnaireControllerStatesLoading
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<QuestionnaireModel> questionnaires)? initial,
-    TResult Function(List<QuestionnaireModel> questionnaires)? loading,
-    TResult Function(List<QuestionnaireModel> questionnaires,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? initial,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? loading,
+    TResult? Function(List<QuestionnaireModel> questionnaires,
             QuestionnaireModel selectedQuestionnaire)?
         selected,
   }) {
@@ -413,9 +418,9 @@ class _$_QuestionnaireControllerStatesLoading
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_QuestionnaireControllerStatesInitial value)? initial,
-    TResult Function(_QuestionnaireControllerStatesLoading value)? loading,
-    TResult Function(_QuestionnaireControllerStatesLoaded value)? selected,
+    TResult? Function(_QuestionnaireControllerStatesInitial value)? initial,
+    TResult? Function(_QuestionnaireControllerStatesLoading value)? loading,
+    TResult? Function(_QuestionnaireControllerStatesLoaded value)? selected,
   }) {
     return loading?.call(this);
   }
@@ -458,6 +463,7 @@ abstract class _$$_QuestionnaireControllerStatesLoadedCopyWith<$Res>
           $Res Function(_$_QuestionnaireControllerStatesLoaded) then) =
       __$$_QuestionnaireControllerStatesLoadedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<QuestionnaireModel> questionnaires,
       QuestionnaireModel selectedQuestionnaire});
@@ -467,29 +473,26 @@ abstract class _$$_QuestionnaireControllerStatesLoadedCopyWith<$Res>
 
 /// @nodoc
 class __$$_QuestionnaireControllerStatesLoadedCopyWithImpl<$Res>
-    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res>
+    extends _$QuestionnaireControllerStatesCopyWithImpl<$Res,
+        _$_QuestionnaireControllerStatesLoaded>
     implements _$$_QuestionnaireControllerStatesLoadedCopyWith<$Res> {
   __$$_QuestionnaireControllerStatesLoadedCopyWithImpl(
       _$_QuestionnaireControllerStatesLoaded _value,
       $Res Function(_$_QuestionnaireControllerStatesLoaded) _then)
-      : super(
-            _value, (v) => _then(v as _$_QuestionnaireControllerStatesLoaded));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionnaireControllerStatesLoaded get _value =>
-      super._value as _$_QuestionnaireControllerStatesLoaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? questionnaires = freezed,
-    Object? selectedQuestionnaire = freezed,
+    Object? questionnaires = null,
+    Object? selectedQuestionnaire = null,
   }) {
     return _then(_$_QuestionnaireControllerStatesLoaded(
-      questionnaires: questionnaires == freezed
+      questionnaires: null == questionnaires
           ? _value._questionnaires
           : questionnaires // ignore: cast_nullable_to_non_nullable
               as List<QuestionnaireModel>,
-      selectedQuestionnaire: selectedQuestionnaire == freezed
+      selectedQuestionnaire: null == selectedQuestionnaire
           ? _value.selectedQuestionnaire
           : selectedQuestionnaire // ignore: cast_nullable_to_non_nullable
               as QuestionnaireModel,
@@ -497,6 +500,7 @@ class __$$_QuestionnaireControllerStatesLoadedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $QuestionnaireModelCopyWith<$Res> get selectedQuestionnaire {
     return $QuestionnaireModelCopyWith<$Res>(_value.selectedQuestionnaire,
         (value) {
@@ -517,6 +521,7 @@ class _$_QuestionnaireControllerStatesLoaded
   final List<QuestionnaireModel> _questionnaires;
   @override
   List<QuestionnaireModel> get questionnaires {
+    if (_questionnaires is EqualUnmodifiableListView) return _questionnaires;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questionnaires);
   }
@@ -536,18 +541,19 @@ class _$_QuestionnaireControllerStatesLoaded
             other is _$_QuestionnaireControllerStatesLoaded &&
             const DeepCollectionEquality()
                 .equals(other._questionnaires, _questionnaires) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedQuestionnaire, selectedQuestionnaire));
+            (identical(other.selectedQuestionnaire, selectedQuestionnaire) ||
+                other.selectedQuestionnaire == selectedQuestionnaire));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_questionnaires),
-      const DeepCollectionEquality().hash(selectedQuestionnaire));
+      selectedQuestionnaire);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionnaireControllerStatesLoadedCopyWith<
           _$_QuestionnaireControllerStatesLoaded>
       get copyWith => __$$_QuestionnaireControllerStatesLoadedCopyWithImpl<
@@ -568,9 +574,9 @@ class _$_QuestionnaireControllerStatesLoaded
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<QuestionnaireModel> questionnaires)? initial,
-    TResult Function(List<QuestionnaireModel> questionnaires)? loading,
-    TResult Function(List<QuestionnaireModel> questionnaires,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? initial,
+    TResult? Function(List<QuestionnaireModel> questionnaires)? loading,
+    TResult? Function(List<QuestionnaireModel> questionnaires,
             QuestionnaireModel selectedQuestionnaire)?
         selected,
   }) {
@@ -609,9 +615,9 @@ class _$_QuestionnaireControllerStatesLoaded
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_QuestionnaireControllerStatesInitial value)? initial,
-    TResult Function(_QuestionnaireControllerStatesLoading value)? loading,
-    TResult Function(_QuestionnaireControllerStatesLoaded value)? selected,
+    TResult? Function(_QuestionnaireControllerStatesInitial value)? initial,
+    TResult? Function(_QuestionnaireControllerStatesLoading value)? loading,
+    TResult? Function(_QuestionnaireControllerStatesLoaded value)? selected,
   }) {
     return selected?.call(this);
   }

@@ -27,13 +27,13 @@ class DashboardTableHeaderCell extends StatelessWidget {
               children: [
                 Text(
                   scope?.name ?? component!.name,
-                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.w700,
                       ),
                 ),
                 Text(
                   scope != null ? scopeExp[scope!]! : componentExp[component!]!,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                 ),

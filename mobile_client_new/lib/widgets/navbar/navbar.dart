@@ -25,7 +25,7 @@ class _NavbarState extends ConsumerState<Navbar> {
       builder: (context, layout) =>
           NotificationListener<NavigationNotification>(
         onNotification: (NavigationNotification notification) {
-          String? error = ref
+          final String? error = ref
               .read(widget.navController.notifier)
               .navigateTo(notification.route);
           if (error != null) {
@@ -45,7 +45,6 @@ class _NavbarState extends ConsumerState<Navbar> {
               padding: const EdgeInsets.all(16.0),
               child: Flex(
                   direction: isDesktop ? Axis.horizontal : Axis.vertical,
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     ...widget.leftItems,
                     if (isDesktop) const Spacer(),

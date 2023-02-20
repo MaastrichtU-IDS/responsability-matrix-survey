@@ -14,7 +14,7 @@ abstract class MutatorCreatorI {
 
   void checkArgsType(GraphQlArgsI args) {
     if (args.queryName != mutationName) {
-      throw Exception("Args must be of type $mutationName");
+      throw Exception('Args must be of type $mutationName');
     }
   }
 }

@@ -27,10 +27,8 @@ class DashboardPage extends ConsumerWidget {
                 children: [
                   Table(
                     defaultColumnWidth: const FixedColumnWidth(175),
-                    defaultVerticalAlignment: TableCellVerticalAlignment.top,
                     border: TableBorder.all(
-                        color: StyleProvider.of(context).colors.appPrimaryColor,
-                        style: BorderStyle.solid),
+                        color: StyleProvider.of(context).colors.appPrimaryColor),
                     children: [
                       TableRow(
                         children: [

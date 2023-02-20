@@ -17,7 +17,6 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextFormField(
           controller: emailController,
@@ -48,12 +47,12 @@ class LoginForm extends StatelessWidget {
                 Navigator.of(context).pushNamed(RegisterPage.routeName);
               },
               child:
-                  const Text("Register", style: TextStyle(color: Colors.black)),
+                  const Text('Register', style: TextStyle(color: Colors.black)),
             ),
             const SizedBox(width: 8.0),
             PrimaryButton(
               onPressed: onLoginPressed,
-              child: const Text("Login"),
+              child: const Text('Login'),
             ),
           ],
         ),

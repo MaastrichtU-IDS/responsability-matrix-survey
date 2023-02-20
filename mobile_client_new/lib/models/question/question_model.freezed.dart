@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'question_model.dart';
 
@@ -37,7 +37,8 @@ mixin _$QuestionModel {
 abstract class $QuestionModelCopyWith<$Res> {
   factory $QuestionModelCopyWith(
           QuestionModel value, $Res Function(QuestionModel) then) =
-      _$QuestionModelCopyWithImpl<$Res>;
+      _$QuestionModelCopyWithImpl<$Res, QuestionModel>;
+  @useResult
   $Res call(
       {String id,
       String component,
@@ -48,49 +49,51 @@ abstract class $QuestionModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$QuestionModelCopyWithImpl<$Res>
+class _$QuestionModelCopyWithImpl<$Res, $Val extends QuestionModel>
     implements $QuestionModelCopyWith<$Res> {
   _$QuestionModelCopyWithImpl(this._value, this._then);
 
-  final QuestionModel _value;
   // ignore: unused_field
-  final $Res Function(QuestionModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? component = freezed,
-    Object? scope = freezed,
-    Object? question = freezed,
-    Object? position = freezed,
-    Object? exampleAnswer = freezed,
+    Object? id = null,
+    Object? component = null,
+    Object? scope = null,
+    Object? question = null,
+    Object? position = null,
+    Object? exampleAnswer = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      component: component == freezed
+      component: null == component
           ? _value.component
           : component // ignore: cast_nullable_to_non_nullable
               as String,
-      scope: scope == freezed
+      scope: null == scope
           ? _value.scope
           : scope // ignore: cast_nullable_to_non_nullable
               as String,
-      question: question == freezed
+      question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
               as String,
-      position: position == freezed
+      position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
-      exampleAnswer: exampleAnswer == freezed
+      exampleAnswer: null == exampleAnswer
           ? _value.exampleAnswer
           : exampleAnswer // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -101,6 +104,7 @@ abstract class _$$_QuestionModelCopyWith<$Res>
           _$_QuestionModel value, $Res Function(_$_QuestionModel) then) =
       __$$_QuestionModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String component,
@@ -112,46 +116,44 @@ abstract class _$$_QuestionModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_QuestionModelCopyWithImpl<$Res>
-    extends _$QuestionModelCopyWithImpl<$Res>
+    extends _$QuestionModelCopyWithImpl<$Res, _$_QuestionModel>
     implements _$$_QuestionModelCopyWith<$Res> {
   __$$_QuestionModelCopyWithImpl(
       _$_QuestionModel _value, $Res Function(_$_QuestionModel) _then)
-      : super(_value, (v) => _then(v as _$_QuestionModel));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionModel get _value => super._value as _$_QuestionModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? component = freezed,
-    Object? scope = freezed,
-    Object? question = freezed,
-    Object? position = freezed,
-    Object? exampleAnswer = freezed,
+    Object? id = null,
+    Object? component = null,
+    Object? scope = null,
+    Object? question = null,
+    Object? position = null,
+    Object? exampleAnswer = null,
   }) {
     return _then(_$_QuestionModel(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      component: component == freezed
+      component: null == component
           ? _value.component
           : component // ignore: cast_nullable_to_non_nullable
               as String,
-      scope: scope == freezed
+      scope: null == scope
           ? _value.scope
           : scope // ignore: cast_nullable_to_non_nullable
               as String,
-      question: question == freezed
+      question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
               as String,
-      position: position == freezed
+      position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
-      exampleAnswer: exampleAnswer == freezed
+      exampleAnswer: null == exampleAnswer
           ? _value.exampleAnswer
           : exampleAnswer // ignore: cast_nullable_to_non_nullable
               as String,
@@ -168,7 +170,7 @@ class _$_QuestionModel implements _QuestionModel {
       required this.scope,
       required this.question,
       required this.position,
-      this.exampleAnswer = ""});
+      this.exampleAnswer = ''});
 
   factory _$_QuestionModel.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionModelFromJson(json);
@@ -197,28 +199,26 @@ class _$_QuestionModel implements _QuestionModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionModel &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.component, component) &&
-            const DeepCollectionEquality().equals(other.scope, scope) &&
-            const DeepCollectionEquality().equals(other.question, question) &&
-            const DeepCollectionEquality().equals(other.position, position) &&
-            const DeepCollectionEquality()
-                .equals(other.exampleAnswer, exampleAnswer));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.component, component) ||
+                other.component == component) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(other.question, question) ||
+                other.question == question) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.exampleAnswer, exampleAnswer) ||
+                other.exampleAnswer == exampleAnswer));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(component),
-      const DeepCollectionEquality().hash(scope),
-      const DeepCollectionEquality().hash(question),
-      const DeepCollectionEquality().hash(position),
-      const DeepCollectionEquality().hash(exampleAnswer));
+      runtimeType, id, component, scope, question, position, exampleAnswer);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionModelCopyWith<_$_QuestionModel> get copyWith =>
       __$$_QuestionModelCopyWithImpl<_$_QuestionModel>(this, _$identity);
 

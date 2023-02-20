@@ -24,7 +24,7 @@ class GenericTextField extends StatelessWidget {
       decoration: InputDecoration(
           hintText: hText,
           enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.black, width: 2),
+              borderSide: const BorderSide(width: 2),
               borderRadius: BorderRadius.circular(10)),
           focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.blue, width: 2),

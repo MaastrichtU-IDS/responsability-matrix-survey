@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'autg_gate_states.dart';
 
@@ -26,10 +26,10 @@ mixin _$AuthGateStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function()? toSplash,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? toSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$AuthGateStates {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthGateInitial value)? initial,
-    TResult Function(_AuthGateLoading value)? loading,
-    TResult Function(_AuthGateError value)? error,
-    TResult Function(_AuthGateToSplash value)? toSplash,
+    TResult? Function(_AuthGateInitial value)? initial,
+    TResult? Function(_AuthGateLoading value)? loading,
+    TResult? Function(_AuthGateError value)? error,
+    TResult? Function(_AuthGateToSplash value)? toSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$AuthGateStates {
 abstract class $AuthGateStatesCopyWith<$Res> {
   factory $AuthGateStatesCopyWith(
           AuthGateStates value, $Res Function(AuthGateStates) then) =
-      _$AuthGateStatesCopyWithImpl<$Res>;
+      _$AuthGateStatesCopyWithImpl<$Res, AuthGateStates>;
 }
 
 /// @nodoc
-class _$AuthGateStatesCopyWithImpl<$Res>
+class _$AuthGateStatesCopyWithImpl<$Res, $Val extends AuthGateStates>
     implements $AuthGateStatesCopyWith<$Res> {
   _$AuthGateStatesCopyWithImpl(this._value, this._then);
 
-  final AuthGateStates _value;
   // ignore: unused_field
-  final $Res Function(AuthGateStates) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,14 +95,11 @@ abstract class _$$_AuthGateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AuthGateInitialCopyWithImpl<$Res>
-    extends _$AuthGateStatesCopyWithImpl<$Res>
+    extends _$AuthGateStatesCopyWithImpl<$Res, _$_AuthGateInitial>
     implements _$$_AuthGateInitialCopyWith<$Res> {
   __$$_AuthGateInitialCopyWithImpl(
       _$_AuthGateInitial _value, $Res Function(_$_AuthGateInitial) _then)
-      : super(_value, (v) => _then(v as _$_AuthGateInitial));
-
-  @override
-  _$_AuthGateInitial get _value => super._value as _$_AuthGateInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -137,10 +135,10 @@ class _$_AuthGateInitial implements _AuthGateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function()? toSplash,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? toSplash,
   }) {
     return initial?.call();
   }
@@ -174,10 +172,10 @@ class _$_AuthGateInitial implements _AuthGateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthGateInitial value)? initial,
-    TResult Function(_AuthGateLoading value)? loading,
-    TResult Function(_AuthGateError value)? error,
-    TResult Function(_AuthGateToSplash value)? toSplash,
+    TResult? Function(_AuthGateInitial value)? initial,
+    TResult? Function(_AuthGateLoading value)? loading,
+    TResult? Function(_AuthGateError value)? error,
+    TResult? Function(_AuthGateToSplash value)? toSplash,
   }) {
     return initial?.call(this);
   }
@@ -211,14 +209,11 @@ abstract class _$$_AuthGateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AuthGateLoadingCopyWithImpl<$Res>
-    extends _$AuthGateStatesCopyWithImpl<$Res>
+    extends _$AuthGateStatesCopyWithImpl<$Res, _$_AuthGateLoading>
     implements _$$_AuthGateLoadingCopyWith<$Res> {
   __$$_AuthGateLoadingCopyWithImpl(
       _$_AuthGateLoading _value, $Res Function(_$_AuthGateLoading) _then)
-      : super(_value, (v) => _then(v as _$_AuthGateLoading));
-
-  @override
-  _$_AuthGateLoading get _value => super._value as _$_AuthGateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -254,10 +249,10 @@ class _$_AuthGateLoading implements _AuthGateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function()? toSplash,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? toSplash,
   }) {
     return loading?.call();
   }
@@ -291,10 +286,10 @@ class _$_AuthGateLoading implements _AuthGateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthGateInitial value)? initial,
-    TResult Function(_AuthGateLoading value)? loading,
-    TResult Function(_AuthGateError value)? error,
-    TResult Function(_AuthGateToSplash value)? toSplash,
+    TResult? Function(_AuthGateInitial value)? initial,
+    TResult? Function(_AuthGateLoading value)? loading,
+    TResult? Function(_AuthGateError value)? error,
+    TResult? Function(_AuthGateToSplash value)? toSplash,
   }) {
     return loading?.call(this);
   }
@@ -324,26 +319,25 @@ abstract class _$$_AuthGateErrorCopyWith<$Res> {
   factory _$$_AuthGateErrorCopyWith(
           _$_AuthGateError value, $Res Function(_$_AuthGateError) then) =
       __$$_AuthGateErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_AuthGateErrorCopyWithImpl<$Res>
-    extends _$AuthGateStatesCopyWithImpl<$Res>
+    extends _$AuthGateStatesCopyWithImpl<$Res, _$_AuthGateError>
     implements _$$_AuthGateErrorCopyWith<$Res> {
   __$$_AuthGateErrorCopyWithImpl(
       _$_AuthGateError _value, $Res Function(_$_AuthGateError) _then)
-      : super(_value, (v) => _then(v as _$_AuthGateError));
+      : super(_value, _then);
 
-  @override
-  _$_AuthGateError get _value => super._value as _$_AuthGateError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_AuthGateError(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -369,15 +363,15 @@ class _$_AuthGateError implements _AuthGateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthGateError &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AuthGateErrorCopyWith<_$_AuthGateError> get copyWith =>
       __$$_AuthGateErrorCopyWithImpl<_$_AuthGateError>(this, _$identity);
 
@@ -395,10 +389,10 @@ class _$_AuthGateError implements _AuthGateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function()? toSplash,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? toSplash,
   }) {
     return error?.call(this.error);
   }
@@ -432,10 +426,10 @@ class _$_AuthGateError implements _AuthGateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthGateInitial value)? initial,
-    TResult Function(_AuthGateLoading value)? loading,
-    TResult Function(_AuthGateError value)? error,
-    TResult Function(_AuthGateToSplash value)? toSplash,
+    TResult? Function(_AuthGateInitial value)? initial,
+    TResult? Function(_AuthGateLoading value)? loading,
+    TResult? Function(_AuthGateError value)? error,
+    TResult? Function(_AuthGateToSplash value)? toSplash,
   }) {
     return error?.call(this);
   }
@@ -474,14 +468,11 @@ abstract class _$$_AuthGateToSplashCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AuthGateToSplashCopyWithImpl<$Res>
-    extends _$AuthGateStatesCopyWithImpl<$Res>
+    extends _$AuthGateStatesCopyWithImpl<$Res, _$_AuthGateToSplash>
     implements _$$_AuthGateToSplashCopyWith<$Res> {
   __$$_AuthGateToSplashCopyWithImpl(
       _$_AuthGateToSplash _value, $Res Function(_$_AuthGateToSplash) _then)
-      : super(_value, (v) => _then(v as _$_AuthGateToSplash));
-
-  @override
-  _$_AuthGateToSplash get _value => super._value as _$_AuthGateToSplash;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -517,10 +508,10 @@ class _$_AuthGateToSplash implements _AuthGateToSplash {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function()? toSplash,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? toSplash,
   }) {
     return toSplash?.call();
   }
@@ -554,10 +545,10 @@ class _$_AuthGateToSplash implements _AuthGateToSplash {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthGateInitial value)? initial,
-    TResult Function(_AuthGateLoading value)? loading,
-    TResult Function(_AuthGateError value)? error,
-    TResult Function(_AuthGateToSplash value)? toSplash,
+    TResult? Function(_AuthGateInitial value)? initial,
+    TResult? Function(_AuthGateLoading value)? loading,
+    TResult? Function(_AuthGateError value)? error,
+    TResult? Function(_AuthGateToSplash value)? toSplash,
   }) {
     return toSplash?.call(this);
   }

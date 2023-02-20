@@ -17,7 +17,7 @@ class QuestionnaireController
       InstanceController()[QuestionnarieRepository];
 
   void createQuestionnarie(String title, String description) async {
-    ref.read(rootLoading.originProvider).setLoading(true);
+    ref.read(rootLoading.notifier).setLoading(true);
     state = QuestionnaireControllerStates.loading(
         questionnaires: [..._questionnarieRepository.questionnaires]);
     final result =
@@ -25,11 +25,11 @@ class QuestionnaireController
     state = QuestionnaireControllerStates.selected(
         selectedQuestionnaire: result,
         questionnaires: [..._questionnarieRepository.questionnaires]);
-    ref.read(rootLoading.originProvider).setLoading(false);
+    ref.read(rootLoading.notifier).setLoading(false);
   }
 
   void selectQuestionnarie(QuestionnaireModel questionnaire) async {
-    ref.read(rootLoading.originProvider).setLoading(true);
+    ref.read(rootLoading.notifier).setLoading(true);
     state = QuestionnaireControllerStates.loading(
         questionnaires: [..._questionnarieRepository.questionnaires]);
     final result =
@@ -37,7 +37,7 @@ class QuestionnaireController
     state = QuestionnaireControllerStates.selected(
         selectedQuestionnaire: result,
         questionnaires: [..._questionnarieRepository.questionnaires]);
-    ref.read(rootLoading.originProvider).setLoading(false);
+    ref.read(rootLoading.notifier).setLoading(false);
   }
 
   Future<void> updateState() async {

@@ -11,6 +11,8 @@ import '../../widgets/navbar/nav_bar_controller.dart';
 import '../../widgets/navbar/navbar.dart';
 import '../../widgets/navbar/navbar_item.dart';
 import '../../widgets/uni_logo.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:html' as html;
 
 final rootLoading = StateNotifierProvider<NavBarLoadingController, bool>(
   (ref) {
@@ -19,7 +21,7 @@ final rootLoading = StateNotifierProvider<NavBarLoadingController, bool>(
 );
 
 final navController = StateNotifierProvider<NavBarController, String>((ref) {
-  return NavBarController(initalRoute: "home");
+  return NavBarController(initalRoute: 'home');
 });
 
 class RootPage extends ConsumerStatefulWidget {
@@ -35,13 +37,11 @@ class _RootPageState extends ConsumerState<RootPage>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    ref.read(navController.originProvider).addRouteGuard((route) {
-      if (route != "home" &&
-          ref
-                  .read(questionnaireController.originProvider)
-                  .selectedQuestionnaire ==
+    ref.read(navController.notifier).addRouteGuard((route) {
+      if (route != 'home' &&
+          ref.read(questionnaireController.notifier).selectedQuestionnaire ==
               null) {
-        return "Please select a questionnaire";
+        return 'Please select a questionnaire';
       }
       return null;
     });
@@ -61,32 +61,32 @@ class _RootPageState extends ConsumerState<RootPage>
               const UniLogo(height: 50),
               const SizedBox(width: 10),
               NavbarItem(
-                key: const Key("Home-nav"),
+                key: const Key('Home-nav'),
                 route: HomePage.routeName,
                 isSelected: state == HomePage.routeName,
-                title: "Home",
+                title: 'Home',
               ),
               ...questionnairesState.maybeMap(
                   initial: (value) => [],
                   orElse: () => [
                         NavbarItem(
-                          key: const Key("questions-nav"),
+                          key: const Key('questions-nav'),
                           route: QuestionPage.routeName,
                           isSelected: state == QuestionPage.routeName,
-                          title: "Questions",
+                          title: 'Questions',
                         ),
                         NavbarItem(
-                          key: const Key("dashboard-nav"),
+                          key: const Key('dashboard-nav'),
                           route: DashboardPage.routeName,
                           isSelected: state == DashboardPage.routeName,
-                          title: "Dashboard",
+                          title: 'Dashboard',
                         ),
                       ])
             ],
             rightItems: [
               Text(
-                  "Selected Project: ${ref.watch(questionnaireController.originProvider).selectedQuestionnaire?.title ?? "None"}",
-                  style: Theme.of(context).textTheme.headline6),
+                  "Selected Project: ${ref.watch(questionnaireController.notifier).selectedQuestionnaire?.title ?? "None"}",
+                  style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(width: 16),
               ElevatedButton.icon(
                   onPressed: () async {
@@ -95,14 +95,18 @@ class _RootPageState extends ConsumerState<RootPage>
                         builder: (context) => const AddQuestionnarieDialog());
                   },
                   icon: const Icon(Icons.add),
-                  label: const Text("Add Project")),
+                  label: const Text('Add Project')),
               const SizedBox(width: 20),
               ElevatedButton.icon(
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+
+                    if (kIsWeb) {
+                      html.window.location.reload();
+                    }
                   },
                   icon: const Icon(Icons.logout),
-                  label: const Text("Logout")),
+                  label: const Text('Logout')),
             ],
           ),
           if (ref.watch(rootLoading))
@@ -113,7 +117,7 @@ class _RootPageState extends ConsumerState<RootPage>
               child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Navigator(
-              key: ref.watch(navController.originProvider).navigatorKey,
+              key: ref.watch(navController.notifier).navigatorKey,
               initialRoute: HomePage.routeName,
               onGenerateRoute: (settings) {
                 late Widget page;
@@ -132,7 +136,7 @@ class _RootPageState extends ConsumerState<RootPage>
                     break;
                 }
                 return PageRouteBuilder(
-                    transitionDuration: const Duration(milliseconds: 0),
+                    transitionDuration: const Duration(),
                     pageBuilder: (context, animation, secondaryAnimation) =>
                         page,
                     transitionsBuilder:

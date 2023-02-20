@@ -27,32 +27,29 @@ class HomePage extends ConsumerWidget {
         (prev, next) {
       next.mapOrNull(
         selected: (value) {
-          ref
-              .read(navController.originProvider)
-              .navigateTo(DashboardPage.routeName);
+          ref.read(navController.notifier).navigateTo(DashboardPage.routeName);
         },
       );
     });
     return SingleChildScrollView(
       primary: true,
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'Welcome ${_userRepository.user!.username}!',
               textScaleFactor: 1.2,
-              style: Theme.of(context).textTheme.headline3!.copyWith(
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: Theme.of(context).primaryColor,
                   ),
             ),
             const SizedBox(height: 20),
             state.questionnaires.isNotEmpty
-                ? Wrap(direction: Axis.horizontal, children: [
+                ? Wrap(children: [
                     for (int i = 0; i < state.questionnaires.length; i++)
                       ProjectCard(index: i)
                   ])
-                : const Center(child: Text("No project found")),
+                : const Center(child: Text('No project found')),
             const SizedBox(
               height: 25,
             ),

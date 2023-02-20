@@ -22,6 +22,7 @@ class CreateAnswerMutation extends MutatorCreatorI {
     $questionnaireId: ID!
     $questionScope: String!
     $questionAnswer: String!
+    $questionStatus: String!
     $questionComponent: String!
     $questionPosition: Int!
     $questionId: ID!
@@ -34,6 +35,7 @@ class CreateAnswerMutation extends MutatorCreatorI {
             component: $questionComponent
             scope: $questionScope
             answer: $questionAnswer
+            status: $questionStatus
             position: $questionPosition
             Question: { connect: { where: { node: { id: $questionId } } } }
           }
@@ -63,6 +65,7 @@ class CreateAnswerMutationArgs extends GraphQlArgsI {
   final String questionnaireId;
   final String questionScope;
   final String questionAnswer;
+  final String questionStatus;
   final String questionComponent;
   final int questionPosition;
   final String questionId;
@@ -73,6 +76,7 @@ class CreateAnswerMutationArgs extends GraphQlArgsI {
     required this.questionAnswer,
     required this.questionComponent,
     required this.questionPosition,
+    required this.questionStatus,
     required this.questionId,
   }) : super(queryName: 'CreateAnswerMutation');
 
@@ -82,6 +86,7 @@ class CreateAnswerMutationArgs extends GraphQlArgsI {
       'questionnaireId': questionnaireId,
       'questionScope': questionScope,
       'questionAnswer': questionAnswer,
+      'questionStatus': questionStatus,
       'questionComponent': questionComponent,
       'questionPosition': questionPosition,
       'questionId': questionId,

@@ -32,17 +32,17 @@ class QuestionsRepository {
     final results = await _graphQLService.query(const GetQuestionQuery(), null);
 
     if (results.hasException) {
-      _logger.e("QuestionsRepository: init: ${results.exception.toString()}");
+      _logger.e('QuestionsRepository: init: ${results.exception.toString()}');
       return;
     }
 
     _allQuestions.addAll(
-      results.data?["questions"]
+      results.data?['questions']
           .map<QuestionModel>((e) => QuestionModel.fromJson(e))
           .toList(),
     );
 
-    Map<Component, Map<Scope, int>> _counter = {
+    final Map<Component, Map<Scope, int>> counter = {
       for (final component in Component.values)
         component: {
           for (final scope in Scope.values) scope: 1,
@@ -50,14 +50,14 @@ class QuestionsRepository {
     };
 
     for (final question in _allQuestions) {
-      final Scope scope = _getScope(question.scope);
-      final Component component = _getComponent(question.component);
+      final Scope scope = getScope(question.scope);
+      final Component component = getComponent(question.component);
 
       questionCodes.add(component.name[0] +
           scope.name[0] +
-          _counter[component]![scope]!.toString());
+          counter[component]![scope]!.toString());
 
-      _counter[component]![scope] = _counter[component]![scope]! + 1;
+      counter[component]![scope] = counter[component]![scope]! + 1;
 
       _matrixQuestions[scope] ??= {};
       _matrixQuestions[scope]![component] ??= [];
@@ -70,7 +70,7 @@ class QuestionsRepository {
 
     _allQuestions.sort((a, b) => a.position.compareTo(b.position));
 
-    _logger.i("QuestionsRepository: init: ${_allQuestions.length} questions");
+    _logger.i('QuestionsRepository: init: ${_allQuestions.length} questions');
   }
 
   String getQuestionCode(int position) {
@@ -88,26 +88,26 @@ extension ScpoeExtension on Scope {
   String get name {
     switch (this) {
       case Scope.actors:
-        return "Actors";
+        return 'Actors';
       case Scope.objects:
-        return "Objects";
+        return 'Objects';
       case Scope.process:
-        return "Process";
+        return 'Process';
       case Scope.impact:
-        return "Impact";
+        return 'Impact';
     }
   }
 }
 
-Scope _getScope(String scope) {
+Scope getScope(String scope) {
   switch (scope) {
-    case "Actors":
+    case 'Actors':
       return Scope.actors;
-    case "Objects":
+    case 'Objects':
       return Scope.objects;
-    case "Process":
+    case 'Process':
       return Scope.process;
-    case "Impact":
+    case 'Impact':
       return Scope.impact;
     default:
       return Scope.actors;
@@ -125,26 +125,26 @@ extension ComponentExtension on Component {
   String get name {
     switch (this) {
       case Component.transparancy:
-        return "Transparancy";
+        return 'Transparancy';
       case Component.accountability:
-        return "Accountability";
+        return 'Accountability';
       case Component.privacy:
-        return "Privacy";
+        return 'Privacy';
       case Component.societalValues:
-        return "Societal values";
+        return 'Societal values';
     }
   }
 }
 
-Component _getComponent(String component) {
+Component getComponent(String component) {
   switch (component) {
-    case "Transparancy":
+    case 'Transparancy':
       return Component.transparancy;
-    case "Accountability":
+    case 'Accountability':
       return Component.accountability;
-    case "Privacy":
+    case 'Privacy':
       return Component.privacy;
-    case "Societal values":
+    case 'Societal values':
       return Component.societalValues;
     default:
       return Component.transparancy;

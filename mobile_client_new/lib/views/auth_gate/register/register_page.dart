@@ -65,7 +65,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const UniLogo(),
                   const SizedBox(height: 48.0),
@@ -140,7 +139,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           },
                           isPrimary: false,
                           child: const Text(
-                            "Back",
+                            'Back',
                             style: TextStyle(color: Colors.black),
                           )),
                       PrimaryButton(
@@ -148,8 +147,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               ref
-                                  .read(
-                                      authGateControllerProvider.originProvider)
+                                  .read(authGateControllerProvider.notifier)
                                   .createAccountWithEmailAndPassword(
                                       emailController.text,
                                       passwordController.text,

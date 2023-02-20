@@ -20,7 +20,7 @@ class TableOfContentItem extends StatelessWidget {
             left: 16 + (level + 1) * 16, top: 8, bottom: 8, right: 16),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
               fontSize: 24 - level * 2,
               fontWeight: FontWeight.w500,
               color: Theme.of(context).colorScheme.onSurface,

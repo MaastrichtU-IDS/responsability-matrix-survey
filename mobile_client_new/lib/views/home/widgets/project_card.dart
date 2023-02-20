@@ -28,25 +28,24 @@ class ProjectCard extends ConsumerWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(questionnaireModel.title,
                     textScaleFactor: 1.2,
-                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                           color: Theme.of(context).primaryColor,
                         )),
                 Text(
                   questionnaireModel.description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text("Completion : ${complation * 100 ~/ 1}%",
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                Text('Completion : ${complation * 100 ~/ 1}%',
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           color: Theme.of(context).primaryColor,
                         )),
                 const SizedBox(
@@ -65,7 +64,7 @@ class ProjectCard extends ConsumerWidget {
                       itemBuilder: (context) {
                         return <PopupMenuItem<String>>[
                           PopupMenuItem(
-                            value: "edit",
+                            value: 'edit',
                             onTap: () {
                               showDialog(
                                 context: context,
@@ -76,26 +75,27 @@ class ProjectCard extends ConsumerWidget {
                                         questionnaireModel.description),
                               );
                             },
-                            child: const Text("Edit"),
+                            child: const Text('Edit'),
                           ),
                           PopupMenuItem(
-                              value: "pdf",
-                              onTap: () {
+                              value: 'pdf',
+                              onTap: () async {
+                                
                                 PdfCreator.createPdfFromQuestionairee(
-                                    questionnaireModel);
+                                    state.questionnaires[index]);
                               },
-                              child: const Text("Export to PDF")),
+                              child: const Text('Export to PDF')),
                           PopupMenuItem(
-                            value: "delete",
+                            value: 'delete',
                             onTap: () async {
-                              bool? confirm = await showDialog(
+                              final bool? confirm = await showDialog(
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
                                       title: Text(
-                                          "Delete Project: ${questionnaireModel.title}"),
+                                          'Delete Project: ${questionnaireModel.title}'),
                                       content: const Text(
-                                          "Are you sure you want to delete this project?"),
+                                          'Are you sure you want to delete this project?'),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
@@ -105,25 +105,24 @@ class ProjectCard extends ConsumerWidget {
                                                 backgroundColor: Colors.red,
                                                 foregroundColor: Colors.white),
                                             child: const Text(
-                                              "Yes",
+                                              'Yes',
                                             )),
                                         TextButton(
                                             onPressed: () {
                                               Navigator.of(context).pop(false);
                                             },
-                                            child: const Text("No")),
+                                            child: const Text('No')),
                                       ],
                                     );
                                   }) as bool;
 
-                              if (confirm) {
+                              if (confirm ?? false) {
                                 await ref
-                                    .read(
-                                        questionnaireController.originProvider)
+                                    .read(questionnaireController.notifier)
                                     .deleteQuestionnaire(questionnaireModel);
                               }
                             },
-                            child: const Text("Delete"),
+                            child: const Text('Delete'),
                           ),
                         ];
                       },
@@ -141,16 +140,16 @@ class ProjectCard extends ConsumerWidget {
   Widget _getSelectButton(
       WidgetRef ref, QuestionnaireModel questionnaireModel) {
     return ((ref
-                    .read(questionnaireController.originProvider)
+                    .read(questionnaireController.notifier)
                     .selectedQuestionnaire
                     ?.id ??
-                "") !=
+                '') !=
             questionnaireModel.id)
         ? PrimaryButton(
-            child: const Text("Select"),
+            child: const Text('Select'),
             onPressed: () {
               ref
-                  .read(questionnaireController.originProvider)
+                  .read(questionnaireController.notifier)
                   .selectQuestionnarie(questionnaireModel);
             },
           )
@@ -158,11 +157,11 @@ class ProjectCard extends ConsumerWidget {
             isPrimary: false,
             onPressed: () {
               ref
-                  .read(questionnaireController.originProvider)
+                  .read(questionnaireController.notifier)
                   .deselectQuestionnarie();
             },
             child:
-                const Text("Deselect", style: TextStyle(color: Colors.black)),
+                const Text('Deselect', style: TextStyle(color: Colors.black)),
           );
   }
 }

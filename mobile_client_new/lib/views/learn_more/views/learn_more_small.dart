@@ -1,6 +1,6 @@
 part of '../learn_more_page.dart';
 class _LearnMoreSmall extends StatelessWidget {
-  const _LearnMoreSmall({super.key, required this.contents});
+  const _LearnMoreSmall({required this.contents});
   final _Contents contents;
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,6 @@ class _LearnMoreSmall extends StatelessWidget {
       endDrawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: contents.tableOfContents,
           ),

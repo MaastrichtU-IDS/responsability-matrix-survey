@@ -29,6 +29,7 @@ class GetQuestionnarieQuery extends QueryCreatorI {
         component
         scope
         answer
+        status
         position
       }
     }
