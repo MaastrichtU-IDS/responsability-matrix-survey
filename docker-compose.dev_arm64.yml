@@ -3,7 +3,7 @@ version: '3.4'
 services:
 
   neo4j:
-    image: neo4j/neo4j-arm64-experimental:4.4.0
+    image: arm64v8/neo4j:4.4.11
     ports:
       - 7474:7474
       - 7687:7687
