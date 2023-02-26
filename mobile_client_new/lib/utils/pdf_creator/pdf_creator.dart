@@ -163,7 +163,7 @@ class PdfCreator {
               children: [
                 pw.SizedBox(),
                 ...Scope.values.map((scope) => pw.Container(
-                      color: _scopeColors[scope]!,
+                      color: PdfColors.grey,
                       alignment: pw.Alignment.center,
                       child: pw.Text(scope.name),
                     )),
