@@ -44,9 +44,18 @@ class QuestionsListController extends StateNotifier<List<QuestionModel>> {
   }
 
   bool isAnswered(QuestionModel question) {
-    return _questionnarieRepository.selectedQuestionnaire?.ClosedQuestionsIndex
+    if (_questionnarieRepository.selectedQuestionnaire?.ClosedQuestionsIndex
             .contains(question.position) ??
-        false;
+        false) {
+      final answer = _questionnarieRepository
+          .selectedQuestionnaire?.ClosedQuestions
+          .firstWhere((element) => element.position == question.position)
+          .answer;
+      if (answer?.isNotEmpty ?? false) {
+        return true;
+      }
+    }
+    return false;
   }
 
   AnswerStatus getAnswerStatus(QuestionModel question) {

@@ -133,14 +133,26 @@ class _SingleQuestionState extends State<SingleQuestion>
                 maxLines: 10,
               ),
               const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    widget.onAnswer
-                        ?.call(_textEditingController.text, _answerStatus);
-                  }
-                },
-                child: const Text('Submit'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        widget.onAnswer
+                            ?.call(_textEditingController.text, _answerStatus);
+                      }
+                    },
+                    child: const Text('Submit'),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        widget.onAnswer?.call('', _answerStatus);
+                      },
+                      child: const Text('Clear answer'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red)),
+                ],
               ),
               Text(
                 'Example answers',
@@ -196,5 +208,4 @@ const answerStatusItems = <AnswerStatus, AnswerStatusData>{
       text: "It is applicable but, don't know how to answer",
       color: Colors.grey,
       icon: Icons.help_outline),
-
 };
