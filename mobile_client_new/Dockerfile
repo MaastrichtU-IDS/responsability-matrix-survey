@@ -1,5 +1,5 @@
 # Flutter Web Dockerfile
-FROM cirrusci/flutter AS build-env
+FROM cirrusci/flutter:latest AS build-env
 
 ARG GRAPHQL_URL
 
