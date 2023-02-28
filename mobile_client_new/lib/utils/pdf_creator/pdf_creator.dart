@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_client_new/models/answer/answer_model.dart';
-import 'package:mobile_client_new/repositories/questionairee_repository.dart';
 
 import '../../models/questionnaire/questionnaire_model.dart';
 import '../../repositories/questions_repository.dart';
@@ -128,7 +127,6 @@ class PdfCreator {
               decoration: pw.BoxDecoration(
                 color: PdfColors.white,
                 border: pw.Border.all(
-                  color: PdfColors.black,
                   width: .5,
                 ),
               ),
