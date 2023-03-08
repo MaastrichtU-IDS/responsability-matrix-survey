@@ -27,7 +27,7 @@ class GraphQLService {
   bool _isInitialized = false;
 
   Future<void> init() async {
-    _cache = await HiveStore.open(boxName: 'cache_graphql');
+    // _cache = await HiveStore.open(boxName: 'cache_graphql');
 
     final http = HttpLink(_baseUrl);
     final auth = AuthLink(
@@ -35,7 +35,7 @@ class GraphQLService {
     );
     final link = auth.concat(http);
     _client = GraphQLClient(
-      cache: GraphQLCache(store: _cache),
+      cache: GraphQLCache(store: InMemoryStore()),
       link: link,
     );
     InstanceController()[Logger].i('GraphQL client initialized');

@@ -51,7 +51,7 @@ type Answer @auth(rules: [{ isAuthenticated: true }]) {
     component: String!
     scope: String!
     answer: String!
-    status: String! @coalesce(value: "applicable")
+    status: String @coalesce(value: "applicable")
     position: Int!
     createdAt: DateTime! @timestamp(operations: [CREATE])
     updatedAt: DateTime! @timestamp(operations: [UPDATE])
