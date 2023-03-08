@@ -115,7 +115,7 @@ Scope getScope(String scope) {
 }
 
 enum Component {
-  transparancy,
+  transparency,
   accountability,
   privacy,
   societalValues,
@@ -124,8 +124,8 @@ enum Component {
 extension ComponentExtension on Component {
   String get name {
     switch (this) {
-      case Component.transparancy:
-        return 'Transparancy';
+      case Component.transparency:
+        return 'Transparency';
       case Component.accountability:
         return 'Accountability';
       case Component.privacy:
@@ -138,8 +138,8 @@ extension ComponentExtension on Component {
 
 Component getComponent(String component) {
   switch (component) {
-    case 'Transparancy':
-      return Component.transparancy;
+    case 'Transparency':
+      return Component.transparency;
     case 'Accountability':
       return Component.accountability;
     case 'Privacy':
@@ -147,6 +147,6 @@ Component getComponent(String component) {
     case 'Societal values':
       return Component.societalValues;
     default:
-      return Component.transparancy;
+      return Component.transparency;
   }
 }

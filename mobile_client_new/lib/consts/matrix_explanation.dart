@@ -16,7 +16,7 @@ const scopeColors = <Scope, Color>{
 };
 
 const componentExp = <Component, String>{
-  Component.transparancy: '(Project -> itself)',
+  Component.transparency: '(Project -> itself)',
   Component.accountability: '(Project -> organisation)',
   Component.privacy:
       '(Project -> Human autonomy defined as the ability of humans to make their own decisions)',
@@ -24,7 +24,7 @@ const componentExp = <Component, String>{
 };
 
 const componentColors = <Component, Color>{
-  Component.transparancy: Color.fromRGBO(164, 194, 244, 1),
+  Component.transparency: Color.fromRGBO(164, 194, 244, 1),
   Component.accountability: Color.fromRGBO(201, 218, 248, 1),
   Component.privacy: Color.fromRGBO(207, 226, 243, 1),
   Component.societalValues: Color.fromRGBO(159, 197, 232, 1),
@@ -32,7 +32,7 @@ const componentColors = <Component, Color>{
 
 const matrixExp = <Scope, Map<Component, String>>{
   Scope.actors: {
-    Component.transparancy:
+    Component.transparency:
         'Identifies the roles, the contributions, and the interests of the involved actors (i.e. principal investigator, developers, end users, organisations).',
     Component.accountability:
         'Defines the accountability frameworks (i.e contracts and agreements) used to assess or prescribe the responsibilities of each actor in relation to the project and its outcomes.',
@@ -42,7 +42,7 @@ const matrixExp = <Scope, Map<Component, String>>{
         'Identifies the operative social values and norms of the actors, and how are they addressed and/or protected? I.e elicit values of the work, identify the social context that applies to the work.',
   },
   Scope.objects: {
-    Component.transparancy:
+    Component.transparency:
         'Describes the detailed provenance of the objects (i.e metadata, license, quality measures, bias in data) are used and/or generated in the project',
     Component.accountability:
         'Identifies the quality (e.g. being bias-free,  anomalous or interoperable), availability and terms of use of the objects.',
@@ -52,7 +52,7 @@ const matrixExp = <Scope, Map<Component, String>>{
         'Explicits social values and norms apply to  the  objects. I.e.Avoiding specific  biases that may arise from  the produced algorithms',
   },
   Scope.process: {
-    Component.transparancy:
+    Component.transparency:
         'Describes the  processes (i.e. methodology, interaction protocols, pre-registering or business processes)  employed in the project.',
     Component.accountability:
         'Defines the processes that are in place  for monitoring and ensuring an accurate, ethical and lawful functioning of the project (i.e ethical approval).',
@@ -62,7 +62,7 @@ const matrixExp = <Scope, Map<Component, String>>{
         'Identifies the processes that are in place to address societal values. For example,  how are possible biases addressed?',
   },
   Scope.impact: {
-    Component.transparancy:
+    Component.transparency:
         'Identifies and describes  the short, and long term impacts (both negative and positive) of the project (i.e. key exploitable results, recognisable possible negative and positive downstream impacts).',
     Component.accountability:
         'Identifies the procedures for dealing with the ramifications of the outcomes (i.e intellectual property management or responsibilities of all actors in relation to negative outcomes).',
