@@ -27,7 +27,7 @@ yarn-error.log*
 
 # Neo4j Folders
 conf
-data
+/data
 import
 logs
 plugins
