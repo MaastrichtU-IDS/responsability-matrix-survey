@@ -31,7 +31,7 @@ services:
     #   dockerfile: Dockerfile
     #   args:
     #     INSTALL_DEV: ${INSTALL_DEV-false}
-    build: ./mobile_client_new
+    build: ./responsibility_matrix_flutter
     restart: unless-stopped
     # environment:
     #   - GRAPHQL_URL=http://localhost:4000/graphql
