@@ -12,7 +12,8 @@ _$_AnswerModel _$$_AnswerModelFromJson(Map<String, dynamic> json) =>
       component: json['component'] as String,
       scope: json['scope'] as String,
       answer: json['answer'] as String,
-      status: json['status'] as String? ?? 'applicable',
+      status: $enumDecodeNullable(_$AnswerStatusEnumMap, json['status']) ??
+          AnswerStatus.applicable,
       position: json['position'] as int,
     );
 
@@ -22,6 +23,12 @@ Map<String, dynamic> _$$_AnswerModelToJson(_$_AnswerModel instance) =>
       'component': instance.component,
       'scope': instance.scope,
       'answer': instance.answer,
-      'status': instance.status,
+      'status': _$AnswerStatusEnumMap[instance.status]!,
       'position': instance.position,
     };
+
+const _$AnswerStatusEnumMap = {
+  AnswerStatus.applicable: 'applicable',
+  AnswerStatus.notApplicable: 'notApplicable',
+  AnswerStatus.dontKnow: 'dontKnow',
+};

@@ -22,7 +22,6 @@ type User {
 class UserModel with _$UserModel {
   factory UserModel({
     required String uuid,
-    required String email,
     required String username,
     required String role,
   }) = _UserModel;

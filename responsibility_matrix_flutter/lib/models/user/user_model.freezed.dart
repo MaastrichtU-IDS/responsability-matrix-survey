@@ -21,7 +21,6 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserModel {
   String get uuid => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError;
 
@@ -36,7 +35,7 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String uuid, String email, String username, String role});
+  $Res call({String uuid, String username, String role});
 }
 
 /// @nodoc
@@ -53,7 +52,6 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? uuid = null,
-    Object? email = null,
     Object? username = null,
     Object? role = null,
   }) {
@@ -61,10 +59,6 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
@@ -85,7 +79,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       __$$_UserModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uuid, String email, String username, String role});
+  $Res call({String uuid, String username, String role});
 }
 
 /// @nodoc
@@ -100,7 +94,6 @@ class __$$_UserModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uuid = null,
-    Object? email = null,
     Object? username = null,
     Object? role = null,
   }) {
@@ -108,10 +101,6 @@ class __$$_UserModelCopyWithImpl<$Res>
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
@@ -129,10 +118,7 @@ class __$$_UserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
   _$_UserModel(
-      {required this.uuid,
-      required this.email,
-      required this.username,
-      required this.role});
+      {required this.uuid, required this.username, required this.role});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
@@ -140,15 +126,13 @@ class _$_UserModel implements _UserModel {
   @override
   final String uuid;
   @override
-  final String email;
-  @override
   final String username;
   @override
   final String role;
 
   @override
   String toString() {
-    return 'UserModel(uuid: $uuid, email: $email, username: $username, role: $role)';
+    return 'UserModel(uuid: $uuid, username: $username, role: $role)';
   }
 
   @override
@@ -157,7 +141,6 @@ class _$_UserModel implements _UserModel {
         (other.runtimeType == runtimeType &&
             other is _$_UserModel &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.role, role) || other.role == role));
@@ -165,7 +148,7 @@ class _$_UserModel implements _UserModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uuid, email, username, role);
+  int get hashCode => Object.hash(runtimeType, uuid, username, role);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +167,6 @@ class _$_UserModel implements _UserModel {
 abstract class _UserModel implements UserModel {
   factory _UserModel(
       {required final String uuid,
-      required final String email,
       required final String username,
       required final String role}) = _$_UserModel;
 
@@ -193,8 +175,6 @@ abstract class _UserModel implements UserModel {
 
   @override
   String get uuid;
-  @override
-  String get email;
   @override
   String get username;
   @override

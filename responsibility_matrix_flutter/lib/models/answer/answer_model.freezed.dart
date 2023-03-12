@@ -24,7 +24,7 @@ mixin _$AnswerModel {
   String get component => throw _privateConstructorUsedError;
   String get scope => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  AnswerStatus get status => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $AnswerModelCopyWith<$Res> {
       String component,
       String scope,
       String answer,
-      String status,
+      AnswerStatus status,
       int position});
 }
 
@@ -88,7 +88,7 @@ class _$AnswerModelCopyWithImpl<$Res, $Val extends AnswerModel>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AnswerStatus,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$_AnswerModelCopyWith<$Res>
       String component,
       String scope,
       String answer,
-      String status,
+      AnswerStatus status,
       int position});
 }
 
@@ -152,7 +152,7 @@ class __$$_AnswerModelCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AnswerStatus,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class _$_AnswerModel implements _AnswerModel {
       required this.component,
       required this.scope,
       required this.answer,
-      this.status = 'applicable',
+      this.status = AnswerStatus.applicable,
       required this.position});
 
   factory _$_AnswerModel.fromJson(Map<String, dynamic> json) =>
@@ -185,7 +185,7 @@ class _$_AnswerModel implements _AnswerModel {
   final String answer;
   @override
   @JsonKey()
-  final String status;
+  final AnswerStatus status;
   @override
   final int position;
 
@@ -234,7 +234,7 @@ abstract class _AnswerModel implements AnswerModel {
       required final String component,
       required final String scope,
       required final String answer,
-      final String status,
+      final AnswerStatus status,
       required final int position}) = _$_AnswerModel;
 
   factory _AnswerModel.fromJson(Map<String, dynamic> json) =
@@ -249,7 +249,7 @@ abstract class _AnswerModel implements AnswerModel {
   @override
   String get answer;
   @override
-  String get status;
+  AnswerStatus get status;
   @override
   int get position;
   @override

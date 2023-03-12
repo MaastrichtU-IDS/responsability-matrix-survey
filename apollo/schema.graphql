@@ -1,3 +1,5 @@
+scalar JSON
+
 type User
     @auth(
         rules: [
@@ -14,13 +16,16 @@ type User
         ]
     ) {
     uuid: String! @id(autogenerate: false)
-    email: String!
     username: String!
     role: String! @default(value: "user")
     Questionnaire: [Questionnaire!]!
         @relationship(type: "has_questionnaire", direction: OUT)
     registered_at: DateTime! @timestamp(operations: [CREATE])
     updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}
+
+type Query @auth(rules: [{ allowUnauthenticated: true }]) {
+    getJWT(code: String!): JSON
 }
 
 type Questionnaire
@@ -38,7 +43,6 @@ type Questionnaire
     description: String!
     ClosedQuestions: [Answer!]!
         @relationship(type: "has_answered", direction: OUT)
-    ClosedQuestionsIndex: [Int]
     createdAt: DateTime! @timestamp(operations: [CREATE])
     updatedAt: DateTime! @timestamp(operations: [UPDATE])
 }

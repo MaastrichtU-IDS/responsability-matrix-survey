@@ -8,7 +8,6 @@ type Questionnaire {
     title: String!
     description: String!
     ClosedQuestions: [Answer!]! @relationship(type: "has_answered", direction: OUT)
-    ClosedQuestionsIndex: [Int]
 }
 */
 
@@ -16,9 +15,9 @@ import 'package:graphql/client.dart';
 import 'package:responsibility_matrix_flutter/services/graphql/interfaces/graphql_args_i.dart';
 import 'package:responsibility_matrix_flutter/services/graphql/interfaces/graphql_mutation_i.dart';
 
-class CreateQuestionnarieMutation extends MutatorCreatorI {
-  const CreateQuestionnarieMutation() : super(mutation: r'''
-  mutation createQuestionaire(
+class CreateQuestionnaireMutation extends MutatorCreatorI {
+  const CreateQuestionnaireMutation() : super(mutation: r'''
+  mutation createQuestionnaire(
     $uuid: String!
     $title: String!
     $description: String!
@@ -26,7 +25,6 @@ class CreateQuestionnarieMutation extends MutatorCreatorI {
     createQuestionnaires(
       input: {
         title: $title
-        ClosedQuestionsIndex: []
         User: { connect: { where: { node: { uuid: $uuid } } } }
         description: $description
       }
@@ -35,7 +33,6 @@ class CreateQuestionnarieMutation extends MutatorCreatorI {
         id
         title
         description
-        ClosedQuestionsIndex
         ClosedQuestions{
           id
           component
@@ -46,7 +43,7 @@ class CreateQuestionnarieMutation extends MutatorCreatorI {
       }
     }
   }
-''', mutationName: 'CreateQuestionnarieMutation');
+''', mutationName: 'CreateQuestionnaireMutation');
 
   @override
   MutationOptions<Object?> createMutationOptions({GraphQlArgsI? args}) {
@@ -57,10 +54,10 @@ class CreateQuestionnarieMutation extends MutatorCreatorI {
   }
 }
 
-class CreateQuestionnarieMutationArgs extends GraphQlArgsI {
-  const CreateQuestionnarieMutationArgs(
+class CreateQuestionnaireMutationArgs extends GraphQlArgsI {
+  const CreateQuestionnaireMutationArgs(
       {required this.uuid, required this.title, required this.description})
-      : super(queryName: 'CreateQuestionnarieMutation');
+      : super(queryName: 'CreateQuestionnaireMutation');
 
   final String uuid;
   final String title;

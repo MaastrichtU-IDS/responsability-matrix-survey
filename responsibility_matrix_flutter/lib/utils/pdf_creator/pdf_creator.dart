@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:responsibility_matrix_flutter/models/answer/answer_model.dart';
+import '../../models/answer/answer_model.dart';
 
 import '../../models/questionnaire/questionnaire_model.dart';
 import '../../repositories/questions_repository.dart';
@@ -16,7 +16,7 @@ class PdfCreator {
   static final QuestionsRepository _questionsRepository =
       InstanceController()[QuestionsRepository];
 
-  static void createPdfFromQuestionairee(
+  static void createPdfFromQuestionnaire(
       QuestionnaireModel questionnaireModel) async {
     final answerList = questionnaireModel.ClosedQuestions.map(
       (e) => e,

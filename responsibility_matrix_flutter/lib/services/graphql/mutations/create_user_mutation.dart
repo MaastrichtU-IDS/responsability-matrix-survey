@@ -20,13 +20,11 @@ class CreateUserMutation extends MutatorCreatorI {
   const CreateUserMutation() : super(mutation: r'''
   mutation CreateUserMutation(
     $uuid: String!
-    $email: String!
     $username: String!
   ) {
     createUsers(
       input: {
         uuid: $uuid
-        email: $email
         username: $username
       }
     ) {
@@ -49,19 +47,16 @@ class CreateUserMutation extends MutatorCreatorI {
 class CreateUserMutationArgs extends GraphQlArgsI {
   const CreateUserMutationArgs({
     required this.uuid,
-    required this.email,
     required this.username,
   }) : super(queryName: 'CreateUserMutation');
 
   final String uuid;
-  final String email;
   final String username;
 
   @override
   Map<String, dynamic> createQueryArgs() {
     return {
       'uuid': uuid,
-      'email': email,
       'username': username,
     };
   }

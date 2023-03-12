@@ -1,7 +1,7 @@
 import '../models/user/user_model.dart';
 import '../services/graphql/graphql_service.dart';
 import '../services/graphql/mutations/create_user_mutation.dart';
-import '../services/graphql/quaries/get_user_query.dart';
+import '../services/graphql/queries/get_user_query.dart';
 import '../utils/instance_controller/instance_controller.dart';
 
 class UserRepository {

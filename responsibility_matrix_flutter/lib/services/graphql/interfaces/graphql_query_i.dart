@@ -1,5 +1,6 @@
-import 'graphql_args_i.dart';
 import 'package:graphql/client.dart';
+
+import 'graphql_args_i.dart';
 
 
 /// Abstract class for creating GraphQL queries.

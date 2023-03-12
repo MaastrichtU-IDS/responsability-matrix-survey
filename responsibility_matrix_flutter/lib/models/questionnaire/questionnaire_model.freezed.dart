@@ -21,7 +21,6 @@ QuestionnaireModel _$QuestionnaireModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuestionnaireModel {
   String get id => throw _privateConstructorUsedError;
-  List<int> get ClosedQuestionsIndex => throw _privateConstructorUsedError;
   List<AnswerModel> get ClosedQuestions => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -40,7 +39,6 @@ abstract class $QuestionnaireModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      List<int> ClosedQuestionsIndex,
       List<AnswerModel> ClosedQuestions,
       String title,
       String description});
@@ -60,7 +58,6 @@ class _$QuestionnaireModelCopyWithImpl<$Res, $Val extends QuestionnaireModel>
   @override
   $Res call({
     Object? id = null,
-    Object? ClosedQuestionsIndex = null,
     Object? ClosedQuestions = null,
     Object? title = null,
     Object? description = null,
@@ -70,10 +67,6 @@ class _$QuestionnaireModelCopyWithImpl<$Res, $Val extends QuestionnaireModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      ClosedQuestionsIndex: null == ClosedQuestionsIndex
-          ? _value.ClosedQuestionsIndex
-          : ClosedQuestionsIndex // ignore: cast_nullable_to_non_nullable
-              as List<int>,
       ClosedQuestions: null == ClosedQuestions
           ? _value.ClosedQuestions
           : ClosedQuestions // ignore: cast_nullable_to_non_nullable
@@ -100,7 +93,6 @@ abstract class _$$_QuestionnaireModelCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      List<int> ClosedQuestionsIndex,
       List<AnswerModel> ClosedQuestions,
       String title,
       String description});
@@ -118,7 +110,6 @@ class __$$_QuestionnaireModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? ClosedQuestionsIndex = null,
     Object? ClosedQuestions = null,
     Object? title = null,
     Object? description = null,
@@ -128,10 +119,6 @@ class __$$_QuestionnaireModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      ClosedQuestionsIndex: null == ClosedQuestionsIndex
-          ? _value._ClosedQuestionsIndex
-          : ClosedQuestionsIndex // ignore: cast_nullable_to_non_nullable
-              as List<int>,
       ClosedQuestions: null == ClosedQuestions
           ? _value._ClosedQuestions
           : ClosedQuestions // ignore: cast_nullable_to_non_nullable
@@ -153,27 +140,16 @@ class __$$_QuestionnaireModelCopyWithImpl<$Res>
 class _$_QuestionnaireModel implements _QuestionnaireModel {
   _$_QuestionnaireModel(
       {required this.id,
-      required final List<int> ClosedQuestionsIndex,
       required final List<AnswerModel> ClosedQuestions,
       required this.title,
       required this.description})
-      : _ClosedQuestionsIndex = ClosedQuestionsIndex,
-        _ClosedQuestions = ClosedQuestions;
+      : _ClosedQuestions = ClosedQuestions;
 
   factory _$_QuestionnaireModel.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionnaireModelFromJson(json);
 
   @override
   final String id;
-  final List<int> _ClosedQuestionsIndex;
-  @override
-  List<int> get ClosedQuestionsIndex {
-    if (_ClosedQuestionsIndex is EqualUnmodifiableListView)
-      return _ClosedQuestionsIndex;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ClosedQuestionsIndex);
-  }
-
   final List<AnswerModel> _ClosedQuestions;
   @override
   List<AnswerModel> get ClosedQuestions {
@@ -189,7 +165,7 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
 
   @override
   String toString() {
-    return 'QuestionnaireModel(id: $id, ClosedQuestionsIndex: $ClosedQuestionsIndex, ClosedQuestions: $ClosedQuestions, title: $title, description: $description)';
+    return 'QuestionnaireModel(id: $id, ClosedQuestions: $ClosedQuestions, title: $title, description: $description)';
   }
 
   @override
@@ -198,8 +174,6 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
         (other.runtimeType == runtimeType &&
             other is _$_QuestionnaireModel &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality()
-                .equals(other._ClosedQuestionsIndex, _ClosedQuestionsIndex) &&
             const DeepCollectionEquality()
                 .equals(other._ClosedQuestions, _ClosedQuestions) &&
             (identical(other.title, title) || other.title == title) &&
@@ -212,7 +186,6 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      const DeepCollectionEquality().hash(_ClosedQuestionsIndex),
       const DeepCollectionEquality().hash(_ClosedQuestions),
       title,
       description);
@@ -235,7 +208,6 @@ class _$_QuestionnaireModel implements _QuestionnaireModel {
 abstract class _QuestionnaireModel implements QuestionnaireModel {
   factory _QuestionnaireModel(
       {required final String id,
-      required final List<int> ClosedQuestionsIndex,
       required final List<AnswerModel> ClosedQuestions,
       required final String title,
       required final String description}) = _$_QuestionnaireModel;
@@ -246,8 +218,6 @@ abstract class _QuestionnaireModel implements QuestionnaireModel {
   @override
   String get id;
   @override
-  List<int> get ClosedQuestionsIndex;
-  @override
   List<AnswerModel> get ClosedQuestions;
   @override
   String get title;
@@ -256,163 +226,5 @@ abstract class _QuestionnaireModel implements QuestionnaireModel {
   @override
   @JsonKey(ignore: true)
   _$$_QuestionnaireModelCopyWith<_$_QuestionnaireModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-QuestionnaireModelMini _$QuestionnaireModelMiniFromJson(
-    Map<String, dynamic> json) {
-  return _QuestionnaireModelMini.fromJson(json);
-}
-
-/// @nodoc
-mixin _$QuestionnaireModelMini {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $QuestionnaireModelMiniCopyWith<QuestionnaireModelMini> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $QuestionnaireModelMiniCopyWith<$Res> {
-  factory $QuestionnaireModelMiniCopyWith(QuestionnaireModelMini value,
-          $Res Function(QuestionnaireModelMini) then) =
-      _$QuestionnaireModelMiniCopyWithImpl<$Res, QuestionnaireModelMini>;
-  @useResult
-  $Res call({String id, String title});
-}
-
-/// @nodoc
-class _$QuestionnaireModelMiniCopyWithImpl<$Res,
-        $Val extends QuestionnaireModelMini>
-    implements $QuestionnaireModelMiniCopyWith<$Res> {
-  _$QuestionnaireModelMiniCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_QuestionnaireModelMiniCopyWith<$Res>
-    implements $QuestionnaireModelMiniCopyWith<$Res> {
-  factory _$$_QuestionnaireModelMiniCopyWith(_$_QuestionnaireModelMini value,
-          $Res Function(_$_QuestionnaireModelMini) then) =
-      __$$_QuestionnaireModelMiniCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String title});
-}
-
-/// @nodoc
-class __$$_QuestionnaireModelMiniCopyWithImpl<$Res>
-    extends _$QuestionnaireModelMiniCopyWithImpl<$Res,
-        _$_QuestionnaireModelMini>
-    implements _$$_QuestionnaireModelMiniCopyWith<$Res> {
-  __$$_QuestionnaireModelMiniCopyWithImpl(_$_QuestionnaireModelMini _value,
-      $Res Function(_$_QuestionnaireModelMini) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-  }) {
-    return _then(_$_QuestionnaireModelMini(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_QuestionnaireModelMini implements _QuestionnaireModelMini {
-  _$_QuestionnaireModelMini({required this.id, required this.title});
-
-  factory _$_QuestionnaireModelMini.fromJson(Map<String, dynamic> json) =>
-      _$$_QuestionnaireModelMiniFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String title;
-
-  @override
-  String toString() {
-    return 'QuestionnaireModelMini(id: $id, title: $title)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_QuestionnaireModelMini &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, title);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_QuestionnaireModelMiniCopyWith<_$_QuestionnaireModelMini> get copyWith =>
-      __$$_QuestionnaireModelMiniCopyWithImpl<_$_QuestionnaireModelMini>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_QuestionnaireModelMiniToJson(
-      this,
-    );
-  }
-}
-
-abstract class _QuestionnaireModelMini implements QuestionnaireModelMini {
-  factory _QuestionnaireModelMini(
-      {required final String id,
-      required final String title}) = _$_QuestionnaireModelMini;
-
-  factory _QuestionnaireModelMini.fromJson(Map<String, dynamic> json) =
-      _$_QuestionnaireModelMini.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get title;
-  @override
-  @JsonKey(ignore: true)
-  _$$_QuestionnaireModelMiniCopyWith<_$_QuestionnaireModelMini> get copyWith =>
       throw _privateConstructorUsedError;
 }

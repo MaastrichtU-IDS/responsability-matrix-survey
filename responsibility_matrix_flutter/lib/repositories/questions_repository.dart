@@ -1,7 +1,8 @@
 import 'package:logger/logger.dart';
+
 import '../models/question/question_model.dart';
 import '../services/graphql/graphql_service.dart';
-import '../services/graphql/quaries/get_question_query.dart';
+import '../services/graphql/queries/get_question_query.dart';
 import '../utils/instance_controller/instance_controller.dart';
 
 class QuestionsRepository {
@@ -11,7 +12,7 @@ class QuestionsRepository {
 
   final List<QuestionModel> _allQuestions = [];
 
-  List<QuestionModel> get allQuestions => _allQuestions;
+  List<QuestionModel> get allQuestions => [..._allQuestions];
 
   final Map<Scope, Map<Component, List<QuestionModel>>> _matrixQuestions = {};
 
@@ -84,21 +85,6 @@ class QuestionsRepository {
 
 enum Scope { actors, objects, process, impact }
 
-extension ScpoeExtension on Scope {
-  String get name {
-    switch (this) {
-      case Scope.actors:
-        return 'Actors';
-      case Scope.objects:
-        return 'Objects';
-      case Scope.process:
-        return 'Process';
-      case Scope.impact:
-        return 'Impact';
-    }
-  }
-}
-
 Scope getScope(String scope) {
   switch (scope) {
     case 'Actors':
@@ -119,21 +105,6 @@ enum Component {
   accountability,
   privacy,
   societalValues,
-}
-
-extension ComponentExtension on Component {
-  String get name {
-    switch (this) {
-      case Component.transparency:
-        return 'Transparency';
-      case Component.accountability:
-        return 'Accountability';
-      case Component.privacy:
-        return 'Privacy';
-      case Component.societalValues:
-        return 'Societal values';
-    }
-  }
 }
 
 Component getComponent(String component) {

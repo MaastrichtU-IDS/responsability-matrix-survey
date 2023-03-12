@@ -8,7 +8,6 @@ type Questionnaire {
     title: String!
     description: String!
     ClosedQuestions: [Answer!]! @relationship(type: "has_answered", direction: OUT)
-    ClosedQuestionsIndex: [Int]
 }
 */
 
@@ -40,9 +39,6 @@ class CreateAnswerMutation extends MutatorCreatorI {
             Question: { connect: { where: { node: { id: $questionId } } } }
           }
         }
-      }
-      update:{
-        ClosedQuestionsIndex_PUSH:[$questionPosition]
       }
     ) {
       info {

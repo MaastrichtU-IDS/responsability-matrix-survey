@@ -8,7 +8,6 @@ type Questionnaire {
     title: String!
     description: String!
     ClosedQuestions: [Answer!]! @relationship(type: "has_answered", direction: OUT)
-    ClosedQuestionsIndex: [Int]
 }
 */
 

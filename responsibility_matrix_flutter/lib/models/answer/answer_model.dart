@@ -24,7 +24,7 @@ class AnswerModel with _$AnswerModel {
     required String component,
     required String scope,
     required String answer,
-    @Default('applicable') String status,
+    @Default(AnswerStatus.applicable) AnswerStatus status,
     required int position,
   }) = _AnswerModel;
 
@@ -33,19 +33,6 @@ class AnswerModel with _$AnswerModel {
 }
 
 enum AnswerStatus { applicable, notApplicable, dontKnow }
-
-extension AnswerStatusExtension on AnswerStatus {
-  String get value {
-    switch (this) {
-      case AnswerStatus.applicable:
-        return 'applicable';
-      case AnswerStatus.notApplicable:
-        return 'notApplicable';
-      case AnswerStatus.dontKnow:
-        return 'dontKnow';
-    }
-  }
-}
 
 AnswerStatus answerStatusFromString(String status) {
   switch (status) {
