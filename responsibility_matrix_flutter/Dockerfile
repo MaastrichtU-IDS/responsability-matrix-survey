@@ -23,6 +23,6 @@ RUN flutter build web --dart-define GRAPHQL_URL=$GRAPHQL_URL --dart-define AUTH_
 
 FROM nginx:1.21.1-alpine AS serve-env
 
-COPY ./nginx.conf /etc/nginx/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build-env /app/build/web /usr/share/nginx/html
