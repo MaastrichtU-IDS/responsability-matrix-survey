@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  catcher
   printing
   url_launcher_linux
 )

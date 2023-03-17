@@ -1,11 +1,12 @@
 import 'package:logger/logger.dart';
+import 'package:responsibility_matrix_flutter/repositories/interfaces/repository_i.dart';
 
-import '../models/question/question_model.dart';
-import '../services/graphql/graphql_service.dart';
-import '../services/graphql/queries/get_question_query.dart';
-import '../utils/instance_controller/instance_controller.dart';
+import '../../models/question/question_model.dart';
+import '../../services/graphql/graphql_service.dart';
+import '../../services/graphql/queries/get_question_query.dart';
+import '../../utils/instance_controller/instance_controller.dart';
 
-class QuestionsRepository {
+class QuestionsRepository extends IRepository {
   final GraphQLService _graphQLService = InstanceController()[GraphQLService];
 
   final Logger _logger = InstanceController()[Logger];
@@ -32,9 +33,9 @@ class QuestionsRepository {
 
     final results = await _graphQLService.query(const GetQuestionQuery(), null);
 
-    if (results.hasException) {
-      _logger.e('QuestionsRepository: init: ${results.exception.toString()}');
-      return;
+    if (results.hasError) {
+      _logger.e('QuestionsRepository: init: ${results.error}');
+      onError(QuestionsRepository, results.error!.message);
     }
 
     _allQuestions.addAll(

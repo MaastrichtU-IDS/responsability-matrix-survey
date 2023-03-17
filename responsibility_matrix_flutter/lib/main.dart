@@ -1,12 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:responsibility_matrix_flutter/repositories/models/repository_error_model.dart';
+import 'package:responsibility_matrix_flutter/services/error_bucket/error_bucket.dart';
+import 'package:responsibility_matrix_flutter/services/graphql/models/graphql_service_error_model.dart';
+import 'package:responsibility_matrix_flutter/services/restart_service/restart_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'repositories/auth_repository.dart';
-import 'repositories/questionnaire_repository.dart';
-import 'repositories/questions_repository.dart';
-import 'repositories/user_repository.dart';
+import 'repositories/concrete/auth_repository/auth_repository.dart';
+import 'repositories/concrete/questionnaire_repository.dart';
+import 'repositories/concrete/questions_repository.dart';
+import 'repositories/concrete/user_repository.dart';
 import 'router.dart';
 import 'services/graphql/graphql_service.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -44,12 +49,14 @@ void main() async {
   InstanceController()
       .addInstance(QuestionnaireRepository, QuestionnaireRepository());
 
-  runApp(ProviderScope(
-      child: EasyLocalization(
-          path: 'assets/lang',
-          fallbackLocale: const Locale('en', 'US'),
-          supportedLocales: const [Locale('en', 'US')],
-          child: const App())));
+  runApp(Phoenix(
+    child: ProviderScope(
+        child: EasyLocalization(
+            path: 'assets/lang',
+            fallbackLocale: const Locale('en', 'US'),
+            supportedLocales: const [Locale('en', 'US')],
+            child: const App())),
+  ));
 }
 
 class App extends ConsumerWidget {
@@ -57,6 +64,21 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ErrorBucket()
+        .getErrorsFor<GraphQLService, GraphQLServiceErrorModel>()
+        .listen((event) {
+      if (event.error.type == GraphQLServiceErrorType.unauthorized) {
+        RestartApp.restart(context);
+      }
+    });
+
+    ErrorBucket()
+        .getErrorsFor<AuthRepository, RepositoryErrorModel>()
+        .listen((event) {
+      if (event.error.from == AuthRepository) {
+        RestartApp.restart(context);
+      }
+    });
     return MaterialApp.router(
       scaffoldMessengerKey: InstanceController()
           .getByType<SnackBarService>()

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../models/answer/answer_model.dart';
 import '../../providers/providers.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 import '../../widgets/info_widget.dart';
 import '../../widgets/responsive_builder/responsive_builder.dart';
 

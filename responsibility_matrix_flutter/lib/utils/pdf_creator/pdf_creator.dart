@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../models/answer/answer_model.dart';
 
 import '../../models/questionnaire/questionnaire_model.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 import '../instance_controller/instance_controller.dart';
 import '../../utils/list_extensions/list_extensions.dart';
 

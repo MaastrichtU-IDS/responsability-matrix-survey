@@ -4,7 +4,7 @@ import '../../models/answer/answer_model.dart';
 import '../../models/question/question_model.dart';
 import '../../models/questionnaire/questionnaire_model.dart';
 import '../../providers/providers.dart';
-import '../../repositories/questionnaire_repository.dart';
+import '../../repositories/concrete/questionnaire_repository.dart';
 import '../../utils/instance_controller/instance_controller.dart';
 import 'question_state.dart';
 

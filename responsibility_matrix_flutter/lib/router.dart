@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'repositories/user_repository.dart';
+import 'repositories/concrete/user_repository.dart';
 import 'pages/dashboard_page/dashboard_page.dart';
 import 'pages/home_page/home_page.dart';
 import 'pages/learn_more_page/learn_more_page.dart';
@@ -9,7 +9,7 @@ import 'pages/questions_page/questions_page.dart';
 import 'pages/shell_page/shell_page.dart';
 
 import 'pages/splash_page/splash_page.dart';
-import 'repositories/auth_repository.dart';
+import 'repositories/concrete/auth_repository/auth_repository.dart';
 import 'utils/instance_controller/instance_controller.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();

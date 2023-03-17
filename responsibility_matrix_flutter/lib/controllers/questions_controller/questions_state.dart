@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../models/answer/answer_model.dart';
 import '../../models/question/question_model.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 
 part 'questions_state.freezed.dart';
 

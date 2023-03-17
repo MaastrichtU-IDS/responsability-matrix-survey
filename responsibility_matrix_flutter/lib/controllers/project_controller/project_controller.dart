@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsibility_matrix_flutter/services/snackbar_service/snackbar_service.dart';
 
 import '../../providers/providers.dart';
-import '../../repositories/questionnaire_repository.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questionnaire_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 import '../../utils/instance_controller/instance_controller.dart';
 import 'project_state.dart';
 
@@ -32,6 +33,9 @@ class ProjectController extends StateNotifier<ProjectState> {
   final QuestionsRepository questionsRepository =
       InstanceController().getByType<QuestionsRepository>();
 
+  final SnackBarService _snackBarService =
+      InstanceController().getByType<SnackBarService>();
+
   Future<void> refresh() async {
     ref.read(loadingProvider.notifier).startLoading();
     await questionnaireRepository.syncQuestionnaires();
@@ -44,8 +48,16 @@ class ProjectController extends StateNotifier<ProjectState> {
   void selectQuestionnaire(String id) async {
     ref.read(loadingProvider.notifier).startLoading();
     final data = await questionnaireRepository.syncQuestionnaire(id);
+
+    if (data.hasError) {
+      ref.read(loadingProvider.notifier).stopLoading();
+      _snackBarService.showErrorMessage(data.error?.toString() ?? 'error',
+          clear: true);
+      return;
+    }
+
     state = state.copyWith(
-        questionnaire: data,
+        questionnaire: data.data,
         questionnaires: questionnaireRepository.questionnaires,
         completionPercentages: _calculateCompletionPercentages());
     ref.read(questionsProvider.notifier).projectSelected();
@@ -64,8 +76,16 @@ class ProjectController extends StateNotifier<ProjectState> {
     ref.read(loadingProvider.notifier).startLoading();
     final data =
         await questionnaireRepository.createQuestionnaire(title, description);
+
+    if (data.hasError) {
+      ref.read(loadingProvider.notifier).stopLoading();
+      _snackBarService.showErrorMessage(data.error?.toString() ?? 'error',
+          clear: true);
+      return;
+    }
+
     state = state.copyWith(
-        questionnaire: data,
+        questionnaire: data.data,
         questionnaires: questionnaireRepository.questionnaires,
         completionPercentages: _calculateCompletionPercentages());
     ref.read(questionsProvider.notifier).projectSelected();
@@ -76,8 +96,16 @@ class ProjectController extends StateNotifier<ProjectState> {
     ref.read(loadingProvider.notifier).startLoading();
     final data = await questionnaireRepository.updateQuestionnaire(
         id, title, description);
+
+    if (data.hasError) {
+      ref.read(loadingProvider.notifier).stopLoading();
+      _snackBarService.showErrorMessage(data.error?.toString() ?? 'error',
+          clear: true);
+      return;
+    }
+
     state = state.copyWith(
-        questionnaire: data,
+        questionnaire: data.data,
         questionnaires: questionnaireRepository.questionnaires,
         completionPercentages: _calculateCompletionPercentages());
     ref.read(questionsProvider.notifier).projectSelected();

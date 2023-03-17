@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'questions_state.dart';
 import '../../models/answer/answer_model.dart';
 import '../../providers/providers.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 import '../../utils/instance_controller/instance_controller.dart';
 
 class QuestionsController extends StateNotifier<QuestionsState> {

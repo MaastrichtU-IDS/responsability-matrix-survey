@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:responsibility_matrix_flutter/services/error_bucket/error_bucket.dart';
+import 'package:responsibility_matrix_flutter/services/graphql/models/graphql_service_error_model.dart';
+import 'package:responsibility_matrix_flutter/services/graphql/models/graphql_service_response_model.dart';
+
 import 'interfaces/graphql_args_i.dart';
 import '../../utils/instance_controller/instance_controller.dart';
 import 'package:graphql/client.dart';
@@ -28,7 +32,7 @@ class GraphQLService {
 
   Future<void> init() async {
     // _cache = await HiveStore.open(boxName: 'cache_graphql');
-
+    ErrorBucket().registerErrorType<GraphQLService, GraphQLServiceErrorModel>();
     final http = HttpLink(_baseUrl);
     final auth = AuthLink(
       getToken: tokenProvider,
@@ -43,7 +47,7 @@ class GraphQLService {
     _isInitialized = true;
   }
 
-  Future<QueryResult> query(
+  Future<GraphQLServiceResponseModel> query(
       QueryCreatorI queryCreator, GraphQlArgsI? args) async {
     checkInitialized();
 
@@ -54,16 +58,15 @@ class GraphQLService {
     final response = await _client.query(query);
 
     if (response.hasException) {
-      logger.e('GraphQL error: ${response.exception}');
-      throw response.exception ?? Exception('Unknown error');
+      return onException(response.exception!, queryCreator.query);
     }
 
     logger.i('GraphQL response: ${response.data}');
 
-    return response;
+    return GraphQLServiceResponseModel.data(response.data);
   }
 
-  Future<QueryResult> mutate(
+  Future<GraphQLServiceResponseModel> mutate(
       MutatorCreatorI mutationCreator, GraphQlArgsI? args) async {
     checkInitialized();
 
@@ -74,12 +77,28 @@ class GraphQLService {
     final response = await _client.mutate(query);
 
     if (response.hasException) {
-      logger.e('GraphQL error: ${response.exception}');
-      throw response.exception ?? Exception('Unknown error');
+      return onException(response.exception!, mutationCreator.mutation);
     }
 
     logger.i('GraphQL response: ${response.data}');
-    return response;
+
+    return GraphQLServiceResponseModel.data(response.data);
+  }
+
+  GraphQLServiceResponseModel onException(
+      Exception exception, String fromQuery) {
+    logger.e('GraphQL error: $exception');
+    final GraphQLServiceErrorType type =
+        exception.toString().contains('Unauthorized')
+            ? GraphQLServiceErrorType.unauthorized
+            : GraphQLServiceErrorType.general;
+    final error = GraphQLServiceErrorModel(
+        fromQuery: fromQuery, message: exception.toString(), type: type);
+    ErrorBucket().addError<GraphQLServiceErrorModel>(error);
+    return GraphQLServiceResponseModel.error(
+      GraphQLServiceErrorModel(
+          fromQuery: fromQuery, message: exception.toString(), type: type),
+    );
   }
 
   void checkInitialized() async {

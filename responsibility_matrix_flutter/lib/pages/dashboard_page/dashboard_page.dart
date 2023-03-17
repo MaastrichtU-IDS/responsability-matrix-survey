@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../providers/providers.dart';
 import '../../consts/matrix_explanation.dart';
-import '../../repositories/questions_repository.dart';
+import '../../repositories/concrete/questions_repository.dart';
 import '../../widgets/info_widget.dart';
 part './widgets/dashboard_table_cell.dart';
 part './widgets/dashboard_table_header_cell.dart';

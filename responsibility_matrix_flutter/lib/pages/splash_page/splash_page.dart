@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsibility_matrix_flutter/services/restart_service/restart_app.dart';
 
 import '../../controllers/auth_controller/auth_state.dart';
 import '../../providers/providers.dart';
@@ -18,7 +19,7 @@ class SplashPage extends ConsumerWidget {
         if (next.isAuthenticated && next.isRegistered)
           context.goNamed('home');
         else
-          context.goNamed('login');
+          RestartApp.restart(context);
       },
     );
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) async {

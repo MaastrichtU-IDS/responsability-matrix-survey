@@ -10,7 +10,7 @@ import '../controllers/questions_controller/questions_controller.dart';
 import '../controllers/questions_controller/questions_state.dart';
 import '../controllers/shell_controller/shell_controller.dart';
 import '../models/answer/answer_model.dart';
-import '../repositories/questions_repository.dart';
+import '../repositories/concrete/questions_repository.dart';
 import '../utils/instance_controller/instance_controller.dart';
 
 final loadingProvider = StateNotifierProvider<LoadingController, bool>((ref) {
