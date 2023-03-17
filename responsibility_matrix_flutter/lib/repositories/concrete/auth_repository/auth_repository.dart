@@ -117,7 +117,7 @@ class AuthRepository {
 
     final data = response.data!['getJWT']! as Map<String, dynamic>;
 
-    final token = data['id_authData.token']! as String;
+    final token = data['id_token']! as String;
 
     final uuid = data['orcid']! as String;
 
