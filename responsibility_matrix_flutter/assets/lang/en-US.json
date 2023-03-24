@@ -24,6 +24,7 @@
     "welcome_name": "Welcome, {name}",
     "no_project_found": "No project found",
     "add_project": "Add project",
+    "edit_project": "Edit project",
     "title": "Title",
     "title_required": "Title is required",
     "description": "Description",

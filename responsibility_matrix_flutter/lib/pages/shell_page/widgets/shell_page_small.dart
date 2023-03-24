@@ -19,8 +19,14 @@ class _ShellPageSmall extends ConsumerWidget {
       appBar: AppBar(
         title: Text(routeTitles[routeState] ?? 'home').tr(),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
+          TextButton.icon(
+            label: const Text(
+              'add_project',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ).tr(),
+            icon: const Icon(Icons.add, color: Colors.white),
             onPressed: () async {
               final result = await showDialog<Map<String, String>?>(
                   context: context,

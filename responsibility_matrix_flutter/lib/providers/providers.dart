@@ -22,7 +22,7 @@ final authProvider = StateNotifierProvider<AuthController, AuthState>((ref) {
 });
 
 final shellProvider = StateNotifierProvider<ShellController, String?>((ref) {
-  return ShellController(initialRoute: '/dashboard');
+  return ShellController(initialRoute: 'home');
 });
 
 final projectProvider =

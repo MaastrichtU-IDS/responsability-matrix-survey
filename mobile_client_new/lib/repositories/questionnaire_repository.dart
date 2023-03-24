@@ -8,7 +8,7 @@ import '../services/graphql/quaries/get_all_quetionnarie_query.dart';
 import '../services/graphql/quaries/get_questionnarie_query.dart';
 import '../utils/instance_controller/instance_controller.dart';
 
-class QuestionnarieRepository {
+class QuestionnaireRepository {
   final GraphQLService _graphQLService = InstanceController()[GraphQLService];
   final UserRepository _userRepository = InstanceController()[UserRepository];
 
@@ -24,7 +24,7 @@ class QuestionnarieRepository {
     await syncQuestionnaires();
   }
 
-  Future<QuestionnaireModel> createQuestionnarie(
+  Future<QuestionnaireModel> createQuestionnaire(
       String title, String description) async {
     final result = await _graphQLService.mutate(
         const CreateQuestionnarieMutation(),
@@ -80,7 +80,7 @@ class QuestionnarieRepository {
     return _selectedQuestionnaire!;
   }
 
-  Future<QuestionnaireModel> selectQuestionnarie(questionnaireId) async {
+  Future<QuestionnaireModel> selectQuestionnaire(questionnaireId) async {
     final result = await _graphQLService.query(const GetQuestionnarieQuery(),
         GetQuestionnarieQueryArgs(id: questionnaireId));
 
@@ -103,7 +103,7 @@ class QuestionnarieRepository {
     return _selectedQuestionnaire!;
   }
 
-  void deselectQuestionnarie() {
+  void deselectQuestionnaire() {
     _selectedQuestionnaire = null;
   }
 

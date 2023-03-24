@@ -150,7 +150,7 @@ class ProjectCard extends ConsumerWidget {
             onPressed: () {
               ref
                   .read(questionnaireController.notifier)
-                  .selectQuestionnarie(questionnaireModel);
+                  .selectQuestionnaire(questionnaireModel);
             },
           )
         : PrimaryButton(
@@ -158,7 +158,7 @@ class ProjectCard extends ConsumerWidget {
             onPressed: () {
               ref
                   .read(questionnaireController.notifier)
-                  .deselectQuestionnarie();
+                  .deselectQuestionnaire();
             },
             child:
                 const Text('Deselect', style: TextStyle(color: Colors.black)),

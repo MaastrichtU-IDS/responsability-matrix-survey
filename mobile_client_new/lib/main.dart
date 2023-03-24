@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'firebase_options.dart';
-import 'repositories/questionairee_repository.dart';
+import 'repositories/questionnaire_repository.dart';
 import 'repositories/questions_repository.dart';
 import 'repositories/user_repository.dart';
 import 'services/firebase/auth_state/auth_states.dart';
@@ -47,7 +47,7 @@ void main() async {
   InstanceController().addInstance(UserRepository, userRepository);
 
   InstanceController()
-      .addInstance(QuestionnarieRepository, QuestionnarieRepository());
+      .addInstance(QuestionnaireRepository, QuestionnaireRepository());
 
   runApp(ProviderScope(child: StyleProvider(child: MyApp())));
 }

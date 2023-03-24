@@ -12,59 +12,62 @@ class QuestionList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(questionsProvider);
-    return SizedBox(
+    return Container(
       width: width,
       height: double.infinity,
+      color: Theme.of(context).colorScheme.surface,
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: DropdownButtonFormField<Component>(
-                  decoration: InputDecoration(
-                    labelText: 'component'.tr(),
+          Container(
+            child: Row(
+              children: [
+                Expanded(
+                  child: DropdownButtonFormField<Component>(
+                    decoration: InputDecoration(
+                      labelText: 'component'.tr(),
+                    ),
+                    value: state.component,
+                    items: [
+                      const DropdownMenuItem<Component>(child: Text('All')),
+                      ...Component.values
+                          .map((e) => DropdownMenuItem<Component>(
+                                value: e,
+                                child: Text(e.name).tr(),
+                              ))
+                          .toList()
+                    ],
+                    onChanged: (value) {
+                      ref
+                          .read(questionsProvider.notifier)
+                          .setScopeAndComponent(state.scope, value);
+                    },
                   ),
-                  value: state.component,
-                  items: [
-                    const DropdownMenuItem<Component>(child: Text('All')),
-                    ...Component.values
-                        .map((e) => DropdownMenuItem<Component>(
-                              value: e,
-                              child: Text(e.name).tr(),
-                            ))
-                        .toList()
-                  ],
-                  onChanged: (value) {
-                    ref
-                        .read(questionsProvider.notifier)
-                        .setScopeAndComponent(state.scope, value);
-                  },
                 ),
-              ),
-              const Spacer(),
-              Expanded(
-                child: DropdownButtonFormField<Scope>(
-                  decoration: InputDecoration(
-                    labelText: 'scope'.tr(),
+                const Spacer(),
+                Expanded(
+                  child: DropdownButtonFormField<Scope>(
+                    decoration: InputDecoration(
+                      labelText: 'scope'.tr(),
+                    ),
+                    value: state.scope,
+                    items: [
+                      DropdownMenuItem<Scope>(child: const Text('all').tr()),
+                      ...Scope.values
+                          .map((e) => DropdownMenuItem<Scope>(
+                                value: e,
+                                child: Text(e.name).tr(),
+                              ))
+                          .toList()
+                    ],
+                    onChanged: (value) {
+                      ref
+                          .read(questionsProvider.notifier)
+                          .setScopeAndComponent(value, state.component);
+                    },
                   ),
-                  value: state.scope,
-                  items: [
-                    DropdownMenuItem<Scope>(child: const Text('all').tr()),
-                    ...Scope.values
-                        .map((e) => DropdownMenuItem<Scope>(
-                              value: e,
-                              child: Text(e.name).tr(),
-                            ))
-                        .toList()
-                  ],
-                  onChanged: (value) {
-                    ref
-                        .read(questionsProvider.notifier)
-                        .setScopeAndComponent(value, state.component);
-                  },
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Expanded(
               child: ListView.builder(

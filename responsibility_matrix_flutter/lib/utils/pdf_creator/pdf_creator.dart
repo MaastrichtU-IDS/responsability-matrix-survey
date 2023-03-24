@@ -43,13 +43,17 @@ class PdfCreator {
         int total = 0;
         _questionsRepository.matrixQuestions[scope]![component]!
             .forEach((question) {
-          final AnswerModel? answer = answerList.firstWhereOrNull(
-            (el) => el.position == question.position,
-          );
-          if (answer == null ||
-              answer.status != AnswerStatus.notApplicable.name) {
+          if (answerList
+              .any((element) => element.position == question.position)) {
+            if (answerList
+                    .firstWhere(
+                        (element) => element.position == question.position)
+                    .status ==
+                AnswerStatus.notApplicable.name) {
+              applicable++;
+            }
+          } else
             applicable++;
-          }
           total++;
         });
         // calculate percentage

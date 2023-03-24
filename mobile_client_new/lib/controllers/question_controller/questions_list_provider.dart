@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_client_new/models/answer/answer_model.dart';
 import '../../models/question/question_model.dart';
-import '../../repositories/questionairee_repository.dart';
+import '../../repositories/questionnaire_repository.dart';
 import '../../repositories/questions_repository.dart';
 import '../../utils/instance_controller/instance_controller.dart';
 
@@ -21,8 +21,8 @@ class QuestionsListController extends StateNotifier<List<QuestionModel>> {
   static final QuestionsRepository _qusetionsRepository =
       InstanceController()[QuestionsRepository];
 
-  final QuestionnarieRepository _questionnarieRepository =
-      InstanceController()[QuestionnarieRepository];
+  final QuestionnaireRepository _questionnarieRepository =
+      InstanceController()[QuestionnaireRepository];
 
   void setScopeAndComponent(Scope? scope, Component? component) {
     _scope = scope;

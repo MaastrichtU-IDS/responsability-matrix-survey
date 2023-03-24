@@ -49,7 +49,7 @@ class _EditQuestionnaireDialogState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('add_project',
+              Text('edit_project',
                   style: Theme.of(context).textTheme.titleLarge).tr(),
               Divider(
                 color: Theme.of(context).primaryColor,

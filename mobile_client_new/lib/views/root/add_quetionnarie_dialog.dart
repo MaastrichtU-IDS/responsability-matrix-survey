@@ -89,7 +89,7 @@ class _AddQuestionnarieDialogState
                       if (_formKey.currentState!.validate()) {
                         ref
                             .read(questionnaireController.notifier)
-                            .createQuestionnarie(_titleController.text,
+                            .createQuestionnaire(_titleController.text,
                                 _descriptionController.text);
                         if (!mounted) return;
                         Navigator.of(context).pop();

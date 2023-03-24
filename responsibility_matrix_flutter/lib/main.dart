@@ -83,6 +83,7 @@ class App extends ConsumerWidget {
       scaffoldMessengerKey: InstanceController()
           .getByType<SnackBarService>()
           .scaffoldMessengerKey,
+      debugShowCheckedModeBanner: false,
       routerConfig: router,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

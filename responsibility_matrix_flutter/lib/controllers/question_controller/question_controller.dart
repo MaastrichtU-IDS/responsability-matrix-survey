@@ -59,6 +59,7 @@ class QuestionController extends StateNotifier<QuestionState> {
     ref
         .read(questionsProvider.notifier)
         .questionAnswered(state.question.position, state.currentStatus);
+    ref.read(projectProvider.notifier).syncFromRepository();
     state = state.copyWith(
       questionnaire: questionnaire,
       answer: questionnaire.ClosedQuestions.firstWhere(

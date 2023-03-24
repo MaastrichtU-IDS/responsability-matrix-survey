@@ -171,15 +171,52 @@ class _SingleQuestionState extends ConsumerState<SingleQuestion> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SelectableText(
-                      state.question.exampleAnswer,
-                      textAlign: TextAlign.center,
-                      textScaleFactor: .7,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontWeight: FontWeight.w500, height: 1.5),
+                    child: SelectionArea(
+                      child: RicherText(
+                        text: state.question.exampleAnswer,
+                        defaultBuilder: (text) => TextSpan(
+                          text: text,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(
+                                  fontWeight: FontWeight.w500, height: 1.5),
+                        ),
+                        patterns: [
+                          // URL Pattern
+                          RicherTextPattern(
+                              name: 'url',
+                              priority: 99,
+                              builder: (text) => TextSpan(
+                                  text: text,
+                                  mouseCursor: SystemMouseCursors.click,
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () async {
+                                      if (await canLaunchUrl(Uri.parse(text))) {
+                                        await launchUrl(Uri.parse(text));
+                                      }
+                                    },
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!
+                                      .copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          height: 1.5,
+                                          color: Colors.blue)),
+                              pattern: RegExp(
+                                  r"((https?:www\.)|(https?:\/\/)|(www\.))[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?")),
+                        ],
+                      ),
                     ),
+                    // child: SelectableText(
+                    //   state.question.exampleAnswer,
+                    //   textAlign: TextAlign.center,
+                    //   textScaleFactor: .7,
+                    //   style: Theme.of(context)
+                    //       .textTheme
+                    //       .headlineSmall!
+                    //       .copyWith(fontWeight: FontWeight.w500, height: 1.5),
+                    // ),
                   ),
                 ),
               )

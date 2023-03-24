@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsibility_matrix_flutter/models/questionnaire/questionnaire_model.dart';
 import 'package:responsibility_matrix_flutter/services/snackbar_service/snackbar_service.dart';
 
 import '../../providers/providers.dart';
@@ -43,6 +44,12 @@ class ProjectController extends StateNotifier<ProjectState> {
         questionnaires: questionnaireRepository.questionnaires,
         completionPercentages: _calculateCompletionPercentages());
     ref.read(loadingProvider.notifier).stopLoading();
+  }
+
+  void syncFromRepository() {
+    state = state.copyWith(
+        questionnaires: questionnaireRepository.questionnaires,
+        completionPercentages: _calculateCompletionPercentages());
   }
 
   void selectQuestionnaire(String id) async {
@@ -105,10 +112,8 @@ class ProjectController extends StateNotifier<ProjectState> {
     }
 
     state = state.copyWith(
-        questionnaire: data.data,
         questionnaires: questionnaireRepository.questionnaires,
         completionPercentages: _calculateCompletionPercentages());
-    ref.read(questionsProvider.notifier).projectSelected();
     ref.read(loadingProvider.notifier).stopLoading();
   }
 

@@ -54,14 +54,24 @@ class ProjectCard extends ConsumerWidget {
                         return <PopupMenuItem<String>>[
                           PopupMenuItem(
                             value: 'edit',
-                            onTap: () {
-                              showDialog(
+                            onTap: () async {
+                              final result =
+                                  await showDialog<Map<String, String>>(
                                 context: context,
                                 builder: (context) => EditQuestionnaireDialog(
                                     id: questionnaire.id,
                                     title: questionnaire.title,
                                     description: questionnaire.description),
                               );
+
+                              if (result != null) {
+                                ref
+                                    .read(projectProvider.notifier)
+                                    .updateQuestionnaire(
+                                        questionnaire.id,
+                                        result['title'] ?? '',
+                                        result['description'] ?? '');
+                              }
                             },
                             child: const Text('edit').tr(),
                           ),

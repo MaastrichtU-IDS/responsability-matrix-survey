@@ -1,7 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsibility_matrix_flutter/widgets/richer_text/richer_text.dart';
+import 'package:responsibility_matrix_flutter/widgets/richer_text/richer_text_pattern.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../models/answer/answer_model.dart';
 import '../../providers/providers.dart';
 import '../../repositories/concrete/questions_repository.dart';
